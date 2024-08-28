@@ -20,7 +20,13 @@
   --cor-9:#36cecc;
   --cor-10:#27b1bf;
   --cor-11:#176585;
-  --cor-12:#555;
+  --gradient-background: radial-gradient(
+    circle,
+    rgba(255, 250, 187, 1) 0%,
+    rgba(224, 245, 255, 1) 28%,
+    rgba(244, 229, 255, 1) 65%,
+    rgba(226, 252, 255, 1) 100%
+);
 }
 
 .cor-0{
@@ -71,7 +77,26 @@
   color: var(--cor-11);
 }
 
-.cor-12{
-  color: var(--cor-12);
+.background{
+  background: var(--gradient-background);
 }
 
+.h1{
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+  @media(max-width:900px){
+    font-size: 28px;
+  }
+}
+
+.h2{
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.2;
+  @media(max-width:900px){
+    font-size: 24px;
+  }
+}

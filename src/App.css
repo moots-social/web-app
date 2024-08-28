@@ -1,0 +1,71 @@
+/* Global */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* variaveis de cor */
+:root{
+  --cor-0:#fff;
+  --cor-1:#000;
+  --cor-2:#AF75BF;
+  --cor-3:#8F60BF;
+  --cor-4:#4F5E8C;
+  --cor-5:#A3B0D9;
+  --cor-6:#C9D3F2;
+  --cor-7:#f7f3cf;
+  --cor-8:#c2e4cb;
+  --cor-9:#36cecc;
+  --cor-10:#27b1bf;
+  --cor-11:#176585;
+}
+
+.cor-0{
+  color: var(--cor-0);
+}
+
+.cor-1{
+  color: var(--cor-1);
+}
+
+.cor-2{
+  color: var(--cor-2);
+}
+
+.cor-3{
+  color: var(--cor-3);
+}
+
+.cor-4{
+  color: var(--cor-4);
+}
+
+.cor-5{
+  color: var(--cor-5);
+}
+
+.cor-6{
+  color: var(--cor-6);
+}
+
+.cor-7{
+  color: var(--cor-7);
+}
+
+.cor-8{
+  color: var(--cor-8);
+}
+
+.cor-9{
+  color: var(--cor-9);
+}
+
+.cor-10{
+  color: var(--cor-10);
+}
+
+.cor-11{
+  color: var(--cor-11);
+}

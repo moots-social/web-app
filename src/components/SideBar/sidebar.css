@@ -1,0 +1,105 @@
+ .sideBar{
+    height: 100vh;
+    width: 80px;
+    border: 1px solid black;
+    border-radius: 0 10px 10px 0;
+    background-color: white;
+    transition: ease 0.8s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.containerTopo{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 25px;
+}
+
+.containerIcone{
+    display: flex;  
+    align-items: center;
+    gap: 10px;
+    min-width: max-content;
+    cursor: pointer;
+}
+
+.containerIcone img{
+    width: 37px;
+    height: 37px;
+}
+
+.containerInput{
+    visibility: hidden;
+}
+
+.tituloIcone{
+    display: none;
+    justify-content: flex-start;  
+    transition: opacity 0.8s ease;
+}
+
+.sideBar:hover{
+    width: 250px;
+    transition: ease 0.8s;
+    .containerTopo{
+        align-items: flex-start;
+        gap: 50px;
+        padding: 20px;
+    }
+    .tituloIcone{
+        display: flex;
+    }
+    .containerInput{
+        visibility: visible;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;    }
+    .containerInput input{
+        width: 200px;
+        height: 30px;
+        padding: 10px;
+        border: 1px solid black; 
+        border-radius: 20px; 
+        outline: none; 
+    }
+    .pesquisaIcone{
+        display: none;
+    }
+    .nomeUsuario{
+        display: inline;
+    }
+    .perfil{
+        justify-content: flex-start;
+        margin-left: 15px;
+    }
+}
+
+.pesquisa{
+    background-image: url("../../assets/img/iconePesquisa.png");
+    background-repeat: no-repeat;
+    background-position: 160px;
+    background-size: 20px;
+}
+
+
+
+.perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: max-content;
+    gap: 10px;
+}
+
+.nomeUsuario{
+    display: none;
+}
+
+.imagemPerfil img{
+    width: 45px;
+}

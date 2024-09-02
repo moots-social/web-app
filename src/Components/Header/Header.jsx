@@ -1,4 +1,4 @@
-import Moots from '../imagens/Moots.png'
+import Moots from '../../assets/img/mootsLogo.png';
 import './Header.css'
 import ButtonL from '../BotaoHeader/ButtonL'
 import ButtonC from '../BotaoHeader/ButtonC'

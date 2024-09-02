@@ -1,12 +1,17 @@
-import React from "react";
-import SideBar from './components/SideBar/SideBar';;
-import '../src/App.css';
 
+import Header from './components/Header/Header'
+import './App.css'
+import Principal from './Pages/Principal/Principal'
 
-export default function App() {
+function App() {
   return (
-    <div className="app">
-      <SideBar />
-    </div>
-  );
+    <>
+      <div>
+        <Header/>
+        <Principal/>
+      </div>
+    </>
+  )
 }
+
+export default App

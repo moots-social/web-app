@@ -1,0 +1,11 @@
+.Blogin{
+    background: rgb(255,250,187);
+background: linear-gradient(158deg, rgba(255,250,187,1) 0%, rgba(224,245,255,1) 35%, rgba(244,229,255,1) 100%);
+    width: 100px;
+    height: 40px;
+    border-radius: 13px;
+    border: solid 0.5px;
+    font-weight: 600;
+
+}
+

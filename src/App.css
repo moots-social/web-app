@@ -89,7 +89,7 @@
   color: var(--cor-11);
 }
 
-body{
+.bg{
   background: var(--gradient-background);
 }
 

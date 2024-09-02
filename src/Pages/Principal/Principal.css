@@ -1,0 +1,42 @@
+.MainContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:10px;
+}
+
+h2{
+    font-weight: 600;
+    font-size: 86px;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    margin: 0;
+    font-weight: 500;
+    font-size: 28px;
+    padding: 0;
+}
+
+p{                
+    overflow-wrap: break-word;                  
+    margin: 0 auto;        
+}
+
+
+.LadoUm{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin: 30px;
+    padding:30px;
+}
+
+
+
+.imagem{
+    margin-top: 40px;
+    width: 600px;
+    height: 600px;
+}

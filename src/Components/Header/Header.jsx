@@ -1,3 +1,4 @@
+
 import Moots from '../../assets/img/mootsLogo.png';
 import './Header.css'
 import ButtonL from '../BotaoHeader/ButtonL'
@@ -14,7 +15,8 @@ function Header(){
           </div>
           <div className='Botoes'>
             <ButtonL />
-            <ButtonC />
+            <ButtonC className='C'/>
+
           </div>
       </div>
       </header>

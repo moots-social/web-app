@@ -1,9 +1,10 @@
-// import './ButtonL.css'
+
+import './button.css'
 
 function ButtonL(){
     return(
-        <div className='teste'>
-        <button className="Blogin">
+        <div>
+        <button className="btn">
             Login
         </button>
         </div>

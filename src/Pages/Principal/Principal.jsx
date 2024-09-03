@@ -1,7 +1,7 @@
 
 import image from '../../assets/img/imagemInicial.png';
 import './principal.css'
-import ButtonS from '../../Components/ButtonS'
+import ButtonS from '../../Components/BotaoSaibaMais/ButtonS.jsx'
 import Header from '../../Components/Header/Header.jsx'
 
 function Principal(){

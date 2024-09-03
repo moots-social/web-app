@@ -1,8 +1,8 @@
 {/* trocar todos os 'a' pra 'Link' */}
 
 import './TelaLogin.css'
-import mootsLogo from '../../src/assets/img/mootsLogo.png';
-import devicesDemo from '../../src/assets/img/devicesDemo.png'
+import mootsLogo from '../../assets/img/mootsLogo.png';
+import devicesDemo from '../../assets/img/devicesDemo.png';
 // import {Link} from "react-router-dom"
 
 export default function telaLogin(){

@@ -1,5 +1,5 @@
 
-import image from '../../imagens/image.png'
+import image from '../../assets/img/imagemInicial.png';
 import './principal.css'
 import ButtonS from '../../Components/ButtonS'
 import Header from '../../Components/Header/Header.jsx'

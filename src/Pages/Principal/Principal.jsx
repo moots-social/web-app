@@ -8,7 +8,7 @@ function Principal(){
     return(
         <div className='DivPai'>
             <Header />
-        <div className="mainContainer">
+        <div className="mainContainer ">
             <div className='containerTxt'>
                 <h2>Moots</h2>
                 <div className='textos'>

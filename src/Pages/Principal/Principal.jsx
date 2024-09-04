@@ -13,7 +13,7 @@ function Principal(){
                 <h2>Moots</h2>
                 <div className='textos'>
                 <h1>O que é?</h1>
-                <p>Somos uma rede social estudantil, bla blaaalabalbalbalabbalablblabalbalbalablabalbalablabalbalablablaba</p>
+                <p>Somos uma rede social estudantil desenvolvida por alunos do Senai Suiço-Brasileira.</p>
                 </div>
                 <div className='btnSaiba'>
 

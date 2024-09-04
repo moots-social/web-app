@@ -14,7 +14,7 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="telaLogin" element={<TelaLogin />} />
-          <Route path="principal" element={<Principal />} />
+          <Route path="/" element={<Principal />} />
         </Route>
       </Routes>
     </BrowserRouter>

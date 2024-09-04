@@ -6,7 +6,7 @@ import "./index.css";
 
 // importar as paginas
 import Principal from "./Pages/Principal/Principal";
-import TelaLogin from "./Pages/telaLogin/TelaLogin";
+import TelaLogin from "./Pages/telaLogin/";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

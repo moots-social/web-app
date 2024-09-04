@@ -95,7 +95,7 @@
 
 h1{
   font-family: 'Poppins', sans-serif;
-  font-size: 32px;
+  font-size: 320px;
   font-weight: 500;
   line-height: 1.2;
   @media(max-width:900px){
@@ -116,5 +116,9 @@ h2{
 p{
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+}
 
+label{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
 }

@@ -1,4 +1,4 @@
-import '../TelaLogin.css'
+import '../style.css'
 
 import ImagemDevices from "./ImagemDevices/imagemDevices"
 import FormLogin from "./FormLogin/formLogin"

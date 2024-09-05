@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom'
 import './button.css'
 
@@ -14,5 +15,6 @@ function ButtonC(){
     )
 
 }
+
 
 export default ButtonC

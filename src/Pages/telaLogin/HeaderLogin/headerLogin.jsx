@@ -1,5 +1,5 @@
 import '../style.css'
-import logo from '../../../assets/img/mootsLogo.png'
+import logo from '../../../assets/img/logo.svg';
 
 export default function HeaderLogin(){
     return(
@@ -7,13 +7,6 @@ export default function HeaderLogin(){
             <div className="logo">
                 <img src={logo} alt="" />
             </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#">Sobre</a>
-                    </li>
-                </ul>
-            </nav>
         </header>
     )
 }

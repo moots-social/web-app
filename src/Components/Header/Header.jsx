@@ -2,8 +2,8 @@
 
 import Moots from '../../assets/img/logo.svg';
 import './Header.css'
-import ButtonL from '../BotaoHeader/ButtonL'
-import ButtonC from '../BotaoHeader/ButtonC'
+import ButtonL from './BotaoHeader/ButtonL'
+import ButtonC from './BotaoHeader/buttonLogin';
 
 
 function Header(){

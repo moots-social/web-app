@@ -1,7 +1,7 @@
 
 
 import './button.css'
-import '../BotaoHeader/button.css';
+import './button.css';
 
 function ButtonL(){
     return(

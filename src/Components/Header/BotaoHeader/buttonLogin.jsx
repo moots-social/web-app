@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 import './button.css'
 
-function ButtonC(){
+function buttonLogin(){
     return(
         <div>
              <Link to='/telaLogin'>
@@ -17,4 +17,4 @@ function ButtonC(){
 }
 
 
-export default ButtonC
+export default buttonLogin;

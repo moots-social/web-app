@@ -9,13 +9,13 @@
 
 .logo{
     transform: scale(0.6);
+    cursor: pointer;
+    margin-right: 15px;
 }
 
 .img{
     margin: 0;
-    margin-left: 10px;
     margin-top: 2px;
-    padding: 0;
 }
 
 .Botoes{

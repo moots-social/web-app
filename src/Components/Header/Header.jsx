@@ -1,6 +1,6 @@
 
 
-import Moots from '../../assets/img/logo.svg';
+import Moots from '../../assets/img/logo.png';
 import './Header.css'
 import ButtonL from './BotaoHeader/ButtonL'
 import ButtonC from './BotaoHeader/buttonLogin';

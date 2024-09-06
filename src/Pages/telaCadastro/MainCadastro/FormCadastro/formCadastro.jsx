@@ -1,4 +1,4 @@
-import '../../style.css'
+import '../../telaCadastro.css'
 import '../../../../App.css'
 export default function FormCadastro() {
     return(

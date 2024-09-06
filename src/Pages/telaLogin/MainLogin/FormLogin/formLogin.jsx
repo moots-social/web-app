@@ -1,5 +1,6 @@
-import '../../style.css'
+import '../../telaLogin.css'
 import '../../../../App.css'
+import { Link } from 'react-router-dom'
 export default function FormLogin() {
     return(
         <>
@@ -20,7 +21,7 @@ export default function FormLogin() {
                 <div className="senhaEsquecida ">
                     <p><span>Esqueceu a senha</span></p>
                     <hr /> 
-                    <p>Não tem uma conta? <span> Cadastre-se </span></p>
+                    <p>Não tem uma conta? <Link to='/telaCadastro'><span>Cadastre-se</span></Link></p>
                 </div>
                 <div className="containerBtn">
                     <button>Login</button>

@@ -1,6 +1,6 @@
-.containerCadastro{
+.containerLogin{
     width: 350px;
-    height: 600px;
+    height: 530px;
     border: 1px solid #A3B0D9;
     border-radius: 15px;
     box-shadow: 2px 2px 4px #ccc;
@@ -8,14 +8,14 @@
     flex-direction: column;
     align-items: center;
     padding: 2.5%;
-    gap: 30px;
+    gap: 40px;
 }
 
 main{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -23,12 +23,19 @@ main{
     width: 70%;
 }
 
-.headerCadastro{
+.headerLogin{
     display: flex;
     justify-content: space-between;
-    padding: 0 4% 0 4%;
     align-items: center;
     height: 15vh;
+}
+
+.logo{
+    margin-right: 14px;
+    cursor: pointer;
+}
+
+nav{
 }
 
 li{
@@ -38,10 +45,6 @@ li{
 a{
         text-decoration: none;
     color: black;
-}
-
-.containerTitulo{
-    width: max-content;
 }
 
 .containerTitulo h2{
@@ -98,3 +101,8 @@ span{
     color: white;
     font-size: 20px;
 }
+
+.cadastro{
+    
+}
+

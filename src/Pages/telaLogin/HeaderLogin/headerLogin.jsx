@@ -1,4 +1,5 @@
-import '../style.css'
+import '../telaLogin.css'
+
 import logo from '../../../assets/img/logo.png';
 
 export default function HeaderLogin(){

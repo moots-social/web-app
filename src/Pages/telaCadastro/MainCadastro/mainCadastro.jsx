@@ -1,4 +1,4 @@
-import '../style.css'
+import '../telaCadastro.css'
 
 import ImagemDevices from "./ImagemDevices/imagemDevices"
 import FormCadastro from "./FormCadastro/formCadastro"

@@ -1,10 +1,8 @@
-{/* trocar todos os 'a' pra 'Link' */}
 
-import Header from '../../Components/Header/Header';
 import MainCadastro from './MainCadastro/mainCadastro'
 import HeaderCadastro from './HeaderCadaastro/headerCadastro'
 
-import './style.css';
+import './telaCadastro.css';
 
 // import {Link} from "react-router-dom"
 

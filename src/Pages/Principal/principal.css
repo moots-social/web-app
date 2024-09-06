@@ -1,45 +1,48 @@
-
-.mainContainer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin:10px;
+.mainPrincipal {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
 }
 
-h2{
-    text-transform: uppercase;
-    background: linear-gradient(45deg, rgba(163,176,217,1) 0%, rgba(230,197,255,1) 24%, rgba(201,211,242,1) 39%, rgb(190, 235, 202) 100%);
-    background-clip: text; 
-    -webkit-text-fill-color: transparent;
-    font-weight: 400;
-    font-size: 86px;
-    margin: 0;
-    padding: 0;
+h2 {
+  text-transform: uppercase;
+  background: linear-gradient(
+    45deg,
+    rgba(163, 176, 217, 1) 0%,
+    rgba(230, 197, 255, 1) 24%,
+    rgba(201, 211, 242, 1) 39%,
+    rgb(190, 235, 202) 100%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 400;
+  font-size: 86px;
+  margin: 0;
+  padding: 0;
 }
 
-h1{
-    font-size: 24px;
-    margin: 0;
-    padding: 0;
+h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
 }
 
-p{                
-    overflow-wrap: break-word;                  
-    margin: 0 auto;   
-    width: 400px;
-    height: 40px;     
+p {
+  overflow-wrap: break-word;
+  margin: 0 auto;
+  width: 400px;
+  height: 40px;
 }
 
-.imagem{
-    margin-top: 40px;
-    width: 600px;
-    height: 600px;
+.imagemMocaArvore {
+  margin-top: 40px;
+  width: 600px;
+  height: 600px;
 }
 
-.textos{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-
-
+.textos {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }

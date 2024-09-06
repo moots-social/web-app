@@ -1,4 +1,3 @@
-
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -7,8 +6,8 @@ import "./index.css";
 
 // importar as paginas
 import Principal from "./Pages/Principal/Principal";
-import TelaLogin from "./Pages/telaLogin/";
-import TelaCadastro from "./Pages/telaCadastro";
+import TelaLogin from "./Pages/TelaLogin/TelaLogin";
+import TelaCadastro from "./Pages/TelaCadastro/TelaCadastro";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

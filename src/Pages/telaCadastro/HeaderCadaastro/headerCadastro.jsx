@@ -1,5 +1,5 @@
-import '../style.css'
-import logo from '../../../assets/img/mootsLogo.png'
+import '../telaCadastro.css'
+import logo from '../../../assets/img/Logo.png'
 
 export default function HeaderCadastro(){
     return(

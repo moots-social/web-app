@@ -9,6 +9,7 @@ import "./index.css";
 import Principal from "./Pages/Principal/Principal";
 import TelaLogin from "./Pages/telaLogin/";
 import TelaCadastro from "./Pages/telaCadastro";
+import TelaChat from "./Pages/telaChat/TelaChat";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="telaLogin" element={<TelaLogin />} />
           <Route path="/" element={<Principal />} />
           <Route path="telaCadastro" element={<TelaCadastro />} />
+          <Route path="telaChat" element={<TelaChat />} />
         </Route>
       </Routes>
     </BrowserRouter>

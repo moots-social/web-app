@@ -1,0 +1,16 @@
+
+.divTelaChat{
+    display: flex;
+}
+
+.containerImagemChatNomeChat{
+    display: flex;
+    flex-direction: column;
+    width: 441px;
+    padding-left: 27px;
+    padding-top: 11px;
+    gap: 35px;
+    border: 1px solid black;
+    background-color: #fff;
+}
+

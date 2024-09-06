@@ -1,0 +1,100 @@
+.containerCadastro{
+    width: 350px;
+    height: 600px;
+    border: 1px solid #A3B0D9;
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5%;
+    gap: 30px;
+}
+
+main{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sectionImagem img{
+    width: 70%;
+}
+
+.headerCadastro{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4% 0 4%;
+    align-items: center;
+    height: 15vh;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+        text-decoration: none;
+    color: black;
+}
+
+.containerTitulo{
+    width: max-content;
+}
+
+.containerTitulo h2{
+    font-size: 26px;
+}
+
+.containerInputs{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+input{
+    width: 250px;
+    height: 35px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #A3B0D9;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.containerEmailEsenha{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.senhaEsquecida p{
+    width: max-content;
+}
+hr{
+    width: 250px;
+    border-color: rgba(0, 0, 0, 0.15);
+    margin-bottom: 13px;
+}
+
+.senhaEsquecida{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+span{
+    color: #8F60BF;
+}
+
+.containerBtn button{
+    padding: 10px 60px;
+    background-color: rgba(175, 117, 191, 0.76);
+    border: 1px solid black;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+}

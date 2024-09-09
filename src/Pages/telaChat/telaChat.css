@@ -14,3 +14,19 @@
     background-color: #fff;
 }
 
+.imagemPerfilPrincipal img{
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.containermensagensAtivas{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid red;
+}
+
+.nomePerfilMensagem{
+    display: flex;
+    flex-direction: column;
+}

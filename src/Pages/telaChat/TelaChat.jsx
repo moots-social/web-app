@@ -7,6 +7,7 @@ import julia from "../../assets/img/chatJulia.png";
 import livia from "../../assets/img/chatLivia.png";
 import caua from "../../assets/img/chatCaua.png";
 import joao from "../../assets/img/chatJoao.png";
+import '../../Components/SideBar/sidebar.css'
 
 export default function telaChat() {
   return (
@@ -55,7 +56,7 @@ export default function telaChat() {
                 <p>Julia Freitas</p>
               </div>
               <div className="mensagemRecente">
-                <p>Léo, e meus cinco reais?.  9h</p>
+                <p>Léo, e meus cinco reais?. 9h</p>
               </div>
             </div>
           </div>
@@ -81,7 +82,7 @@ export default function telaChat() {
                 <p>Cauã Abreu</p>
               </div>
               <div className="mensagemRecente">
-                <p>enviou uma mensagem .  14h</p>
+                <p>enviou uma mensagem . 14h</p>
               </div>
             </div>
           </div>
@@ -94,13 +95,25 @@ export default function telaChat() {
                 <p>João Paulo</p>
               </div>
               <div className="mensagemRecente">
-                <p>enviou uma mensagem .  16h</p>
+                <p>enviou uma mensagem . 16h</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+      <div className="mensagemAtual">
+        <div className="imagemMensagemAtual">
+          <img src={gabriel} alt="" />
+        </div>
+        <div className="containerMensagemAtual">
+          <div className="nomeMensagemAtual">
+            <p>Gabriel Anjos</p>
+          </div>
+          <div className="tagUsuarioMensagemAtual">
+            <p>@gabrielAnjinho</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

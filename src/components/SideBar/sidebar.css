@@ -1,6 +1,6 @@
  .sideBar{
     height: 100vh;
-    width: 80px;
+    width: 10vw;
     border: 1px solid black;
     border-radius: 0 10px 10px 0;
     background-color: white;
@@ -44,7 +44,7 @@
 }
 
 .sideBar:hover{
-    width: 250px;
+    width: 34vw;
     transition: ease 0.8s;
     .containerTopo{
         align-items: flex-start;
@@ -100,6 +100,5 @@
     display: none;
 }
 
-.imagemPerfil img{
-    width: 45px;
-}
+
+

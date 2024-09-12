@@ -1,3 +1,10 @@
+.telaChatSideBar{
+    width: 8vw;
+}
+ .telaChatSideBar:hover{
+  width: 32vw;
+ }
+
 .divTelaChat {
   display: flex;
 }

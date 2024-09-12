@@ -5,10 +5,12 @@ import mensagem from '../../assets/img/iconeMensagens.png';
 import novoPost from '../../assets/img/iconeNovoPost.png';
 import coracao from '../../assets/img/iconeCoracao.png';
 import perfil from '../../assets/img/iconePerfil.png';
+import '../../Pages/telaChat/telaChat.css';
+import '../../Pages/Salvos/Salvos.css';
 
 export default function SideBar(){
     return(
-        <div className="sideBar sidebarPrinc">
+        <div className="sideBar telaChatSideBar telaSalvosSideBar">
             <div className='containerTopo'>
                 <div className='containerInput'>
                     <input className='pesquisa' type="text" name="" id="" />

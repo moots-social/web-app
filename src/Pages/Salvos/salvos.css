@@ -1,3 +1,8 @@
+.telaSalvosSideBar:hover{
+    width: 300px;
+
+}
+
 .colecoes{
     font-size: 30px;
     display: flex;

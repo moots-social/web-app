@@ -5,7 +5,7 @@
 .containerImagemChatNomeChat {
   display: flex;
   flex-direction: column;
-  width: 45vw;
+  width: 40vw;
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
@@ -43,8 +43,8 @@
   gap: 5px;
 }
 
-.nomePerfil {
-  font-weight: bold;
+.nomePerfil p {
+  font-weight: 500;
   font-size: 18px;
   line-height: 1.5;
 }
@@ -54,10 +54,71 @@
     color: #B6B3B3;
 }
 
+.containerPerfilMensagemAtual{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 400px;
+}
+
 .mensagemAtual{
   display: flex;
-  height: 170px;
+  height: 140px;
   background-color: #fff;
   border: 1px solid black;
-  width: 100%;
+}
+
+.imagemMensagemAtual{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 31px;
+
+}
+
+.imagemMensagemAtual img{
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.containerMensagemAtual{
+  display: flex;
+  flex-direction: column;
+  padding-left: 33px;
+  padding-top: 46px;
+  line-height: 1.5;
+}
+
+.nomeMensagemAtual p{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.tagUsuarioMensagemAtual{
+  font-size: 16px;
+  color: #B6B3B3;
+}
+
+.containerMensagem{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 10px;
+  
+}
+
+.mensagemDigitada input{
+  width: 400px;
+  height: 50px;
+  border-radius: 30px;
+}
+
+.botaoEnviar img{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: 5px;
 }

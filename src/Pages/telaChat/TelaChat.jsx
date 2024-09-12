@@ -7,6 +7,7 @@ import julia from "../../assets/img/chatJulia.png";
 import livia from "../../assets/img/chatLivia.png";
 import caua from "../../assets/img/chatCaua.png";
 import joao from "../../assets/img/chatJoao.png";
+import enviar from "../../assets/img/iconeEnviar.png";
 import '../../Components/SideBar/sidebar.css'
 
 export default function telaChat() {
@@ -101,6 +102,7 @@ export default function telaChat() {
           </div>
         </div>
       </div>
+      <div className="containerPerfilMensagemAtual">
       <div className="mensagemAtual">
         <div className="imagemMensagemAtual">
           <img src={gabriel} alt="" />
@@ -113,6 +115,15 @@ export default function telaChat() {
             <p>@gabrielAnjinho</p>
           </div>
         </div>
+      </div>
+      <div className="containerMensagem">
+        <div className="mensagemDigitada">
+        <input type="message" placeholder="mensagem"></input>
+        </div>
+        <div className="botaoEnviar">
+          <img src={enviar} alt=""></img>
+        </div>
+      </div>
       </div>
     </div>
   );

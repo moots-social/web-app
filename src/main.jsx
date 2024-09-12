@@ -6,9 +6,10 @@ import "./index.css";
 
 // importar as paginas
 import Principal from "./Pages/Principal/Principal";
-import TelaLogin from "./Pages/TelaLogin/TelaLogin";
-import TelaCadastro from "./Pages/TelaCadastro/TelaCadastro";
 import TelaSalvos from "./Pages/Salvos/Salvos";
+import TelaLogin from "./Pages/telaLogin/TelaLogin";
+import TelaCadastro from "./Pages/telaCadastro/TelaCadastro";
+import TelaChat from "./Pages/telaChat/TelaChat";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/" element={<Principal />} />
           <Route path="telaCadastro" element={<TelaCadastro />} />
           <Route path="salvos" element={<TelaSalvos />} />
+          <Route path="telaChat" element={<TelaChat />} />
         </Route>
       </Routes>
     </BrowserRouter>

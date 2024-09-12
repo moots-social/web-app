@@ -8,7 +8,7 @@ import perfil from '../../assets/img/iconePerfil.png';
 
 export default function SideBar(){
     return(
-        <div className="sideBar">
+        <div className="sideBar sidebarPrinc">
             <div className='containerTopo'>
                 <div className='containerInput'>
                     <input className='pesquisa' type="text" name="" id="" />

@@ -26,7 +26,7 @@ export default function FormCadastro() {
                     </div>
                 </div>
                 <div className="senhaEsquecida ">
-                    <p>Já tem uma conta? <span> Faça o login </span></p>
+                    <p>Já tem uma conta? <span className='spanCadastro'> Faça o login </span></p>
                 </div>
                 <div className="containerBtn">
                     <button>Cadastre-se</button>

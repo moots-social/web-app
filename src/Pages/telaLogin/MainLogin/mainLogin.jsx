@@ -5,7 +5,7 @@ import FormLogin from "./FormLogin/formLogin"
 
 export default function MainLogin(){
     return(
-        <main>
+        <main className='mainLogin'>
             <ImagemDevices></ImagemDevices>
             <FormLogin></FormLogin>
         </main>

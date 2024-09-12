@@ -1,0 +1,67 @@
+.mainPerfil{
+    display: flex;
+}
+
+.visualizacaoDoPerfil{
+    width: 100%;
+    gap: 120px;
+    display: flex;
+    flex-direction: column;
+    /* border: 10px solid rgb(162, 255, 0); */
+}
+
+
+.imgCapa{
+    width: 100%;
+    height: 200px;
+}
+
+.imgPerfil{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom: -50%;
+}
+
+.fotosPerfilECapa{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.containerNomeETag{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.botaoPerfil{
+    width: 50px;
+}
+
+.botoesPerfil{
+    display: flex;
+    justify-content: center;
+}
+
+.informacoesAbaixoDaCapa{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.posts{
+    background-color: aliceblue;
+    width: 200px;
+    height: 200px;
+    border: 10px solid red;
+}
+
+.todasAsInfosPerfil{
+    width: 100%;
+    display: flex;
+    border: 10px solid red;
+    justify-content: space-around;
+}

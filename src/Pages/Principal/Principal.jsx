@@ -8,10 +8,10 @@ function Principal() {
       <Header />
       <main className="mainPrincipal">
         <div className="containerTxt">
-          <h2>Moots</h2>
+          <h2 className="tituloMoots">Moots</h2>
           <div className="textos">
             <h1>O que é?</h1>
-            <p>
+            <p className="paragrafoPaginaPrincipal">
               Somos uma rede social estudantil desenvolvida por alunos do Senai
               Suiço-Brasileira.
             </p>

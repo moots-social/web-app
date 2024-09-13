@@ -11,7 +11,7 @@
     gap: 30px;
 }
 
-main{
+.mainCadastro{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -84,7 +84,7 @@ hr{
     justify-content: space-between;
 }
 
-span{
+.spanCadastro{
     color: #8F60BF;
 }
 

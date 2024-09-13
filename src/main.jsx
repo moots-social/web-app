@@ -10,6 +10,8 @@ import TelaSalvos from "./Pages/Salvos/Salvos";
 import TelaLogin from "./Pages/telaLogin/TelaLogin";
 import TelaCadastro from "./Pages/telaCadastro/TelaCadastro";
 import TelaChat from "./Pages/telaChat/TelaChat";
+import TelaPerfil from "./Pages/TelaPerfil/TelaPerfil"
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -21,6 +23,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="telaCadastro" element={<TelaCadastro />} />
           <Route path="salvos" element={<TelaSalvos />} />
           <Route path="telaChat" element={<TelaChat />} />
+          <Route path="perfil" element={<TelaPerfil />} />
         </Route>
       </Routes>
     </BrowserRouter>

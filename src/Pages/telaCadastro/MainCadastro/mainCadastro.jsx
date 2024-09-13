@@ -5,7 +5,7 @@ import FormCadastro from "./FormCadastro/formCadastro"
 
 export default function MainCadastro(){
     return(
-        <main>
+        <main className='mainCadastro'>
             <ImagemDevices></ImagemDevices>
             <FormCadastro></FormCadastro>
         </main>

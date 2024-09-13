@@ -1,6 +1,9 @@
+.telaSalvosSideBar{
+    width: 80px;
+}
+
 .telaSalvosSideBar:hover{
     width: 300px;
-
 }
 
 .colecoes{

@@ -2,7 +2,7 @@
     width: 8vw;
 }
  .telaChatSideBar:hover{
-  width: 32vw;
+  width: 32vw !important;
  }
 
 .divTelaChat {

@@ -1,5 +1,6 @@
 import '../../telaCadastro.css'
 import '../../../../App.css'
+import { Link } from 'react-router-dom'
 export default function FormCadastro() {
     return(
         <>
@@ -26,7 +27,7 @@ export default function FormCadastro() {
                     </div>
                 </div>
                 <div className="senhaEsquecida ">
-                    <p>Já tem uma conta? <span> Faça o login </span></p>
+                    <p>Já tem uma conta? <Link to='/telaLogin'><span> Faça o login </span></Link></p>
                 </div>
                 <div className="containerBtn">
                     <button>Cadastre-se</button>

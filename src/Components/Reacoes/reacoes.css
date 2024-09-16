@@ -1,0 +1,10 @@
+.reactions{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.iconesReacao{
+    width: 32px;
+    height: 32px;
+}

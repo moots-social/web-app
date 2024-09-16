@@ -3,4 +3,6 @@
     height: min-content;
     display: flex;
     justify-content: flex-end;
+    padding: 20px;
+    border: 1px solid red;
 }

@@ -45,6 +45,7 @@
 
 .sideBar:hover{
   width: 250px;
+  /* min-width: max-content; */
   transition: ease 0.8s;
   .containerTopo{
       align-items: flex-start;

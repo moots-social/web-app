@@ -1,4 +1,4 @@
-import Notificacao from '../../assets/img/notificacao.png'
+import Notificacao from '../../../assets/img/notificacao.png'
 import './sinoNotificacao.css'
 
 export default function SinoNotificacao(){

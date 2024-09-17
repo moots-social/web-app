@@ -1,3 +1,9 @@
+.reacoes{
+    padding: 10px 150px 20px 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .reactions{
     display: flex;
     flex-direction: row;

@@ -1,6 +1,7 @@
 import Sidebar from '../../Components/SideBar/SideBar'
-import SinoNotificacao from '../../Components/SinoNotificacao/sinoNotificacao'
-import Reacoes from '../../Components/Reacoes/Reacoes'
+import SinoNotificacao from '../../Components/Feed/SinoNotificacao/SinoNotificacao'
+import PostFeed from '../../Components/Feed/PostFeed/PostFeed'
+import ConteudoFeed from '../../Components/Feed/ConteudoFeed/ConteudoFeed'
 import './feed.css'
 
 export default function Feed(){
@@ -9,10 +10,8 @@ export default function Feed(){
             <Sidebar></Sidebar>
             <div className='containerFeed'>
                 <SinoNotificacao></SinoNotificacao>
-                <Reacoes></Reacoes> 
-                <div className='conteudoFeed'>
-                    
-                </div>
+                <PostFeed></PostFeed>
+                <ConteudoFeed></ConteudoFeed>
             </div>
         </div>
     )

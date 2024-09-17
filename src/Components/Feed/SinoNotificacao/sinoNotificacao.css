@@ -1,0 +1,7 @@
+.containerNotificacao{
+    width: 100%;
+    height: min-content;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}

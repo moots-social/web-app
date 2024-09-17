@@ -1,0 +1,10 @@
+.conteudoFeed{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid black;
+    width: 680px;
+    height: 750px;
+    background-color: white;
+    border-radius: 15px;
+}

@@ -21,6 +21,7 @@ export default function SideBar() {
             <img src={pesquisa} alt="icone-home" />
           </div>
         </div>
+        <Link to="/feed">
         <div className="containerIcone">
           <div className="icone">
             <img src={home} alt="icone-home" />
@@ -29,6 +30,7 @@ export default function SideBar() {
             <p>Página Inicial</p>
           </div>
         </div>
+        </Link>
         <Link to="/telaChat">
           <div className="containerIcone">
             <div className="icone">

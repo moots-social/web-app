@@ -11,6 +11,7 @@ import TelaLogin from "./Pages/telaLogin/TelaLogin";
 import TelaCadastro from "./Pages/telaCadastro/TelaCadastro";
 import TelaChat from "./Pages/telaChat/TelaChat";
 import TelaPerfil from "./Pages/TelaPerfil/TelaPerfil"
+import TelaFeed from "./Pages/Feed/Feed";
 
 
 createRoot(document.getElementById("root")).render(
@@ -24,9 +25,9 @@ createRoot(document.getElementById("root")).render(
           <Route path="salvos" element={<TelaSalvos />} />
           <Route path="telaChat" element={<TelaChat />} />
           <Route path="perfil" element={<TelaPerfil />} />
+          <Route path="feed" element={<TelaFeed />} />
         </Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>
 );
-

@@ -15,7 +15,9 @@
   gap: 35px;
   border: 1px solid black;
   background-color: #fff;
+  margin-left: 80px;
 }
+
 
 .imagemPerfilPrincipal img {
   border: 1px solid black;
@@ -60,7 +62,8 @@
   width: 65%;
   display: flex;
   flex-direction: column;
-  gap: 400px;
+  justify-content: space-between;
+  padding-bottom: 0.5%;
 }
 
 .mensagemAtual{

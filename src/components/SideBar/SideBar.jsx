@@ -11,7 +11,7 @@ import "../../Pages/Salvos/Salvos.css";
 
 export default function SideBar() {
   return (
-    <div className="sideBar telaChatSideBar telaSalvosSideBar">
+    <div className="sideBar teste">
       <div className="containerTopo">
         <div className="containerInput">
           <input className="pesquisa" type="text" name="" id="" />

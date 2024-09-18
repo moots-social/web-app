@@ -9,6 +9,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: fixed;
+  z-index: 2;
 }
 
 .containerTopo{
@@ -78,6 +80,9 @@
       justify-content: flex-start;
       margin-left: 15px;
   }
+  .containerImagemChatNomeChat{
+    border: 10px solid red !important;
+  }
 }
 
 .pesquisa{
@@ -86,8 +91,6 @@
   background-position: 160px;
   background-size: 20px;
 }
-
-
 
 .perfil{
   display: flex;
@@ -100,3 +103,4 @@
 .nomeUsuario{
   display: none;
 }
+

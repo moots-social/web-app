@@ -1,7 +1,7 @@
-import Reacoes from '../Reacoes/Reacoes'
-import FeedImagem from '../ImagemFeed/ImagemFeed'
-import PerfilFeed from '../PerfilFeed/PerfilFeed'
-import DescricaoFeed from '../DescricaoFeed/DescricaoFeed'
+import Reacoes from '../../../Pages/Feed/Reacoes/Reacoes'
+import FeedImagem from '../../../Pages/Feed/ImagemFeed/ImagemFeed'
+import PerfilFeed from '../../../Pages/Feed/PerfilFeed/PerfilFeed'
+import DescricaoFeed from '../../../Pages/Feed/DescriçãoFeed/DescricaoFeed'
 import './conteudoFeed.css'
 
 export default function FeedConteudo(){

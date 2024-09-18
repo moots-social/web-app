@@ -1,7 +1,7 @@
 import Sidebar from '../../Components/SideBar/SideBar'
-import SinoNotificacao from '../../Components/Feed/SinoNotificacao/SinoNotificacao'
-import PostFeed from '../../Components/Feed/PostFeed/PostFeed'
-import ConteudoFeed from '../../Components/Feed/ConteudoFeed/ConteudoFeed'
+import SinoNotificacao from './SinoNotificacao/SinoNotificacao'
+import PostFeed from './PostFeed/PostFeed'
+import ConteudoFeed from './ConteudoFeed/ConteudoFeed'
 import './feed.css'
 
 export default function Feed(){

@@ -1,7 +1,9 @@
 .reacoes{
-    padding: 10px 150px 20px 150px;
+    margin: 0 auto;
+    width: 53.5%;
     display: flex;
     justify-content: space-between;
+
 }
 
 .reactions{

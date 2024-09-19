@@ -1,5 +1,5 @@
 import "./telaChat.css";
-import SideBar from "../../Components/SideBar/SideBar";
+import SideBarChat from "./SideBarChat/SideBarChat";
 import '../../Components/SideBar/sidebar.css'
 import PerfisChatEsquerda from"./PerfisChatEsquerda/PerfisChatEsquerda";
 import PerfilAtivoChatDireita from "./PerfilAtivoChatDireita/PerfilAtivoChatDireita";
@@ -7,7 +7,7 @@ import PerfilAtivoChatDireita from "./PerfilAtivoChatDireita/PerfilAtivoChatDire
 export default function telaChat() {
   return (
     <div className="divTelaChat bg">
-      <SideBar></SideBar>
+      <SideBarChat></SideBarChat>
       <PerfisChatEsquerda></PerfisChatEsquerda>
       <PerfilAtivoChatDireita></PerfilAtivoChatDireita>
     </div>

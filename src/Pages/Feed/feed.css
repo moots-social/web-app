@@ -3,7 +3,6 @@
 }
 
 .containerFeed{
-    overflow-y: scroll;
     overflow-x: hidden;
     align-items: center;
     display: flex;

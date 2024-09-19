@@ -1,0 +1,31 @@
+
+.containerModalEsqueci{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 60vh;
+    border: 1px solid black;
+}
+
+.modalEsqueci{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 60px;
+    gap: 30px;
+    border: 1px solid yellow;
+}
+
+.modalEsqueci img{
+    width: 50px;
+    height: 50px;
+}
+
+.tituloTextoSenha{
+    border: 1px solid rgb(250, 5, 5);
+}
+
+.inputSenhaEsqueci{
+    border: 1px solid rgb(250, 5, 238);
+}

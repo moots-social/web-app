@@ -1,11 +1,14 @@
 import "./modalEsqueciSenha.css";
-import iconeEsqueci from "../../assets/img/iconeEsqueciSenha.png";
+import BotaoEnviarLink from "./BotaoEnviarLink/BotaoEnviarLink";
+import iconeEsqueci from "../../assets/img/iconeEsqueciSenha2.png";
 
 export default function modalEsqueciSenha() {
   return (
-    <div className="containerModalEsqueci bg">
-      <div className="modalEsqueci">
-        <img src={iconeEsqueci} alt=""></img>
+    <div className="containerModalEsqueci">
+      <div className="modalEsqueci bg">
+        <div className="imagemEsqueci">
+          <img src={iconeEsqueci} alt=""></img>
+        </div>
         <div className="tituloTextoSenha">
           <div className="tituloSenha">
             <h2>Dificuldades para entrar?</h2>
@@ -18,8 +21,13 @@ export default function modalEsqueciSenha() {
           </div>
         </div>
         <div className="inputSenhaEsqueci">
-            <input className="inputEleMesmo" type="email" placeholder="Digite seu email" ></input>
+          <input
+            className="inputEleMesmo"
+            type="email"
+            placeholder="Digite seu email"
+          ></input>
         </div>
+        <BotaoEnviarLink></BotaoEnviarLink>
       </div>
     </div>
   );

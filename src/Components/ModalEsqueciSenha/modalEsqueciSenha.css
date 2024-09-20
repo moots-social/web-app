@@ -17,7 +17,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    gap: 30px;
+    gap: 20px;
     border: 1px solid black;
 }
 
@@ -42,6 +42,7 @@
 .inputSenhaEsqueci input{
     width: 257px;
     height: 39px;
+    text-align: center;
     border-radius: 10px;
     border: 1px solid black;
 }
@@ -61,6 +62,9 @@
     background-color: #C9D3F2;
     outline: none;
     cursor: pointer;
-
-
 }
+
+.enviarLink:hover{
+    transform: scale(1.1);
+}
+

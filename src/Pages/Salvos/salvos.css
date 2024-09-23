@@ -35,6 +35,7 @@
 
 .pai{
     display: flex;
+    height: 100vh;
 }
 
 .titulo{

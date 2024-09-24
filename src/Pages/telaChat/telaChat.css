@@ -126,3 +126,28 @@
   cursor: pointer;
   margin-bottom: 5px;
 }
+@media (max-width: 834px){
+  .imagemPerfilPrincipal{
+    display: none;
+
+  }
+  .nomeMensagem{
+    display: none;
+  }
+  .nomePerfilMensagem{
+    display: none;
+  }
+  .containerImagemChatNomeChat{
+    padding: 0 12px 0 12px;
+    align-items: center;
+    justify-content: space-around;
+    width: 14vw;
+  }
+
+  .containerMensagemTodas{
+    gap:30px;
+  }
+  .containerPerfilMensagemAtual{
+    width: 86vw;
+  }
+}

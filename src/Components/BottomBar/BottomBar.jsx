@@ -14,7 +14,7 @@ export default function BottomBar() {
         <img src={mensagem} alt="Mensagem"></img>
         <img src={novoPost} alt="Novo Post"></img>
         <img src={colecao} alt="Coleção"></img>
-        <img src={pesquisa} alt="Pesquisa"></img>
+        <img src={pesquisa} className="iconePesquisa" alt="Pesquisa"></img>
         <img src={perfil} alt="Perfil"></img>
       </div>
   );

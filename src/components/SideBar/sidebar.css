@@ -104,3 +104,8 @@
   display: none;
 }
 
+@media(max-width:834px){
+  .sideBar{
+    display: none;
+  }
+}

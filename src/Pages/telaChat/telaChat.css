@@ -126,6 +126,15 @@
   cursor: pointer;
   margin-bottom: 5px;
 }
+
+.bottomBarChat{
+  display: flex;
+  flex-direction: row;
+  border: 10px solid red;
+  justify-content: space-around;
+  border: 10px solid rgb(0, 0, 0);
+}
+
 @media (max-width: 834px){
   .imagemPerfilPrincipal{
     display: none;
@@ -142,6 +151,7 @@
     align-items: center;
     justify-content: space-around;
     width: 14vw;
+    overflow-y: scroll;
   }
 
   .containerMensagemTodas{
@@ -149,5 +159,44 @@
   }
   .containerPerfilMensagemAtual{
     width: 86vw;
+  }
+}
+
+@media (max-width:606px){
+  .containerMensagemTodas{
+    margin: 5px;
+  }
+  .imagemPerfilAtivo img{
+    width: 70px;
+    height: 70px;
+  }
+  .imagemMensagemAtual img{
+    width: 85px;
+    height: 85px;
+  }
+}
+
+@media (max-width:536px){
+  .containerMensagemTodas{
+    margin: 5px;
+  }
+  .imagemPerfilAtivo img{
+    width: 50px;
+    height: 50px;
+  }
+  .imagemMensagemAtual img{
+    width: 70px;
+    height: 70px;
+  }
+  .containerMensagemAtual p{
+    font-size: 14px ;
+  }
+  .containerMensagem{
+    gap: 4px;
+  }
+  .mensagemDigitada input{
+    width: 250px;
+    height: 35px;
+    margin: 5px;
   }
 }

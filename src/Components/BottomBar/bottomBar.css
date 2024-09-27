@@ -10,12 +10,9 @@
     padding: 10px;
     border: 1px solid black;
     height: 86px;
-    width: 100vw;
-    margin: 0 auto;
     position: absolute;
-    background-color: #fff;
-    /* top: 85%;
-    left: 18%; */
+    background-color: white;
+    width: 100%;
 }
 
 @media (max-width: 834px){

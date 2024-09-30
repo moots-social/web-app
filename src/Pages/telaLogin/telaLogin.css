@@ -23,6 +23,12 @@
     width: 70%;
 }
 
+@media (max-width: 834px){
+    .sectionImagem img{
+        display: none;
+    }
+}
+
 .headerLogin{
     display: flex;
     justify-content: space-between;

@@ -8,9 +8,9 @@ import './telaCadastro.css';
 
 export default function telaCadastro(){
     return(
-        <>
+        <div className='cadastroPai'>  
             <HeaderCadastro></HeaderCadastro>
             <MainCadastro></MainCadastro>
-        </>
+        </div>
     )
 }

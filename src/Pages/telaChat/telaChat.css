@@ -118,6 +118,7 @@
   width: 400px;
   height: 50px;
   border-radius: 30px;
+  text-align: center;
 }
 
 .botaoEnviar img{
@@ -197,6 +198,31 @@
   .mensagemDigitada input{
     width: 250px;
     height: 35px;
+    margin: 5px;
+  }
+}
+
+@media (max-width:406px){
+  .containerMensagemTodas{
+    margin: 5px;
+  }
+  .imagemPerfilAtivo img{
+    width: 40px;
+    height: 40px;
+  }
+  .imagemMensagemAtual img{
+    width: 60px;
+    height: 60px;
+  }
+  .mensagemAtual{
+    height: 80px;
+  }
+  .containerMensagemAtual{
+    padding-top: 20px;
+  }
+  .mensagemDigitada input{
+    width: 180px;
+    height: 30px;
     margin: 5px;
   }
 }

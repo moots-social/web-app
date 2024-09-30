@@ -20,3 +20,10 @@
         display: flex;
     }
 }
+
+@media (max-width:556px){
+    .containerBottomBar img{
+        width: 44px;
+        height: 44px;
+    }
+}

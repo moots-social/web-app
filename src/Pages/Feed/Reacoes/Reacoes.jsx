@@ -13,7 +13,7 @@ export default function Reacoes(){
                 <img className='iconesReacao' src={IconeFavorito}></img>
             </div>
             <div className='comments'>
-                <img className='iconeReacao' src={IconeComentario}></img>
+                <img className='iconesReacao' src={IconeComentario}></img>
             </div>
         </div>
     )

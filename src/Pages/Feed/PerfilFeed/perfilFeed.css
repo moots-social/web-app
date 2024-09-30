@@ -18,3 +18,17 @@
     font-size: 28px;
     color: #b6b3b3;
 }
+
+@media (max-width: 430px){
+    .pfpFeed{
+        width: 55px;
+    }
+
+    .nomePerfilFeed{
+        font-size: 18px;
+    }
+    
+    .arrobaFeed{
+        font-size: 20px;
+    }
+}

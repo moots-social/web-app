@@ -1,5 +1,5 @@
 import PerfilFeed from '../../../assets/img/perfil.png'
-import './perfilFeed.css'
+import './postFeed.css'
 
 export default function FeedPerfil(){
     return(

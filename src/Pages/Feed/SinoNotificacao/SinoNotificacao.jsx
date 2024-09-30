@@ -5,7 +5,7 @@ export default function SinoNotificacao(){
     return(
         <>
             <div className='containerNotificacao'>
-                <img src={Notificacao}></img>
+                <img src={Notificacao} className='imagemSinoNotificacao'></img>
             </div>
         </>
     )

@@ -3,5 +3,21 @@
     height: min-content;
     display: flex;
     justify-content: flex-end;
-    padding: 20px;
+    padding: 20px 10px 20px 20px;
+    position: fixed;
+}
+
+@media (max-width: 790px){
+    .imagemSinoNotificacao{
+        width: 35px;
+    }
+}
+@media (max-width: 430px){
+    .imagemSinoNotificacao{
+        width: 30px;
+    }
+
+    .containerNotificacao{
+        padding-bottom: 0px;
+    }
 }

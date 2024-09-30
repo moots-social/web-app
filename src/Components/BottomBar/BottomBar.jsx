@@ -8,7 +8,7 @@ import perfil from "../../assets/img/iconePerfil.png";
 
 export default function BottomBar() {
   return (
-      <div  className="containerBottomBar">
+      <div className="containerBottomBar">
         <img src={home} alt="Home"></img>
         <img src={mensagem} alt="Mensagem"></img>
         <img src={novoPost} alt="Novo Post"></img>

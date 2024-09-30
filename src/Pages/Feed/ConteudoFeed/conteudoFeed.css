@@ -4,7 +4,20 @@
     gap: 20px;
     border: 1px solid black;
     width: 680px;
-    height: 700px;
+    height: max-content;
     background-color: white;
     border-radius: 15px;
+    padding: 0px 0px 20px 0px;
+}
+
+@media (max-width: 680px){
+    .conteudoFeed{
+        width: 580px;
+    }
+}
+
+@media (max-width: 430px){
+    .conteudoFeed{
+        width: 360px;
+    }
 }

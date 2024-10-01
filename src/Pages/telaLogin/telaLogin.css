@@ -24,6 +24,14 @@
 }
 
 @media (max-width: 834px){
+    .mainLogin{
+        justify-content: center;
+    }
+
+    .headerLogin{
+        justify-content: center;
+    }
+
     .sectionImagem img{
         display: none;
     }
@@ -104,5 +112,3 @@ hr{
     color: white;
     font-size: 20px;
 }
-
-

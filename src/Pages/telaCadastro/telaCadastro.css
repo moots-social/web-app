@@ -29,6 +29,10 @@
     height: 15vh;
 }
 
+.logoSemTexto{
+    display: none;
+}
+
 li{
     list-style: none;
 }
@@ -52,6 +56,49 @@ a{
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+}
+
+@media (max-width:428px){
+    .cadastroPai{
+        background: linear-gradient(
+            145deg,
+            hsl(56deg 100% 87%) 0%,
+            hsl(97deg 100% 91%) 13%,
+            hsl(149deg 100% 91%) 22%,
+            hsl(173deg 94% 90%) 30%,
+            hsl(189deg 100% 92%) 37%,
+            hsl(201deg 100% 94%) 44%,
+            hsl(207deg 100% 94%) 49%,
+            hsl(217deg 100% 95%) 55%,
+            hsl(238deg 100% 96%) 60%,
+            hsl(267deg 100% 95%) 64%,
+            hsl(252deg 100% 96%) 69%,
+            hsl(217deg 100% 95%) 75%,
+            hsl(200deg 100% 94%) 81%,
+            hsl(192deg 100% 94%) 88%,
+            hsl(186deg 100% 94%) 100%
+        );
+    }
+    .containerCadastro{
+        width: 100vw;
+        background-color: white;
+        margin-top: 50px;
+        border-radius: 40px 40px 0 0;
+    }
+    .logoSemTexto{
+        display: block;
+    }
+    .logo{
+        display: none;
+    }
+    .headerCadastro{
+        height: max-content;
+        margin-top: 100px;
+        display: flex;
+    }
+    .mainCadastro{
+        padding: 0;
     }
 }
 

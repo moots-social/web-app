@@ -42,6 +42,19 @@ a{
     width: max-content;
 }
 
+.containerDadosCadastro{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width:834px){
+    .cadastroPai{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .containerTitulo h2{
     font-size: 26px;
 }

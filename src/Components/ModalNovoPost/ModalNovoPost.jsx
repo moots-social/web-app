@@ -1,6 +1,6 @@
 import "./modalNovoPost.css";
 import perfil from "../../assets/img/imagemPerfil.png";
-// import imagemEnviar from "../../assets/img/iconeImagemPost.png";
+import imagemEnviar from "../../assets/img/iconeImagemPost.png";
 
 export default function modalNovoPost() {
   return (
@@ -20,7 +20,8 @@ export default function modalNovoPost() {
                 type="text"
                 placeholder="No que você esta pensando..."
               ></input>
-              </div>
+              <img className="imagemEnviarPost"src={imagemEnviar} alt="enviarImagem"></img>
+            </div>
         </div>
         <div className="botaoPublicar">
           <button>Publicar</button>

@@ -15,6 +15,7 @@ import TelaFeed from "./Pages/Feed/Feed";
 import ModalEsqueci from "./Components/ModalEsqueciSenha/ModalEsqueciSenha";
 import ConfigPerfil from "./Pages/ConfigPerfil/ConfigPerfil"
 import BottomBar from "./Components/BottomBar/BottomBar";
+import ModalNovo from "./Components/ModalNovoPost/ModalNovoPost";
 
 
 
@@ -33,6 +34,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="modalEsqueci" element={<ModalEsqueci />} />
           <Route path="configPerfil" element={<ConfigPerfil />} />
           <Route path="bottomBar" element={<BottomBar />} />
+          <Route path="modalNovo" element={<ModalNovo />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -8,9 +8,9 @@ import './telaLogin.css';
 
 export default function TelaLogin(){
     return(
-        <>
+        <div className='loginPai'>
             <HeaderLogin></HeaderLogin>
             <MainLogin></MainLogin>
-        </>
+        </div>
     )
 }

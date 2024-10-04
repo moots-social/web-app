@@ -55,24 +55,33 @@
    font-weight: bold;
 }
 
+
+
 .textoNovoPost{
     display: flex;
     align-items: center;
     justify-content: center;
-    
-}
-
-.textoNovoPost input{
+    margin: 0 auto;
     width: 250px;
     height: 110px;
     padding: 10px;
     font-weight: bold;
     border: 1px solid black;
     border-radius: 5px;
-    background-image: url("../../assets/img/iconeImagemPost.png");
-    background-repeat: no-repeat;
-    background-position: right;
-    
+    position: relative;
+    background-color: white;
+}
+
+.textoNovoPost input{
+    outline: none;
+    background: transparent;
+    border: none;
+}
+
+.imagemEnviarPost{
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .containerInput{

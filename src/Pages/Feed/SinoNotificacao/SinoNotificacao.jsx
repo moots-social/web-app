@@ -1,5 +1,5 @@
 import Notificacao from '../../../assets/img/notificacao.png'
-import './sinoNotificacao.css'
+import '../feed.css'
 
 export default function SinoNotificacao(){
     return(

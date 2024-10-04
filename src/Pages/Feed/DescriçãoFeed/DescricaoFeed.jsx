@@ -1,4 +1,4 @@
-import './descricaoFeed.css'
+import '../feed.css'
 
 export default function FeedDescricao(){
     return(

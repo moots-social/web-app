@@ -5,7 +5,7 @@
   margin: 10px;
 }
 
-h2 {
+.hTitulo {
   text-transform: uppercase;
   background: linear-gradient(
     45deg,
@@ -29,7 +29,6 @@ h1 {
 }
 
 p {
-  overflow-wrap: break-word;
   margin: 0 auto;
   width: 400px;
   height: 40px;
@@ -46,3 +45,4 @@ p {
   flex-direction: column;
   gap: 30px;
 }
+

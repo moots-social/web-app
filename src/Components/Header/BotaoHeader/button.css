@@ -14,7 +14,6 @@
     
 }
 
-
 .btn{
     background: rgb(255,250,187);
 background: linear-gradient(158deg, rgba(255,250,187,1) 0%, rgba(224,245,255,1) 35%, rgba(244,229,255,1) 100%);
@@ -31,5 +30,4 @@ background: linear-gradient(158deg, rgba(255,250,187,1) 0%, rgba(224,245,255,1) 
     transform: scale(1.1); 
    
 }
-
 

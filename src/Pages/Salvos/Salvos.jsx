@@ -1,5 +1,7 @@
 import SideBar from "../../Components/SideBar/SideBar";
+import BottomBar from "../../Components/BottomBar/BottomBar"
 import "./salvos.css";
+import "../../Components/Responsividade/Responsividade.css"
 
 function Salvos() {
   return (
@@ -15,6 +17,9 @@ function Salvos() {
           {" "}
           <h2 className="nadaSalvo">Você ainda não possui nada salvo.</h2>{" "}
         </div>
+      </div>
+      <div className="bar">
+        <BottomBar />
       </div>
     </div>
   );

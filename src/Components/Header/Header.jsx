@@ -1,6 +1,7 @@
 import Moots from "../../assets/img/logo.png";
 import "./Header.css";
-import ButtonSobre from "./BotaoHeader/ButtonSobre";
+import "../Responsividade/Responsividade.css"
+import logoMobile from "../../assets/img/iconeHeaderMobile.png";
 import ButtonLogin from "./BotaoHeader/buttonLogin";
 
 function Header() {
@@ -9,10 +10,12 @@ function Header() {
       <div className="headerPrincipal">
         <div className="logoContainer">
           <img src={Moots} className="logo" alt="logo" />
+          <div className="containerLogoMobile">
+            <img src={logoMobile} className='logoHeaderMobile'/>
+          </div>
         </div>
         <div className="Botoes">
-          <ButtonSobre />
-          <ButtonLogin className="C" />
+          <ButtonLogin />
         </div>
       </div>
     </header>

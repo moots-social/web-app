@@ -5,7 +5,8 @@
   margin: 10px ;
 }
 
-.tituloMoots {
+
+.hTitulo {
   text-transform: uppercase;
   background: linear-gradient(
     45deg,
@@ -28,8 +29,8 @@ h1 {
   padding: 0;
 }
 
-.paragrafoPaginaPrincipal {
-  overflow-wrap: break-word;
+
+p {
   margin: 0 auto;
   width: 400px;
   height: 40px;
@@ -46,3 +47,4 @@ h1 {
   flex-direction: column;
   gap: 30px;
 }
+

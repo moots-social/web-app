@@ -22,6 +22,12 @@
     }
 }
 
+@media (max-width: 420px){
+    .containerCursoEBio{
+        margin: 35% 0px 0px 10%;
+    }
+}
+
 .imgCapaConfig{
     width: 100%;
     height: 200px;

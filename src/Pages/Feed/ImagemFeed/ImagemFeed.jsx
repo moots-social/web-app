@@ -1,7 +1,7 @@
 import ImagemFeed from '../../../assets/img/post.png'
-import './imagemFeed.css'
+import '../feed.css'
 
-export default function FeedImage(){
+export default function FeedImagem(){
     return(
         <div className='containerImagemFeed'>
             <img className='imagemFeed' src={ImagemFeed}></img>

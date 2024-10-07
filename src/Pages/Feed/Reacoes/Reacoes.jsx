@@ -2,7 +2,7 @@ import IconeLike from '../../../assets/img/Heart.png'
 import IconeDislike from '../../../assets/img/deslike.png'
 import IconeFavorito from '../../../assets/img/star.svg'
 import IconeComentario from '../../../assets/img/Comentário.png'
-import './reacoes.css'
+import '../feed.css'
 
 export default function Reacoes(){
     return(
@@ -13,7 +13,7 @@ export default function Reacoes(){
                 <img className='iconesReacao' src={IconeFavorito}></img>
             </div>
             <div className='comments'>
-                <img className='iconeReacao' src={IconeComentario}></img>
+                <img className='iconesReacao' src={IconeComentario}></img>
             </div>
         </div>
     )

@@ -32,10 +32,11 @@ export default function FormCadastro() {
       
       try {
         const dado = await api.post("/user/criar", newUser);  
-        const res = await dado.data.json();
+        const res = await dado.data;
 
         if (res) {
           alert("Pessoa cadastrada com sucesso.");
+          navigate("/telaLogin");
         } else {
           alert("Falha ao cadastrar pessoa.");
         }

@@ -19,10 +19,10 @@ export default function FormLogin() {
 
             const req = await dado.data;
 
-
-            if (req.data) {
+            if (req) {
                 // localStorage.setItem('tokennz', req.data.token);
                 // localStorage.setItem('authenticated', true);
+                localStorage.setItem('token', req.token);
                 window.alert("Login realizado com sucesso");
                 navigate('/feed');
             }

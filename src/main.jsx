@@ -29,7 +29,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="telaCadastro" element={<TelaCadastro />} />
           <Route path="salvos" element={<TelaSalvos />} />
           <Route path="telaChat" element={<TelaChat />} />
-          <Route path="perfil" element={<TelaPerfil />} />
+          <Route path="perfil/:id" element={<TelaPerfil />} />
           <Route path="feed" element={<TelaFeed />} />
           <Route path="modalEsqueci" element={<ModalEsqueci />} />
           <Route path="configPerfil" element={<ConfigPerfil />} />

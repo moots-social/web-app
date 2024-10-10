@@ -86,9 +86,6 @@
       justify-content: flex-start;
       margin-left: 15px;
   }
-  .containerImagemChatNomeChat{
-    border: 10px solid red !important;
-  }
 }
 
 .pesquisa{

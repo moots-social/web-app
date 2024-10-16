@@ -1,10 +1,14 @@
+import { useContext } from 'react';
 import '../../TelaPerfil.css'
 
-export default function NomeETag(){
+export default function NomeETag(props){
+    const { usuario } = useUsuarioContext
+    console.log(usuario)
+
     return (
         <div className="containerNomeETag">
-            <h2>Leonardo Santos</h2>
-            <span>@leonardo</span>
+            <h2>{usuario.nomeCompleto}</h2>
+            <span>{usuario.tag}</span>
             <p>Seja bem vindo(a) ao meu perfil</p>
         </div>
     )

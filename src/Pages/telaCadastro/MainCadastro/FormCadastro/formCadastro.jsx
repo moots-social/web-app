@@ -8,15 +8,6 @@ import  api  from "../../../../config/api.js";
 export default function FormCadastro() {
 
 
-  // const user = localStorage.getItem('authenticated');
-    
-    // useEffect(() => {
-    //     if(user === 'true'){
-    //         navigate('/telaLogin')
-    //     }
-    // })
-
-
     const [newUser, setNewUser] = useState({
       nomeCompleto: "",
       email: "",
@@ -24,6 +15,7 @@ export default function FormCadastro() {
       tag: "",
       roles: ["ADMIN"]
     });
+    
 
     const navigate = useNavigate();
 
@@ -37,19 +29,15 @@ export default function FormCadastro() {
         if (res) {
           alert("Pessoa cadastrada com sucesso.");
           navigate("/telaLogin");
-        } else {
-          alert("Falha ao cadastrar pessoa.");
+        // } else {
+        //   alert("Falha ao cadastrar pessoa.");
+        // }
         }
 
-          
-       //navigate("/telaLogin");
-
       } catch (error) {
-        alert(error.message);
-        console.error(error);
+        alert(error.response.data.error)
       }
     };
-
 
   return (
     <>

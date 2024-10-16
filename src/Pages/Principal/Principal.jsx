@@ -2,7 +2,8 @@ import mocaArvore from "../../assets/img/imagemInicial.png";
 import "./principal.css";
 import Header from "../../Components/Header/Header.jsx";
 import BotaoSobre from "./BotaoAtivo/BotaoSobre.jsx";
-import "../../Components/Responsividade/Responsividade.css";
+
+import "./ResponsividadeInicialeSalvos/Responsividade.css";
 
 function Principal() {
   return (

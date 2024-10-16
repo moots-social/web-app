@@ -1,6 +1,6 @@
 import Moots from "../../assets/img/logo.png";
 import "./Header.css";
-import "../Responsividade/Responsividade.css"
+import "../../Pages/Principal/ResponsividadeInicialeSalvos/Responsividade.css"
 import logoMobile from "../../assets/img/iconeHeaderMobile.png";
 import ButtonLogin from "./BotaoHeader/buttonLogin";
 

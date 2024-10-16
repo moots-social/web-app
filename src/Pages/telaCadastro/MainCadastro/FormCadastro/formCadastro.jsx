@@ -1,9 +1,9 @@
 import "../../telaCadastro.css";
 import "../../../../App.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import  api  from "../../../../config/api.js"; 
-import axios from "axios";
+// import axios from "axios";
 
 export default function FormCadastro() {
 
@@ -64,7 +64,7 @@ export default function FormCadastro() {
           </div>
           <div className="containerDadosCadastro">
             <label htmlFor="emailCadastro">Email</label>
-            <input type="email" name="emailCadastro" id="emailCadastro" onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}/>
+            <input type="email" name="emailCadastro"  id="emailCadastro" onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}/>
           </div>
           <div className="containerDadosCadastro">
             <label htmlFor="senhaCadastro">Senha</label>

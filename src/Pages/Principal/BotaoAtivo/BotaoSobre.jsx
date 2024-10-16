@@ -1,5 +1,5 @@
 import "../../../Components/Header/BotaoHeader/button.css";
-import "../../../Components/Responsividade/Responsividade.css"
+import "../ResponsividadeInicialeSalvos/Responsividade.css"
 
 function BotaoSobre() {
   return (

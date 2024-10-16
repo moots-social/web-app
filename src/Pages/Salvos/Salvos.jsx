@@ -1,7 +1,7 @@
 import SideBar from "../../Components/SideBar/SideBar";
 import BottomBar from "../../Components/BottomBar/BottomBar"
 import "./salvos.css";
-import "../../Components/Responsividade/Responsividade.css"
+import "../Principal/ResponsividadeInicialeSalvos/Responsividade.css"
 
 function Salvos() {
   return (

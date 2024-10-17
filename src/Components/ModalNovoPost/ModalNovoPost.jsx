@@ -1,8 +1,15 @@
 import "./modalNovoPost.css";
 import perfil from "../../assets/img/imagemPerfil.png";
 import imagemEnviar from "../../assets/img/iconeImagemPost.png";
+import { createContext } from "react"
 
-export default function modalNovoPost() {
+export const AbrirModal = createContext(() =>{
+  let modal = document.querySelector(".containerModalNovoPost");
+  modal.style.display = "flex";
+})
+
+export default function ModalNovoPost() {
+  
   return (
     <div className="containerModalNovoPost">
       <div className="modalNovoPost bg">
@@ -30,3 +37,4 @@ export default function modalNovoPost() {
     </div>
   );
 }
+

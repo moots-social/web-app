@@ -1,14 +1,20 @@
 import { useUsuarioContext } from '../../../../Context/useUsuarioContext';
 import '../../telaPerfil.css'
+import FotoPerfil from "../../../../assets/img/user.png"
+import FotoCapa from "../../../../assets/img/userCapa.png"
 
 export default function FotosPerfilECapa() {
+
     
     const { usuario } = useUsuarioContext();
 
+
+
+
     return (
         <div className="fotosPerfilECapa">
-            <img src={usuario.fotoPerfil} alt="" className="imgCapa" />
-            <img src={usuario.fotoCapa} alt="" className="imgPerfil" />
+            <img src={FotoCapa} alt="" className="imgCapa" />
+            <img src={FotoPerfil} alt="" className="imgPerfil" />
         </div>
     )
 }

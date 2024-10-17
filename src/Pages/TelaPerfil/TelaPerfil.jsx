@@ -5,12 +5,12 @@ import InformacoesDoPerfil from "./InformacoesDoPerfil/InformacoesDoPerfil"
 import BottomBar from "../../Components/BottomBar/BottomBar"
 import { useParams } from "react-router-dom"
 import api from "../../config/api"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useUsuarioContext }  from "../../Context/useUsuarioContext"
-
+import Perfil from "../../assets/img/user.png"
 export default function TelaPerfil() {
 
-    const [user, setUser] = useState[{fotoPerfil, fotoCapa, nomeCompleto, tag}]
+    const [user, setUser] = useState({fotoPerfil: Perfil, fotoCapa: '', nomeCompleto: '', tag: ''})
 
     const token = localStorage.getItem('token');
 
@@ -19,32 +19,34 @@ export default function TelaPerfil() {
     const { setUsuario } = useUsuarioContext();
 
     const handleSubmit = async () => {
-
         try {
-            const dado = await api.get(`/buscar/${id}`, {headers: {authorization: `bearer ${token}`}});
+            const dado = await api.get(`/user/buscar/${id}`, {headers: {authorization: `${token}`}});
 
             const req = await dado.data;
-
             if (req) {
                 setUser({...user, fotoCapa: req.fotoCapa, fotoPerfil: req.fotoPerfil, nomeCompleto: req.nomeCompleto, tag: req.tag});
-                setUsuario("oi");
+                setUsuario(req);
             } 
             } catch(error){
-                window.alert(error)
+                window.alert(error.response.data.error)
             }
 
-        } 
+        }  
+        
+    useEffect(()=>{
+        handleSubmit()
+        console.log(user)
+    }, [])
 
-        handleSubmit();
-        return (
-            <>
-            <main className="bg mainPerfil">    
-                <SideBar></SideBar>
-                <InformacoesDoPerfil fotoPerfil={user.fotoPerfil} fotoCapa={user.fotoCapa} nomeCompleto={user.nomeCompleto} tag={user.tag} ></InformacoesDoPerfil>
-            </main>
-            <BottomBar></BottomBar>
-            </>
-    
-        )
-    }
+    return (
+        <>
+        <main className="bg mainPerfil">    
+            <SideBar></SideBar>
+            <InformacoesDoPerfil></InformacoesDoPerfil>
+        </main>
+        <BottomBar></BottomBar>
+        </>
+
+    )
+}
 

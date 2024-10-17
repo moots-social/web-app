@@ -1,8 +1,9 @@
 import { useContext } from 'react';
 import '../../TelaPerfil.css'
+import { useUsuarioContext } from '../../../../Context/useUsuarioContext';
 
-export default function NomeETag(props){
-    const { usuario } = useUsuarioContext
+export default function NomeETag(){
+    const { usuario } = useUsuarioContext()
     console.log(usuario)
 
     return (

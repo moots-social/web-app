@@ -5,9 +5,10 @@ import ConteudoFeed from './ConteudoFeed/ConteudoFeed'
 import BottomBar from '../../Components/BottomBar/BottomBar'
 import './feed.css'
 
-export default function Feed() {
+export default function Feed({estilo}) {
+
     return (
-        <div className='feed bg'>
+        <div className='feed bg' style={{estilo}}>
             <Sidebar></Sidebar>
             <div className='containerFeed'>
                 <SinoNotificacao></SinoNotificacao>

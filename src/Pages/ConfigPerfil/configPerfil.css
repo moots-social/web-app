@@ -63,7 +63,16 @@
 .escrevaBio{
     width: 50%;
     height: 100px;
-    background-color: white;
+}
+
+.inputBio{
+    width: 100%;
+    height: 100px;
+    resize: none;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
 
 @media (max-width: 834px){

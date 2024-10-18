@@ -4,38 +4,31 @@ import { useState } from 'react'
 
 export default function ConfigAbaixoDaCapa(){
 
+    const [user, setUser] = useState({fotoPerfil: '', fotoCapa: '', curso: '', tag: ''})
+
     const[valorSelecionado, setValorSelecionado] = useState("");
 
     const handleChange = (event) => {
-        setValorSelecionado(event.target.value)
-        alert(valorSelecionado)
+        const novoValor = event.target.value
+
+        setValorSelecionado(novoValor)
+        alert(novoValor)
     }
 
     return(
         <div className="containerCursoEBio">
-            <details>
-                <summary>Escolha seu curso: </summary>
-                <form>
-
-                <input type='radio' id='check-mecanica' value="MECANICA" onChange={handleChange}/>
-                <label htmlFor="check-mecanica">MECANICA</label>
-
-                <input type='radio' id='check-desenvolvimento' value="DESENVOLVIMENTO" onChange={handleChange}/>
-                <label htmlFor="check-desenvolvimento">DESENVOLVIMENTO</label>
-
-                <input type='radio' id='check-redes' value="REDES" onChange={handleChange}/>
-                <label htmlFor="check-redes">REDES</label>
-
-                <input type='radio' id='check-fic' value="FIC" onChange={handleChange}/>
-                <label htmlFor="check-fic">FIC</label>
-
-                <input type='radio' id="check-qualidade" value="QUALIDADE" onChange={handleChange}/>
-                <label htmlFor="check-qualidade">QUALIDADE</label>
-                </form>
-
-
-            </details>
-            <div className="escrevaBio"></div>
+            <select id="cursos" onChange={handleChange}>
+                <option value="SELECIONE">SELECIONE SEU CURSO</option>
+                <option value="REDES">REDES</option>
+                <option value="DESENVOLVIMENTO">DESENVOLVIMENTO</option>
+                <option value="FIC">FIC</option>
+                <option value="MECANICA">MECANICA</option>
+                <option value="QUALIDADE">QUALIDADE</option>
+            </select>
+            <h1>{valorSelecionado}</h1>
+            <div className="escrevaBio">
+                <textarea className='inputBio'></textarea>
+            </div>
         </div>
 
 

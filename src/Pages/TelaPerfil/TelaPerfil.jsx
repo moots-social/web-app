@@ -7,10 +7,9 @@ import { useParams } from "react-router-dom"
 import api from "../../config/api"
 import { useEffect, useState } from "react"
 import { useUsuarioContext }  from "../../Context/useUsuarioContext"
-import Perfil from "../../assets/img/user.png"
 export default function TelaPerfil() {
 
-    const [user, setUser] = useState({fotoPerfil: Perfil, fotoCapa: '', nomeCompleto: '', tag: ''})
+    const [user, setUser] = useState({fotoPerfil: '', fotoCapa: '', nomeCompleto: '', tag: ''})
 
     const token = localStorage.getItem('token');
 
@@ -24,7 +23,7 @@ export default function TelaPerfil() {
 
             const req = await dado.data;
             if (req) {
-                setUser({...user, fotoCapa: req.fotoCapa, fotoPerfil: req.fotoPerfil, nomeCompleto: req.nomeCompleto, tag: req.tag});
+                setUser({...user, id: req.id, fotoCapa: req.fotoCapa, fotoPerfil: req.fotoPerfil, nomeCompleto: req.nomeCompleto, tag: req.tag});
                 setUsuario(req);
             } 
             } catch(error){

@@ -5,11 +5,16 @@ import home from "../../assets/img/iconeHome.png";
 import mensagem from "../../assets/img/iconeMensagens.png";
 import novoPost from "../../assets/img/iconeNovoPost.png";
 import coracao from "../../assets/img/iconeCoracao.png";
-import perfil from "../../assets/img/iconePerfil.png";
+import FotoPerfil from "../../assets/img/user.png"
 import "../../Pages/telaChat/telaChat.css";
 import "../../Pages/Salvos/Salvos.css";
+import { useUsuarioContext } from "../../Context/useUsuarioContext";
+
 
 export default function SideBar() {
+
+  const { usuario } = useUsuarioContext()
+
   return (
     <div className="sideBar teste">
       <div className="containerTopo">
@@ -43,7 +48,7 @@ export default function SideBar() {
         </Link>
         <div className="containerIcone">
           <div className="icone">
-            <img src={novoPost} alt="icone-novo-post    " />
+            <img src={novoPost} alt="icone-novo-post"/>
           </div>
           <div className="tituloIcone">
             <p>Novo Post</p>
@@ -63,10 +68,10 @@ export default function SideBar() {
       <Link to="/perfil">
         <div className="perfil">
           <div className="imagemPerfil">
-            <img src={perfil} alt="" />
+            <img src={FotoPerfil} alt="" className="sidebarPfp"/>
           </div>
           <div className="nomeUsuario">
-            <p>Nome do Usuário</p>
+            <p>{usuario.nomeCompleto}</p>
           </div>
         </div>
       </Link>

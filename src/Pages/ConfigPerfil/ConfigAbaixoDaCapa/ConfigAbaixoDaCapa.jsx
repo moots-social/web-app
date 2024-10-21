@@ -1,6 +1,5 @@
 import '../configPerfil.css'
 import { useState } from 'react'
-        
 
 export default function ConfigAbaixoDaCapa(){
 
@@ -18,7 +17,6 @@ export default function ConfigAbaixoDaCapa(){
     return(
         <div className="containerCursoEBio">
             <select id="cursos" onChange={handleChange}>
-                <option value="SELECIONE">SELECIONE SEU CURSO</option>
                 <option value="REDES">REDES</option>
                 <option value="DESENVOLVIMENTO">DESENVOLVIMENTO</option>
                 <option value="FIC">FIC</option>

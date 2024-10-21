@@ -10,8 +10,6 @@ import { useParams } from "react-router-dom"
 
 export default function TelaPerfil() {
 
-    
-
     return (
         <>
         <main className="bg mainPerfil">    

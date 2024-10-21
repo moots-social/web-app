@@ -11,10 +11,10 @@ export default function Feed() {
     const [data, setData] = useState([]);
 
         useEffect(() => {
-            const evtSource = new EventSource("http://localhost:8080/post/sse");
+            const evtSource = new EventSource("http://localhost:8080/post/stream-sse");
             evtSource.onmessage = (event) => {
             if (event.data) {
-                setData(JSON.parse(event.data));
+                setData(event.data);
             }
             };
         }, []);

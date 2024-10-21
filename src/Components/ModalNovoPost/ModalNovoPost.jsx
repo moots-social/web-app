@@ -1,18 +1,12 @@
 import "./modalNovoPost.css";
 import perfil from "../../assets/img/imagemPerfil.png";
 import imagemEnviar from "../../assets/img/iconeImagemPost.png";
-import { createContext, useContext, useState } from "react";
-import Feed from "../../Pages/Feed/Feed";
-
-
-export let teste2 = createContext(false)
+import { createContext } from "react";
 
 export const AbrirModal = createContext(() => {
   let modal = document.querySelector(".containerModalNovoPost");
   modal.style.display = "flex";
-  teste2 = true
-}); 
-
+})
 
 export default function ModalNovoPost() {
 function FecharModal() {

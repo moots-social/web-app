@@ -8,7 +8,7 @@ import './feed.css'
 export default function Feed({estilo}) {
 
     return (
-        <div className='feed bg' style={{estilo}}>
+        <div className='feed bg'>
             <Sidebar></Sidebar>
             <div className='containerFeed'>
                 <SinoNotificacao></SinoNotificacao>

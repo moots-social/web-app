@@ -1,15 +1,9 @@
 import PerfilFeed from "../../../assets/img/perfil.png";
 import "../feed.css";
 import { useContext } from "react"
-import { AbrirModal, teste2 } from "../../../Components/ModalNovoPost/ModalNovoPost";
-import ModalNovoPost from "../../../Components/ModalNovoPost/ModalNovoPost";
-
-
+import ModalNovoPost, { AbrirModal } from "../../../Components/ModalNovoPost/ModalNovoPost";
 
 export default function PostFeed() {
-
-console.log(useContext(teste2))
-
   
   return (
     <>

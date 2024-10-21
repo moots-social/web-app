@@ -19,7 +19,6 @@ import ModalNovo from "./Components/ModalNovoPost/ModalNovoPost";
 import { ProviderUsuarioContext } from "./Context/UsuarioContext";
 
 
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

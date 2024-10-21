@@ -9,11 +9,39 @@ import FotoPerfil from "../../assets/img/user.png"
 import "../../Pages/telaChat/telaChat.css";
 import "../../Pages/Salvos/Salvos.css";
 import { useUsuarioContext } from "../../Context/useUsuarioContext";
-
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom"
+import api from "../../config/api";
 
 export default function SideBar() {
 
-  const { usuario } = useUsuarioContext()
+  const [user, setUser] = useState({id: '',fotoPerfil: '', fotoCapa: '', nomeCompleto: '', tag: ''})
+
+  const token = localStorage.getItem('token');
+
+  const id = localStorage.getItem('id');
+
+  const { setUsuario } = useUsuarioContext();
+
+  const handleSubmit = async () => {
+      try {
+          const dado = await api.get(`/user/buscar/${id}`, {headers: {authorization: `${token}`}});
+
+          const req = await dado.data;
+          if (req) {
+              setUser({...user, id: req.id, fotoCapa: req.fotoCapa, fotoPerfil: req.fotoPerfil, nomeCompleto: req.nomeCompleto, tag: req.tag});
+              setUsuario(req);
+          } 
+          } catch(error){
+              window.alert(error.response.data.error)
+          }
+
+      }  
+      
+  useEffect(()=>{
+      handleSubmit()
+      console.log(user)
+  }, [])
 
   return (
     <div className="sideBar teste">
@@ -65,13 +93,13 @@ export default function SideBar() {
           </div>
         </Link>
       </div>
-      <Link to="/perfil">
+      <Link to={`/perfil/${id}`}>
         <div className="perfil">
           <div className="imagemPerfil">
             <img src={FotoPerfil} alt="" className="sidebarPfp"/>
           </div>
           <div className="nomeUsuario">
-            <p>{usuario.nomeCompleto}</p>
+            <p>{user.nomeCompleto}</p>
           </div>
         </div>
       </Link>

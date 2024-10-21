@@ -33,6 +33,30 @@
     height: 200px;
 }
 
+
+.custom-file-upload{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 50%;
+    border: none;
+    bottom: -50%;
+    left: 10%;
+}
+
+.testeinput{
+    display: none;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border: none;
+    bottom: -50%;
+    left: 10%;        
+}
+
 .imgPerfilConfig{
     width: 200px;
     height: 200px;
@@ -41,6 +65,10 @@
     border: 1px solid black;
     border-radius: 50%;
     left: 20%;
+}
+
+.elementoA:hover  .elementoB {
+  opacity: 1; /* Quando o elemento A estiver em hover, torna o elemento B visível */
 }
 
 .imgPerfilConfig{

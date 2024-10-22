@@ -89,10 +89,6 @@
   cursor: pointer;
 }
 
-.containerInput {
-  display: flex;
-  border: 1px solid red;
-}
 
 .botaoPublicar {
   display: flex;

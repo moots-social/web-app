@@ -6,14 +6,14 @@ import { createContext } from "react";
 export const AbrirModal = createContext(() => {
   let modal = document.querySelector(".containerModalNovoPost");
   modal.style.display = "flex";
-})
+});
 
 export default function ModalNovoPost() {
-function FecharModal() {
+  function FecharModal() {
     let botaoFechar = document.querySelector(".menu");
     botaoFechar.addEventListener("click", () => {
       let modal = document.querySelector(".containerModalNovoPost");
-        modal.style.cssText = "display:none";
+      modal.style.cssText = "display:none";
     });
   }
 
@@ -39,11 +39,15 @@ function FecharModal() {
               type="text"
               placeholder="No que você esta pensando..."
             ></input>
-            <img
+            {/* <img
               className="imagemEnviarPost"
               src={imagemEnviar}
               alt="enviarImagem"
-            ></img>
+            ></img> */}
+            <label for="file-input">
+              <img className="imagemEnviarPost" src={imagemEnviar} />
+            </label>
+            <input id="file-input" type="file" className="algo" />
           </div>
         </div>
         <div className="botaoPublicar">

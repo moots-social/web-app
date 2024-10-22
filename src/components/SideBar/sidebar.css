@@ -85,7 +85,16 @@
   .perfil{
       justify-content: flex-start;
       margin-left: 15px;
+      margin-bottom: 20px;
   }
+}
+
+.sidebarPfp{
+  height: 64px;
+  width: 64px;
+  border-radius: 100%;
+  border: 1px solid #000;
+
 }
 
 .pesquisa{
@@ -101,6 +110,7 @@
   align-items: center;
   min-width: max-content;
   gap: 10px;
+  margin-bottom: 20px;
 }
 
 .nomeUsuario{

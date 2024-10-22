@@ -2,6 +2,8 @@ import FotosPerfilECapaConfig from "./FotosPerfilECapaConfig/FotosPerfilECapaCon
 import ConfigAbaixoDaCapa from "./ConfigAbaixoDaCapa/ConfigAbaixoDaCapa";
 import SideBar from "../../Components/SideBar/SideBar";
 import '../../App.css'
+import BotaoConf from "./BotaoConf/BotaoConf.jsx";
+
 
 export default function ConfigPerfil() {
     return (
@@ -10,6 +12,7 @@ export default function ConfigPerfil() {
                 <SideBar></SideBar>
                 <FotosPerfilECapaConfig></FotosPerfilECapaConfig>
                 <ConfigAbaixoDaCapa></ConfigAbaixoDaCapa>
+                <BotaoConf></BotaoConf>
             </div>
         </main>
     )

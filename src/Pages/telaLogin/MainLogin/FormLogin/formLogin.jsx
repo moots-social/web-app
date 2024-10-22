@@ -23,6 +23,7 @@ export default function FormLogin() {
                 // localStorage.setItem('tokennz', req.data.token);
                 // localStorage.setItem('authenticated', true);
                 localStorage.setItem('token', req.token);
+                localStorage.setItem('id', req.id);
                 window.alert("Login realizado com sucesso");
                 navigate('/feed');
             }

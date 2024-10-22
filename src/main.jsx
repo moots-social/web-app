@@ -16,27 +16,29 @@ import ModalEsqueci from "./Components/ModalEsqueciSenha/ModalEsqueciSenha";
 import ConfigPerfil from "./Pages/ConfigPerfil/ConfigPerfil"
 import BottomBar from "./Components/BottomBar/BottomBar";
 import ModalNovo from "./Components/ModalNovoPost/ModalNovoPost";
-
+import { ProviderUsuarioContext } from "./Context/UsuarioContext";
 
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="telaLogin" element={<TelaLogin />} />
-          <Route path="/" element={<Principal />} />
-          <Route path="telaCadastro" element={<TelaCadastro />} />
-          <Route path="salvos" element={<TelaSalvos />} />
-          <Route path="telaChat" element={<TelaChat />} />
-          <Route path="perfil/:id" element={<TelaPerfil />} />
-          <Route path="feed" element={<TelaFeed />} />
-          <Route path="modalEsqueci" element={<ModalEsqueci />} />
-          <Route path="configPerfil" element={<ConfigPerfil />} />
-          <Route path="bottomBar" element={<BottomBar />} />
-          <Route path="modalNovo" element={<ModalNovo />} />
-        </Route>
-      </Routes>
+      <ProviderUsuarioContext>
+        <Routes>
+            <Route path="/" element={<App />}>
+              <Route path="telaLogin" element={<TelaLogin />} />
+              <Route path="/" element={<Principal />} />
+              <Route path="telaCadastro" element={<TelaCadastro />} />
+              <Route path="salvos" element={<TelaSalvos />} />
+              <Route path="telaChat" element={<TelaChat />} />
+              <Route path="perfil/:id" element={<TelaPerfil />} />
+              <Route path="feed" element={<TelaFeed />} />
+              <Route path="modalEsqueci" element={<ModalEsqueci />} />
+              <Route path="configPerfil" element={<ConfigPerfil />} />
+              <Route path="bottomBar" element={<BottomBar />} />
+              <Route path="modalNovo" element={<ModalNovo />} />
+            </Route>
+        </Routes>
+      </ProviderUsuarioContext>
     </BrowserRouter>
   </StrictMode>
 );

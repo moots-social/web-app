@@ -17,8 +17,8 @@ export default function FormLogin() {
                 senha: validar.senha
             });
 
+            
             const req = await dado.data;
-
             if (req) {
                 // localStorage.setItem('tokennz', req.data.token);
                 // localStorage.setItem('authenticated', true);
@@ -71,3 +71,5 @@ export default function FormLogin() {
         </>
     );
 }
+
+

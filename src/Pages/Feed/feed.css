@@ -62,6 +62,12 @@
 
 .pfpFeed {
     border-radius: 50px;
+    width: 70px;
+    height: 70px;
+}
+
+.pfpFeed, .pfpPostFeed{
+    border: 1px solid black;
 }
 
 .nomePerfilFeed {

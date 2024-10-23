@@ -5,18 +5,15 @@ import { useState } from "react";
 import { createContext } from "react";
 import api from "../../config/api";
 
-
-
 export const AbrirModal = createContext(() => {
   let modal = document.querySelector(".containerModalNovoPost");
   modal.style.display = "flex";
 });
 
 export default function ModalNovoPost() {
-
-  const [post, setPost] = useState({ texto: '', listImagens: [] });
+  const [post, setPost] = useState({ texto: "", listImagens: [] });
   const [file, setFile] = useState();
-  const [preview, setPreview] = useState(null); 
+  const [preview, setPreview] = useState(null);
 
   function FecharModal() {
     let botaoFechar = document.querySelector(".menu");
@@ -42,39 +39,43 @@ export default function ModalNovoPost() {
 
   const handleClick = async (e) => {
     e.preventDefault();
-
-    if (!file) {
-        alert("Por favor, selecione uma imagem para enviar.");
-        return;
-    }
-
+    console.log("botao clicado");
     try {
-        const token = localStorage.getItem('token');
-        const containerName = "artifact-image-container";
+      const token = localStorage.getItem("token");
+      const containerName = "artifact-image-container";
 
-        const formData = new FormData(); // Cria um novo objeto FormData
-        formData.append("file", file); // Adiciona o arquivo ao FormData
+      const formData = new FormData(); // Cria um novo objeto FormData
+      formData.append("file", file); // Adiciona o arquivo ao FormData
 
-        const config = {
-            headers: {
-                Authorization: `${token}`,
-                'Content-Type': 'multipart/form-data', // Define o tipo de conteúdo como multipart
-            },
-        };
+      const config = {
+        headers: {
+          Authorization: `${token}`,
+          "Content-Type": "multipart/form-data", // Define o tipo de conteúdo como multipart
+        },
+      };
 
-        const dado = await api.post(`/user/images?containerName=${containerName}`, formData, config); // Envia o FormData
-        const req = await dado.data;
+      const dado = await api.post(
+        `/user/images?containerName=${containerName}`,
+        formData,
+        config
+      ); // Envia o FormData
+      const req = await dado.data;
 
-        if (req) {
-            console.log(req);
-            window.alert("Imagem upada com sucesso");
-        }
+      let imageUrl = req.data;
+      console.log(imageUrl);
+
+      if (req) {
+        console.log(req);
+        window.alert("Imagem upada com sucesso");
+      }
+
+      const postCriar = await api.post(/post/criar)
 
     } catch (error) {
-        console.log(error);
-        alert('Tente novamente.');
+      console.log(error);
+      alert("Tente novamente.");
     }
-  }
+  };
 
   return (
     <div className="containerModalNovoPost">
@@ -94,10 +95,13 @@ export default function ModalNovoPost() {
             <p>Leonardo</p>
           </div>
           <div className="textoNovoPost">
-            <input
+            <textarea
+              className="noQueVoce"
               type="text"
               placeholder="No que você esta pensando..."
-            ></input>
+              wrap="hard"
+              rows={15}
+            ></textarea>
             {/* <img
               className="imagemEnviarPost"
               src={imagemEnviar}
@@ -106,8 +110,16 @@ export default function ModalNovoPost() {
             <label for="file-input">
               <img className="imagemEnviarPost" src={imagemEnviar} />
             </label>
-            <input id="file-input" type="file" className="algo" accept="image/*" onChange={handleChange} />
-            {preview && <img src={preview} alt="Prévia" className="previewImage" />}
+            <input
+              id="file-input"
+              type="file"
+              className="algo"
+              accept="image/*"
+              onChange={handleChange}
+            />
+            {preview && (
+              <img src={preview} alt="Prévia" className="previewImage" />
+            )}
           </div>
         </div>
         <div className="botaoPublicar">

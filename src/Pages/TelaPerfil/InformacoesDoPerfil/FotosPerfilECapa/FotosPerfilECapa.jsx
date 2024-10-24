@@ -1,6 +1,4 @@
 import '../../telaPerfil.css'
-import FotoPerfil from "../../../../assets/img/user.png"
-import FotoCapa from "../../../../assets/img/userCapa.png"
 import { useUsuarioContext } from "../../../../Context/useUsuarioContext";
 
 

@@ -4,9 +4,18 @@
 
 .containerCursoEBio{
     height: 100vh;
-    align-items: center;
     justify-content: space-around;
     display: flex;
+    padding-top: 50px;
+}
+
+.selectCursos{
+    position: relative;
+    top: 20%;
+    left: 1.5%;
+    height: 40px;
+    width: 200px;
+    border-radius: 2px;
 }
 
 @media (max-width: 834px){
@@ -33,6 +42,10 @@
     height: 200px;
 }
 
+.divEditarCapa{
+    width: 100%;
+    position: relative;
+}
 
 .custom-file-upload{
     justify-content: center;
@@ -45,9 +58,42 @@
     border: none;
     bottom: -50%;
     left: 10%;
+    transition: 0.4s;
+}.custom-file-upload:hover{
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
-.testeinput{
+.inputEnviarImagemCapa{
+    display: none;
+}
+
+.labelEditarCapa{
+    justify-content: flex-end;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    top: 0;
+    transition: 0.4s;
+}.labelEditarCapa:hover{
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.iconeEditarImagem{
+    width: 50px;
+    height: 50px;
+}
+
+.iconeEditarImagemCapa{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+
+.inputEnviarImagemPerfil{
     display: none;
     width: 200px;
     height: 200px;

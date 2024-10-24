@@ -1,4 +1,4 @@
-import iconeImagemPost1 from '../../../assets/img/iconeImagemPost.png';
+import iconeImagemPost1 from '../../../assets/img/lapis.svg';
 import '../configPerfil.css';
 import { useState, useEffect } from 'react';
 import api from '../../../config/api';
@@ -14,7 +14,7 @@ export default function FotosPerfilECapaConfig() {
     const [filePerfil, setFilePerfil] = useState();
     const [perfilURL, setPerfilURL] = useState("");
     const [capaURL, setCapaURL] = useState("");
-    const [previewPerfil, setPreviewPerfil] = useState(null); 
+    const [previewPerfil, setPreviewPerfil] = useState(null);
     const [previewCapa, setPreviewCapa] = useState(null);
     const { usuario, setUsuario } = useUsuarioContext();
 
@@ -29,7 +29,7 @@ export default function FotosPerfilECapaConfig() {
     };
 
     const handleChange = (e) => {
-        const arquivoSelecionado = e.target.files[0]; 
+        const arquivoSelecionado = e.target.files[0];
         if (arquivoSelecionado) {
             setFilePerfil(arquivoSelecionado);
             const reader = new FileReader();
@@ -70,13 +70,10 @@ export default function FotosPerfilECapaConfig() {
             }
 
             const atualizarUser = await api.put(`/user/atualizar/${id}`, {
-                id: usuario.id,
                 fotoPerfil: novaPerfilURL,
                 fotoCapa: capaURL || usuario.fotoCapa,
-                nomeCompleto: usuario.nomeCompleto,
                 curso: curso || usuario.curso,
                 descricao: bio || usuario.descricao,
-                tag: usuario.tag
             }, { headers: { Authorization: `${token}` } });
 
             const request = await atualizarUser.data;
@@ -90,23 +87,29 @@ export default function FotosPerfilECapaConfig() {
     };
 
     return (
-        <>      
+        <>
             <div className="fotosPerfilECapaConfig">
-                <img src={usuario.fotoCapa} alt="" className='imgCapaConfig' />
-                <div className='testeste'>
+                <div className='divEditarCapa'>
+                    <img src={usuario.fotoCapa} alt="" className='imgCapaConfig' />
+                    <label htmlFor='file-upload-capa' className='labelEditarCapa' style={{ cursor: 'pointer' }}>
+                        <img src={iconeImagemPost1} alt="Ícone de imagem" className='iconeEditarImagemCapa' />
+                        <input id='file-upload-capa' type='file' className='inputEnviarImagemCapa' accept='image/*' />
+                    </label>
+                </div>
+                <div className='divEditarPfp'>
                     {previewPerfil ? (
                         <img src={previewPerfil} alt="Prévia" className="imgPerfilConfig" />
                     ) : (
                         <img src={usuario.fotoPerfil} alt="" className='imgPerfilConfig' />
                     )}
-                    <label htmlFor="file-upload" className="custom-file-upload">
-                        <img src={iconeImagemPost1} alt="Ícone de imagem" />
-                        <input id='file-upload' type='file' className='testeinput' accept="image/*" onChange={handleChange} />
+                    <label htmlFor="file-upload-perfil" className="custom-file-upload" style={{ cursor: 'pointer' }}>
+                        <img src={iconeImagemPost1} alt="Ícone de imagem" className='iconeEditarImagem' />
+                        <input id='file-upload-perfil' type='file' className='inputEnviarImagemPerfil' accept="image/*" onChange={handleChange} />
                     </label>
                 </div>
             </div>
             <div className="containerCursoEBio">
-                <select id="cursos" onChange={selectCurso}>
+                <select id="cursos" onChange={selectCurso} className='selectCursos'>
                     <option value="REDES">REDES</option>
                     <option value="DESENVOLVIMENTO">DESENVOLVIMENTO</option>
                     <option value="FIC">FIC</option>
@@ -118,7 +121,7 @@ export default function FotosPerfilECapaConfig() {
                 </div>
             </div>
             <div className="btnEnviar" onClick={handleClick}>
-                <button>Enviar</button>
+                <button className='botaoConfirmarEditarPerfil'>Enviar</button>
             </div>
         </>
     );

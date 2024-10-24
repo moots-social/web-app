@@ -61,19 +61,42 @@ export default function ModalNovoPost() {
       ); // Envia o FormData
       const req = await dado.data;
 
-      let imageUrl = req.data;
-      console.log(imageUrl);
+      // imageUrl = "casada";
+      var imageUrl = req.data;
+
+      // if (!imageUrl === undefined || !imageUrl === null || !imageUrl === "")  {
+      //   alert("No image")
+        
+      // }
 
       if (req) {
         console.log(req);
         window.alert("Imagem upada com sucesso");
       }
 
-      const postCriar = await api.post(/post/criar)
+      let textoDoPost = document.querySelector(".noQueVoce").value;
 
+      setPost(textoDoPost, imageUrl);
+
+      try {
+        
+        const postCriar = await api.post(
+          "/post/criar",
+          {
+            texto: textoDoPost,
+            listImagens: [imageUrl],
+          },
+          { headers: { authorization: `${token}` } }
+        );
+        console.log("post criado");
+        console.log(imageUrl + "essa é a img");
+      } catch (e) {
+        console.log(e);
+      }
     } catch (error) {
       console.log(error);
       alert("Tente novamente.");
+      console.log(imageUrl + " esse é o erro");
     }
   };
 

@@ -12,7 +12,7 @@ export default function FeedPerfil(){
             </div>
             <div className='perfilInfo'>
                 <p className='nomePerfilFeed'>{usuario.nomeCompleto}</p>
-                <p className='arrobaFeed'>@leonardo</p>
+                <p className='arrobaFeed'>@{usuario.tag}</p>
             </div>
         </div>
     )

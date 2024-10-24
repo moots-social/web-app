@@ -16,6 +16,7 @@ import ModalEsqueci from "./Components/ModalEsqueciSenha/ModalEsqueciSenha";
 import ConfigPerfil from "./Pages/ConfigPerfil/ConfigPerfil"
 import BottomBar from "./Components/BottomBar/BottomBar";
 import ModalNovo from "./Components/ModalNovoPost/ModalNovoPost";
+import Seguindo from "./Components/Seguindo/Seguindo";
 import { ProviderUsuarioContext } from "./Context/UsuarioContext";
 
 
@@ -36,6 +37,7 @@ createRoot(document.getElementById("root")).render(
               <Route path="configPerfil" element={<ConfigPerfil />} />
               <Route path="bottomBar" element={<BottomBar />} />
               <Route path="modalNovo" element={<ModalNovo />} />
+              <Route path="seguindo" element={<Seguindo />} />
             </Route>
         </Routes>
       </ProviderUsuarioContext>

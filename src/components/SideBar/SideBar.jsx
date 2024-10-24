@@ -69,7 +69,9 @@ export default function SideBar() {
               <p>Mensagens</p>
             </div>
           </div>
-        </Link>
+        </Link> 
+
+      <Link to="/feed">
         <div className="containerIcone">
           <div className="icone">
             <img src={novoPost} alt="icone-novo-post"/>
@@ -78,6 +80,7 @@ export default function SideBar() {
             <p>Novo Post</p>
           </div>
         </div>
+        </Link>
         <Link to="/salvos">
           <div className="containerIcone">
             <div className="icone">

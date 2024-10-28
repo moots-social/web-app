@@ -2,7 +2,8 @@
     display: flex;
 }
 
-.containerFeed {
+.containerFeed{
+
     overflow-x: hidden;
     align-items: center;
     display: flex;

@@ -2,9 +2,13 @@ import FotosPerfilECapa from "./FotosPerfilECapa/FotosPerfilECapa"
 import NomeETag from "./NomeETag/NomeETag"
 import BotoesDoPerfil from "./BotoesDoPerfil/BotoesDoPerfil"
 import PostsPerfil from "./PostsPerfil/PostsPerfil"
+import Seguindo from "../../../Components/Seguindo/Seguindo"
+
 
 export default function InformacoesDoPerfil() {
-    return (
+    return (<>
+        <Seguindo></Seguindo>
+
         <div className="visualizacaoDoPerfil">
             <FotosPerfilECapa></FotosPerfilECapa>
             <div className="informacoesAbaixoDaCapa">
@@ -13,5 +17,6 @@ export default function InformacoesDoPerfil() {
                 <PostsPerfil></PostsPerfil>
             </div>
         </div>
+        </>
     )
 }

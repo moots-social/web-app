@@ -17,6 +17,7 @@ import ConfigPerfil from "./Pages/ConfigPerfil/ConfigPerfil"
 import BottomBar from "./Components/BottomBar/BottomBar";
 import ModalNovo from "./Components/ModalNovoPost/ModalNovoPost";
 import TelaPerfilVisitante from "./Pages/TelaPerfilVisitante/TelaPerfilVisitante";
+import Seguindo from "./Components/Seguindo/Seguindo";
 import { ProviderUsuarioContext } from "./Context/UsuarioContext";
 
 
@@ -38,6 +39,7 @@ createRoot(document.getElementById("root")).render(
               <Route path="bottomBar" element={<BottomBar />} />
               <Route path="modalNovo" element={<ModalNovo />} />
               <Route path="perfilVisitante" element={<TelaPerfilVisitante />} />
+              <Route path="seguindo" element={<Seguindo />} />
             </Route>
         </Routes>
       </ProviderUsuarioContext>

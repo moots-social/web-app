@@ -1,4 +1,4 @@
-import '../../telaPerfil.css'
+import '../../telaPerfilVisitante.css'
 import { useUsuarioContext } from "../../../../Context/useUsuarioContext";
 
 

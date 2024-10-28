@@ -3,8 +3,10 @@ import home from "../../assets/img/iconeHome.png";
 import mensagem from "../../assets/img/iconeMensagens.png";
 import novoPost from "../../assets/img/iconeNovoPost.png";
 import pesquisa from "../../assets/img/iconePesquisa.png";
-import perfil from "../../assets/img/user.png"
+
+
 import {useUsuarioContext} from "../../Context/useUsuarioContext"
+
 
 
 export default function BottomBar() {

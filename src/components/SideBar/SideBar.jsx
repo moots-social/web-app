@@ -5,7 +5,6 @@ import home from "../../assets/img/iconeHome.png";
 import mensagem from "../../assets/img/iconeMensagens.png";
 import novoPost from "../../assets/img/iconeNovoPost.png";
 import coracao from "../../assets/img/iconeCoracao.png";
-import FotoPerfil from "../../assets/img/user.png"
 import "../../Pages/telaChat/telaChat.css";
 import "../../Pages/Salvos/Salvos.css";
 import { useUsuarioContext } from "../../Context/useUsuarioContext";

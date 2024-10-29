@@ -1,9 +1,9 @@
 import "./modalNovoPost.css";
-import perfil from "../../assets/img/imagemPerfil.png";
 import imagemEnviar from "../../assets/img/iconeImagemPost.png";
 import { useState } from "react";
 import { createContext } from "react";
 import api from "../../config/api";
+import { useUsuarioContext } from "../../Context/useUsuarioContext";
 
 export const AbrirModal = createContext(() => {
   let modal = document.querySelector(".containerModalNovoPost");
@@ -11,6 +11,7 @@ export const AbrirModal = createContext(() => {
 });
 
 export default function ModalNovoPost() {
+  const {usuario} =useUsuarioContext();
   const [post, setPost] = useState({ texto: "", listImagens: [] });
   const [file, setFile] = useState();
   const [preview, setPreview] = useState(null);
@@ -114,8 +115,8 @@ export default function ModalNovoPost() {
         </div>
         <div className="containerPerfilNovoPost">
           <div className="perfilNovoPost">
-            <img src={perfil} alt="perfil"></img>
-            <p>Leonardo</p>
+            <img src={usuario.fotoPerfil} alt="perfil"></img>
+            <p>{usuario.nomeCompleto}</p>
           </div>
           <div className="textoNovoPost">
             <textarea

@@ -8,7 +8,8 @@ import ImagemFeed from '../../../assets/img/post.png'
 
 export default function FeedConteudo() {
 
-    const { usuario } = useUsuarioContext();
+  const { usuario } = useUsuarioContext();
+  
   return (
     <div className="conteudoFeed">
       <div className="perfilFeedContainer">

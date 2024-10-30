@@ -7,8 +7,18 @@
     gap: 120px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-   
+    height: 100vh;  
+}
+
+.divPostPerfil{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: max-content;
 }
 
 .imgCapa{
@@ -52,15 +62,6 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.posts{
-    background-color: aliceblue;
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    border: 10px solid red;
-
 }
 
 .todasAsInfosPerfil{

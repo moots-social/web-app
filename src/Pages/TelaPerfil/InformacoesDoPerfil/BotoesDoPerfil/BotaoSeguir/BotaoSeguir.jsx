@@ -1,5 +1,5 @@
 import '../../../TelaPerfil.css'
-import ImagemSeguir from '../../../../../assets/img/imagemSeguir.png'
+import ImagemEditar from '../../../../../assets/img/lapis.svg'
 import { useNavigate } from 'react-router-dom'
 
 export default function BotaoSeguir(){
@@ -11,6 +11,6 @@ export default function BotaoSeguir(){
       };
 
     return(
-        <img src={ImagemSeguir} alt="" className='botaoSeguir botaoPerfil' onClick={handleClick} style={{cursor: 'pointer'}}/>
+        <img src={ImagemEditar} alt="" className='botaoSeguir botaoPerfil' onClick={handleClick} style={{cursor: 'pointer'}}/>
     )
 }

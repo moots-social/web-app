@@ -41,12 +41,12 @@
     right: 0;
 }
 
-.conteudoFeed {
+.conteudoFeedPerfil{
     display: flex;
     flex-direction: column;
     gap: 20px;
     border: 1px solid black;
-    width: 680px;
+    width: 480px;
     height: max-content;
     background-color: white;
     border-radius: 15px;
@@ -81,7 +81,7 @@
 }
 
 .textoDescricao {
-    width: 70%;
+    /* max-width: 0px; */
     margin: 0 auto;
     font-size: 15px;
 }

@@ -20,7 +20,6 @@ export default function PostPerfil() {
       const req = await dados.data;
       if (req) {
         setPosts(req);
-        console.log(req)
       } 
       } catch(error){
           window.alert(error.response.data.error)
@@ -36,7 +35,7 @@ export default function PostPerfil() {
     <>
       {posts.map((post, index) => {
         return(
-          <div className="conteudoFeed" key={index}>
+          <div className="conteudoFeedPerfil" key={index}>
               <div className="perfilFeedContainer">
                 <div>
                   <img className="pfpFeed" src={usuario.fotoPerfil}></img>
@@ -46,16 +45,13 @@ export default function PostPerfil() {
                   <p className="arrobaFeed">@{usuario.tag}</p>
                 </div>
               </div>
-                <p className="textoDescricao">
-                  {post.texto}
-                </p>
+                <p className="textoDescricao">{post.texto}</p>
               <div className="containerImagemFeed">
                 <img className="imagemFeed" src={post.listImagens[0]}></img>
               </div>
           </div>
         );
       })}
-
     </>
   );
 }

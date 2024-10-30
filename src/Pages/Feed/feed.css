@@ -61,11 +61,13 @@
     gap: 30px;
 }
 
-.pfpFeed {
+.pfpfeed {
     border-radius: 50px;
     width: 70px;
     height: 70px;
+    border: 1px solid black;
 }
+
 
 .pfpFeed, .pfpPostFeed{
     border: 1px solid black;

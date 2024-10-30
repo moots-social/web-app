@@ -29,7 +29,6 @@ export default function Feed() {
                 <SinoNotificacao></SinoNotificacao>
                 <PostFeed></PostFeed>
                 <ConteudoFeed></ConteudoFeed>
-                <ConteudoFeed></ConteudoFeed>
             </div>
             <BottomBar></BottomBar>
         </div>

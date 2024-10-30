@@ -5,39 +5,36 @@ import IconeFavorito from "../../../assets/img/star.svg";
 import IconeComentario from "../../../assets/img/Comentário.png";
 import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import ImagemFeed from "../../../assets/img/post.png";
-import { useState,useEffect } from "react";
-import api from '../../../config/api'
+import { useState, useEffect } from "react";
+import api from "../../../config/api";
 
 export default function FeedConteudo() {
-   
-    
   const { usuario } = useUsuarioContext();
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
 
   const token = localStorage.getItem("token");
-  const id = localStorage.getItem("id")
-
+  const id = localStorage.getItem("id");
 
   const getPosts = async () => {
-
     try {
-      const dados = await api.get(`/search/post/${id}`, {headers: {authorization: `${token}`}})
+      const dados = await api.get(`/search/post/${id}`, {
+        headers: { authorization: `${token}` },
+      });
 
       const req = await dados.data;
       if (req) {
         setPosts(req);
-        console.log(req)
-      } 
-      } catch(error){
-          window.alert(error.response.data.error)
+        console.log(req);
       }
-
+    } catch (error) {
+      window.alert(error.response.data.error);
     }
-    
-    useEffect(()=>{
-      getPosts()
-  }, [])
- 
+  };
+
+  useEffect(() => {
+    getPosts();
+  }, []);
+
   return (
     <div className="conteudoFeed">
       {/* <div className="perfilFeedContainer">
@@ -67,29 +64,26 @@ export default function FeedConteudo() {
           </div>
         </div>
       </div> */}
-       
 
-
-       {posts?.map((e, index) => {
-                return(
-                    <>
-                        <div className="perfilFeedContainer" key={index}>
-                            <div>
-                                <img src={e.fotoPerfil} alt="" className="pfpfeed"/>
-                            </div>
-                            <div className="perfilInfo">
-                                <p className="nomePerfilFeed">{e.nomeCompleto}</p>
-                                <p className="arrobaFeed">@{e.tag}</p>
-                            </div>
-                        </div>
-                        <p className="textoDescricao">{e.conteudo}</p>
-                        <div className="containerImagemFeed">
-                            <img src={e.listImagens[0]} alt="" className="imagemFeed"/>
-                        </div>
-                    </>
-                )
-        })}
-            
+      {posts?.map((e, index) => {
+        return (
+          <>
+            <div className="perfilFeedContainer" key={index}>
+              <div>
+                <img src={e.fotoPerfil} alt="" className="pfpfeed" />
+              </div>
+              <div className="perfilInfo">
+                <p className="nomePerfilFeed">{e.nomeCompleto}</p>
+                <p className="arrobaFeed">@{e.tag}</p>
+              </div>
+              <p className="textoDescricao">{e.texto}</p>
+              <div className="containerImagemFeed">
+                <img src={e.listImagens[0]} alt="" className="imagemFeed" />
+              </div>
+            </div>
+          </>
+        );
+      })}
     </div>
   );
 }

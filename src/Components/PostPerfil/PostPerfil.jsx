@@ -46,7 +46,7 @@ export default function PostPerfil() {
                 </div>
               </div>
                 <p className="textoDescricao">{post.texto}</p>
-              <div className="containerImagemFeed">
+              <div className="containerImagemFeedPerfil">
                 <img className="imagemFeed" src={post.listImagens[0]}></img>
               </div>
           </div>

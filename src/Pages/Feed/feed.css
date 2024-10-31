@@ -3,7 +3,6 @@
 }
 
 .containerFeed{
-
     overflow-x: hidden;
     align-items: center;
     display: flex;
@@ -16,9 +15,10 @@
 
 .reacoes {
     margin: 0 auto;
-    width: 29vw;
+    width: 60%;
     display: flex;
     justify-content: space-between;
+
 
 }
 
@@ -26,6 +26,18 @@
     display: flex;
     flex-direction: row;
     gap: 32px;
+}
+
+.iconesReacao{
+    cursor: pointer;
+}
+
+.iconesReacao img{
+color: aqua;
+}
+
+.iconesReacao:hover{
+    transform: scale(1.1);
 }
 
 .iconesReacao {
@@ -55,7 +67,7 @@
 .perfilFeedContainer {
     align-items: center;
     display: flex;
-    padding: 30px 0 30px 0;
+    padding: 40px;
     gap: 30px;
     flex-direction: column;
     border: 1px solid black;
@@ -68,6 +80,16 @@
     width: 70px;
     height: 70px;
     border: 1px solid black;
+}
+
+.perfilInfo{
+    width: 100%;
+}
+
+.paiPfpFeed{
+    width: 100%;
+    display: flex;
+    gap: 20px;
 }
 
 
@@ -86,16 +108,17 @@
 }
 
 .textoDescricao {
-    width: 70%;
     margin: 0 auto;
+    width: 70%;
     font-size: 15px;
+    padding: 0;
+    overflow-wrap: break-word;
 }
 
 .containerImagemFeed {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-top: 50px;
     align-items: center;
     gap: 10px;
 }
@@ -103,6 +126,7 @@
 .imagemFeed {
     border-radius: 18px;
     border: 1px solid black;
+    width: 350px;
 }
 
 .postFeedContainer {
@@ -184,6 +208,9 @@
 
     .imagemFeed{
         width: 300px;
+    }
+    .reacoes{
+        width: 80%;
     }
 }
 

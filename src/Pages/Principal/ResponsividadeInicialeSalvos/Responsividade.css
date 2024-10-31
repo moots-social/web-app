@@ -38,7 +38,7 @@
         align-items: center;
     }
 
-    p{
+    .paragrafoPaginaPrincipal{
         width: 500px;
     }
 
@@ -117,7 +117,7 @@
         
       }
 
-      p{
+      .paragrafoPaginaPrincipal{
         width: 400px;
       }
 
@@ -156,7 +156,7 @@
         width: 100% !important;
     }
 
-    p{
+    .paragrafoPaginaPrincipal{
         display: flex;
         align-items: center;
         width: 300px;
@@ -176,7 +176,7 @@
         font-size: 70px;
     }
 
-    p{
+    .paragrafoPaginaPrincipal{
         display: flex;
         align-items: center;
         width: 300px;

@@ -1,8 +1,8 @@
 import "../feed.css";
-import IconeLike from "../../../assets/img/Heart.png";
-import IconeDislike from "../../../assets/img/deslike.png";
-import IconeFavorito from "../../../assets/img/star.svg";
-import IconeComentario from "../../../assets/img/Comentário.png";
+import IconeLike from "../../../assets/img/iconeCoracao.svg";
+import IconeDislike from "../../../assets/img/iconeDeslike.svg";
+import IconeFavorito from "../../../assets/img/iconeEstrela.svg";
+import IconeComentario from "../../../assets/img/iconeComentarios.svg";
 import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import ImagemFeed from "../../../assets/img/post.png";
 import { useState, useEffect } from "react";
@@ -35,50 +35,38 @@ export default function FeedConteudo() {
     getPosts();
   }, []);
 
+  function CurtirPost(){
+    console.log("Curtiu o post!");
+  }
+
   return (
     <div className="conteudoFeed">
-      {/* <div className="perfilFeedContainer">
-        <div>
-          <img className="pfpFeed" src={usuario.fotoPerfil}></img>
-        </div>
-        <div className="perfilInfo">
-          <p className="nomePerfilFeed">{usuario.nomeCompleto}</p>
-          <p className="arrobaFeed">@{usuario.tag}</p>
-        </div>
-      </div>
-      <p className="textoDescricao">
-        Gostaríamos de expressar nossa sincera gratidão à equipe pela calorosa
-        recepção durante nossa visita técnica. Foi uma experiência extremamente
-        valiosa para todos nós.
-      </p>
-      <div className="containerImagemFeed">
-        <img className="imagemFeed" src={ImagemFeed}></img>
-        <div className="reacoes">
-          <div className="reactions">
-            <img className="iconesReacao" src={IconeLike}></img>
-            <img className="iconesReacao" src={IconeDislike}></img>
-            <img className="iconesReacao" src={IconeFavorito}></img>
-          </div>
-          <div className="comments">
-            <img className="iconesReacao" src={IconeComentario}></img>
-          </div>
-        </div>
-      </div> */}
-
       {posts?.map((e, index) => {
         return (
           <>
             <div className="perfilFeedContainer" key={index}>
-              <div>
+              <div className="paiPfpFeed">
                 <img src={e.fotoPerfil} alt="" className="pfpfeed" />
+                <div className="perfilInfo">
+                  <p className="nomePerfilFeed">{e.nomeCompleto}</p>
+                  <p className="arrobaFeed">@{e.tag}</p>
+                </div>
               </div>
-              <div className="perfilInfo">
-                <p className="nomePerfilFeed">{e.nomeCompleto}</p>
-                <p className="arrobaFeed">@{e.tag}</p>
+              <div className="textoDescricao">
+                <p>{e.texto}</p>
               </div>
-              <p className="textoDescricao">{e.texto}</p>
               <div className="containerImagemFeed">
                 <img src={e.listImagens[0]} alt="" className="imagemFeed" />
+              </div>
+              <div className="reacoes">
+                <div className="reactions">
+                  <img className="iconesReacao" src={IconeLike} onClick={CurtirPost}></img>
+                  <img className="iconesReacao" src={IconeDislike}></img>
+                  <img className="iconesReacao" src={IconeFavorito}></img>
+                </div>
+                <div className="comments">
+                  <img className="iconesReacao" src={IconeComentario}></img>
+                </div>
               </div>
             </div>
           </>

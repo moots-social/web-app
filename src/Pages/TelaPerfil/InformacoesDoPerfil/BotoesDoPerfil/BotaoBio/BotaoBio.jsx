@@ -5,6 +5,6 @@ import { AbrirModalSeguindo } from '../../../../../Components/Seguindo/Seguindo'
 
 export default function BotaoBio(){
     return(
-        <img src={ImagemSeguidores} alt="" className='botaoBio botaoPerfil' onClick={useContext(AbrirModalSeguindo)}/>
+        <img src={ImagemSeguidores} alt="" className='botaoBio botaoPerfil' onClick={useContext(AbrirModalSeguindo)} style={{cursor: "pointer"}}/>
     )
 }

@@ -2,6 +2,11 @@
     display: flex;
 }
 
+.spanNome{
+    font-family: 'Poppins', sans-serif;
+    color: grey;
+}
+
 .divPostPerfil{
     display: flex;
     flex-direction: column;

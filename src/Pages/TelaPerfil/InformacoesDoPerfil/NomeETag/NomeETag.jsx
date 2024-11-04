@@ -7,7 +7,7 @@ export default function NomeETag(){
     return (
         <div className="containerNomeETag">
             <h2>{usuario.nomeCompleto}</h2>
-            <span>{usuario.tag}</span>
+            <span className='spanNome'>{usuario.tag}</span>
             <p className='welcome'>{usuario.descricao}</p>
         </div>
     )

@@ -12,12 +12,16 @@
     width: 50%;
     cursor: pointer;
 }
-.botaoSeguidores:hover{
+/* .botaoSeguidores:hover{
     background-color: #cc90f7;
+} */
+
+.ativoSeguidores{
+    background-color: #8f60bf;
 }
 
 .botaoSeguindo{
-    background-color: #8f60bf;
+    background-color: #b66de9;
     font-size: 30px;
     height: 65px;
     color: white;
@@ -25,9 +29,13 @@
     width: 450px;
     cursor: pointer;
 }
-.botaoSeguindo:hover{
-    background-color: #664487;
+
+.ativoSeguindo{
+    background-color: #8f60bf;
 }
+/* .botaoSeguindo:hover{
+    background-color: #664487;
+} */
 
 .divBotoesSeguindo{
     display: flex;

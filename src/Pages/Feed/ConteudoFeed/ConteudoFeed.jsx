@@ -12,6 +12,8 @@ export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
   const [posts, setPosts] = useState([]);
 
+  // var postId;
+
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");
 
@@ -31,17 +33,35 @@ export default function FeedConteudo() {
     }
   };
 
-  useEffect(() => {
+  const curtirPost = async (e) => {
+    const {postId} = e;
+
+    try {
+      const dados = await api.put(`/post/dar-like`, {}, {
+        headers: { authorization: `${token}` },
+        params: {
+          postId: postId,
+          like: true
+        }
+      });
+      
+      const req = await dados.data;
+      if(req) {
+        console.log(req);
+      }
+    } catch (error) {
+      console.log(error.response.data.error);
+    }
+  }  
+
+  useEffect(() => { 
     getPosts();
   }, []);
-
-  function CurtirPost(){
-    console.log("Curtiu o post!");
-  }
 
   return (
     <div className="conteudoFeed">
       {posts?.map((e, index) => {
+
         return (
           <>
             <div className="perfilFeedContainer" key={index}>
@@ -60,7 +80,8 @@ export default function FeedConteudo() {
               </div>
               <div className="reacoes">
                 <div className="reactions">
-                  <img className="iconesReacao" src={IconeLike} onClick={CurtirPost}></img>
+                  <img className="iconesReacao" src={IconeLike} onClick={() => {
+                    curtirPost(e)}}></img>
                   <img className="iconesReacao" src={IconeDislike}></img>
                   <img className="iconesReacao" src={IconeFavorito}></img>
                 </div>
@@ -72,6 +93,7 @@ export default function FeedConteudo() {
           </>
         );
       })}
+
     </div>
   );
-}
+}  

@@ -11,6 +11,7 @@ import api from "../../../config/api";
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
   const [posts, setPosts] = useState([]);
+  const [like, setLike] = useState([]);
 
   // var postId;
 
@@ -44,13 +45,23 @@ export default function FeedConteudo() {
           like: true
         }
       });
+
       
       const req = await dados.data;
       if(req) {
-        console.log(req);
+        console.log(req.contadorLike);
       }
+
+      if(req.contadorLike){
+        setLike(true);
+      }
+
     } catch (error) {
       console.log(error.response.data.error);
+    }
+
+    if(like == true){
+      alert('ja curtiu seu porra')
     }
   }  
 
@@ -82,6 +93,7 @@ export default function FeedConteudo() {
                 <div className="reactions">
                   <img className="iconesReacao" src={IconeLike} onClick={() => {
                     curtirPost(e)}}></img>
+                    <p className="contadorLike">{e.contadorLike}</p>
                   <img className="iconesReacao" src={IconeDislike}></img>
                   <img className="iconesReacao" src={IconeFavorito}></img>
                 </div>

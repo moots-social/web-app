@@ -81,7 +81,7 @@
 }
 
 .textoDescricao {
-    /* max-width: 0px; */
+    height: max-content;
     margin: 0 auto;
     font-size: 15px;
 }

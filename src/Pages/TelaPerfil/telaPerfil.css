@@ -2,13 +2,20 @@
     display: flex;
 }
 
-.visualizacaoDoPerfil{
-    width: 100%;
-    gap: 120px;
+.spanNome{
+    font-family: 'Poppins', sans-serif;
+    color: grey;
+}
+
+.divPostPerfil{
     display: flex;
     flex-direction: column;
-    height: 100vh;
-   
+    gap: 20px;
+    padding-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: max-content;
 }
 
 .imgCapa{
@@ -23,6 +30,7 @@
     bottom: -50%;
     border: 1px solid black;
     border-radius: 50%;
+    background-color: white;
 }
 
 .fotosPerfilECapa{
@@ -46,21 +54,13 @@
 .botoesPerfil{
     display: flex;
     justify-content: center;
+    gap: 25px;
 }
 
 .informacoesAbaixoDaCapa{
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.posts{
-    background-color: aliceblue;
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    border: 10px solid red;
-
 }
 
 .todasAsInfosPerfil{

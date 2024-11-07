@@ -13,7 +13,7 @@ export default function FormCadastro() {
       email: "",
       senha: "",
       tag: "",
-      roles: ["ADMIN"]
+      roles: ["USER"]
     });
     
 

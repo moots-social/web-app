@@ -14,7 +14,5 @@ export default function TelaPerfil() {
         </main>
         <BottomBar></BottomBar>
         </>
-
     )
 }
-

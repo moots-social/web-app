@@ -12,6 +12,7 @@ export default function FotosPerfilECapaConfig() {
     const [bio, setBio] = useState("");
     const [curso, setCurso] = useState("");
     const [filePerfil, setFilePerfil] = useState();
+    const [fileCapa, setFileCapa] = useState();
     const [perfilURL, setPerfilURL] = useState("");
     const [capaURL, setCapaURL] = useState("");
     const [previewPerfil, setPreviewPerfil] = useState(null);
@@ -40,6 +41,18 @@ export default function FotosPerfilECapaConfig() {
         }
     };
 
+    const handleChangeCapa = (e) => {
+        const arquivo = e.target.files[0];
+        if (arquivo) {
+            setFileCapa(arquivo);
+            const reader = new FileReader();
+            reader.onload = () => {
+                setPreviewCapa(reader.result);
+            };
+            reader.readAsDataURL(arquivo);
+        }
+    }
+
     const handleClick = async (e) => {
         e.preventDefault();
         try {
@@ -48,10 +61,14 @@ export default function FotosPerfilECapaConfig() {
             const id = localStorage.getItem("id");
 
             let novaPerfilURL = perfilURL || usuario.fotoPerfil;
+            let novaCapaURL = capaURL || usuario.fotoCapa
 
-            if (filePerfil) {
+            if (filePerfil || fileCapa) {
                 const formData = new FormData();
                 formData.append("file", filePerfil);
+                
+                const formData2 = new FormData();
+                formData2.append("file2", fileCapa);
 
                 const config = {
                     headers: {
@@ -63,15 +80,19 @@ export default function FotosPerfilECapaConfig() {
                 const dado = await api.post(`/user/images?containerName=${containerName}`, formData, config);
                 const req = await dado.data;
 
-                if (req) {
+                const dado2 = await api.post(`/user/images?containerName=${containerName}`, formData2, config);
+                const req2 = await dado2.data;
+
+                if (req || req2) {
                     window.alert("Imagem upada com sucesso");
                     novaPerfilURL = req.data;
+                    novaCapaURL = req2.data;
                 }
             }
 
             const atualizarUser = await api.put(`/user/atualizar/${id}`, {
                 fotoPerfil: novaPerfilURL,
-                fotoCapa: capaURL || usuario.fotoCapa,
+                fotoCapa: novaCapaURL,
                 curso: curso || usuario.curso,
                 descricao: bio || usuario.descricao,
             }, { headers: { Authorization: `${token}` } });
@@ -90,10 +111,14 @@ export default function FotosPerfilECapaConfig() {
         <>
             <div className="fotosPerfilECapaConfig">
                 <div className='divEditarCapa'>
-                    <img src={usuario.fotoCapa} alt="" className='imgCapaConfig' />
+                    {previewCapa ? (
+                        <img src={previewCapa} alt="Prévia" className="imgCapaConfig" />
+                    ) : (
+                        <img src={usuario.fotoCapa} alt="" className='imgCapaConfig' />
+                    )}
                     <label htmlFor='file-upload-capa' className='labelEditarCapa' style={{ cursor: 'pointer' }}>
                         <img src={iconeImagemPost1} alt="Ícone de imagem" className='iconeEditarImagemCapa' />
-                        <input id='file-upload-capa' type='file' className='inputEnviarImagemCapa' accept='image/*' />
+                        <input id='file-upload-capa' type='file' className='inputEnviarImagemCapa' accept='image/*' onChange={handleChangeCapa} />
                     </label>
                 </div>
                 <div className='divEditarPfp'>

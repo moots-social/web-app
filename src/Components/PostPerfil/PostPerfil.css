@@ -2,7 +2,7 @@
     display: flex;
 }
 
-.containerFeedF{
+.containerFeed{
     overflow-x: hidden;
     align-items: center;
     display: flex;
@@ -13,39 +13,26 @@
     padding: 10px 0px 20px 0px;
 }
 
-.reacoesF {
+.reacoes {
     margin: 0 auto;
-    width: 60%;
+    width: 29vw;
     display: flex;
     justify-content: space-between;
 
-
 }
 
-.reactionsF {
+.reactions {
     display: flex;
     flex-direction: row;
     gap: 32px;
 }
 
-.iconesReacaoF{
-    cursor: pointer;
-}
-
-.iconesReacaoF img{
-color: aqua;
-}
-
-.iconesReacaoF:hover{
-    transform: scale(1.1);
-}
-
-.iconesReacaoF {
+.iconesReacao {
     width: 32px;
     height: 32px;
 }
 
-.containerNotificacaoF {
+.containerNotificacao {
     height: min-content;
     display: flex;
     justify-content: flex-end;
@@ -54,68 +41,52 @@ color: aqua;
     right: 0;
 }
 
-.conteudoFeedF {
+.conteudoFeedPerfil{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 680px;
+    border: 1px solid black;
+    width: 480px;
     height: max-content;
+    background-color: white;
     border-radius: 15px;
     padding: 0px 0px 20px 0px;
 }
 
-.perfilFeedContainerF {
+.perfilFeedContainer {
     align-items: center;
     display: flex;
-    padding: 40px;
+    padding: 30px 0px 0px 30px;
     gap: 30px;
-    flex-direction: column;
-    border: 1px solid black;
-    background-color: white;
-    border-radius: 15px;
 }
 
-.pfpfeedF {
+.pfpFeed {
     border-radius: 50px;
     width: 70px;
     height: 70px;
+}
+
+.pfpFeed, .pfpPostFeed{
     border: 1px solid black;
 }
 
-.perfilInfoF{
-    width: 100%;
-}
-
-.paiPfpFeedF{
-    width: 100%;
-    display: flex;
-    gap: 20px;
-}
-
-
-.pfpFeedF, .pfpPostFeedF{
-    border: 1px solid black;
-}
-
-.nomePerfilFeedF {
+.nomePerfilFeed {
     font-size: 26px;
     color: #000;
 }
 
-.arrobaFeedF {
+.arrobaFeed {
     font-size: 28px;
     color: #b6b3b3;
 }
 
-.textoDescricaoF {
+.textoDescricao {
+    /* max-width: 0px; */
     margin: 0 auto;
-    width: 70%;
     font-size: 15px;
-    padding: 0;
-    overflow-wrap: break-word;
 }
 
-.containerImagemFeedF {
+.containerImagemFeedPerfil {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,13 +94,13 @@ color: aqua;
     gap: 10px;
 }
 
-.imagemFeedF {
+.imagemFeed {
+    width: 300px;
     border-radius: 18px;
     border: 1px solid black;
-    width: 350px;
 }
 
-.postFeedContainerF {
+.postFeedContainer {
     display: flex;
     width: 675px;
     height: 115px;
@@ -141,177 +112,174 @@ color: aqua;
     cursor: pointer;
 }
 
-.pfpPostFeedF {
+.pfpPostFeed {
     border-radius: 50px;
     width: 70px;
     height: 70px;
 }
 
-.textoPostFeedF {
+.textoPostFeed {
     font-size: 26px;
 }
 
 @media (max-width: 860px) {
-    .conteudoFeedF{
+    .conteudoFeed{
         width: 600px;
     }
-    .postFeedContainerF{
+    .postFeedContainer{
         width: 600px;
     }
 }
 
 @media (max-width: 834px) {
-    .feedF {
+    .feed {
         flex-direction: column-reverse;
         justify-content: space-between;
     }
 
-    .containerFeedF {
+    .containerFeed {
         padding-bottom: 110px;
     }
 }
 
 @media (max-width: 790px) {
-    .imagemSinoNotificacaoF {
+    .imagemSinoNotificacao {
         width: 35px;
     }
 }
 
 @media (max-width: 680px) {
-    .conteudoFeedF {
+    .conteudoFeed {
         width: 580px;
     }
 
-    .postFeedContainerF {
+    .postFeedContainer {
         width: 580px;
     }
 }
 
 @media (max-width: 665px) {
-    .conteudoFeedF {
+    .conteudoFeed {
         width: 480px;
     }
 
-    .postFeedContainerF {
+    .postFeedContainer {
         width: 480px;
     }
 }
 
 @media (max-width: 565px) {
-    .conteudoFeedF {
+    .conteudoFeed {
         width: 380px;
     }
 
-    .postFeedContainerF {
+    .postFeedContainer {
         width: 380px;
     }
 
-    .imagemFeedF{
+    .imagemFeed{
         width: 300px;
-    }
-    .reacoesF{
-        width: 80%;
     }
 }
 
 @media (max-width: 465px) {
-    .conteudoFeedF {
+    .conteudoFeed {
         width: 350px;
     }
 
-    .postFeedContainerF {
+    .postFeedContainer {
         width: 350px;
     }
 
-    .imagemFeedF{
+    .imagemFeed{
         width: 300px;
     }
 
-    .reacoesF{
+    .reacoes{
         justify-content: center;
         gap: 35px;
     }
-    .reactionsF{
+    .reactions{
         gap: 35px;
     }
 
-    .iconesReacaoF{
+    .iconesReacao{
         width: 25px;
         height: 25px;
     }
 }
 
 @media (max-width: 430px) {
-    .iconesReacaoF {
+    .iconesReacao {
         width: 22px;
         height: 22px;
     }
 
-    .imagemSinoNotificacaoF {
+    .imagemSinoNotificacao {
         width: 25px;
     }
 
-    .containerNotificacaoF {
+    .containerNotificacao {
         padding-bottom: 0px;
         padding-right: 5px;
     }
 
-    .conteudoFeedF {
+    .conteudoFeed {
         width: 360px;
     }
 
-    .pfpFeedF {
+    .pfpFeed {
         width: 55px;
     }
 
-    .nomePerfilFeedF {
+    .nomePerfilFeed {
         font-size: 18px;
     }
 
-    .arrobaFeedF {
+    .arrobaFeed {
         font-size: 20px;
     }
 
-    .textoDescricaoF {
+    .textoDescricao {
         font-size: 12px;
     }
 
-    .imagemFeedCF {
+    .imagemFeed {
         width: 250px;
     }
 
-    .postFeedContainerF {
+    .postFeedContainer {
         width: 360px;
         padding: 15px;
     }
 
-    .pfpPostFeedF {
+    .pfpPostFeed {
         width: 45px;
         height: 45px;
     }
 
-    .textoPostFeedF {
+    .textoPostFeed {
         font-size: 18px;
     }
 }
 
 @media (max-width: 420px) {
-    .postFeedContainerF{
+    .postFeedContainer{
         width: 300px;
     }
-    .conteudoFeedF{
+    .conteudoFeed{
         width: 300px;
     }
 }  
 
 @media (max-width: 360px) {
-    .postFeedContainerF{
+    .postFeedContainer{
         width: 280px;
     }
-    .conteudoFeedF{
+    .conteudoFeed{
         width: 280px;
     }
-    .imagemFeedF{
+    .imagemFeed{
         width: 200px;
     }
 }

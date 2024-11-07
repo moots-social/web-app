@@ -1,26 +1,24 @@
+
+
 import "../feed.css";
 import IconeLike from "../../../assets/img/iconeCoracao.svg";
 import IconeDislike from "../../../assets/img/iconeDeslike.svg";
 import IconeFavorito from "../../../assets/img/iconeEstrela.svg";
 import IconeComentario from "../../../assets/img/iconeComentarios.svg";
 import { useUsuarioContext } from "../../../Context/useUsuarioContext";
-import ImagemFeed from "../../../assets/img/post.png";
 import { useState, useEffect } from "react";
 import api from "../../../config/api";
 
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
   const [posts, setPosts] = useState([]);
-  const [like, setLike] = useState([]);
-
-  // var postId;
 
   const token = localStorage.getItem("token");
-  const id = localStorage.getItem("id");
 
+  // Função para buscar os posts
   const getPosts = async () => {
     try {
-      const dados = await api.get(`/search/post/${id}`, {
+      const dados = await api.get(`/post/find-all`, {
         headers: { authorization: `${token}` },
       });
 
@@ -34,78 +32,81 @@ export default function FeedConteudo() {
     }
   };
 
-  const curtirPost = async (e) => {
-    const {postId} = e;
-
+  
+  const curtirPost = async (postId, deuLike, contadorLike) => {
     try {
-      const dados = await api.put(`/post/dar-like`, {}, {
-        headers: { authorization: `${token}` },
-        params: {
-          postId: postId,
-          like: true
+     
+      const likeStatus = deuLike ? false : true; // Alterna entre true e false
+      const dados = await api.put(
+        `/post/dar-like`,
+        {},
+        {
+          headers: { authorization: `${token}` },
+          params: {
+            postId: postId,
+            like: likeStatus,
+          },
         }
-      });
+      );
 
-      
       const req = await dados.data;
-      if(req) {
+
+      // Atualiza o contador de likes
+      if (req) {
         console.log(req.contadorLike);
+        setPosts((prevPosts) =>
+          prevPosts.map((post) =>
+            post.id === postId
+              ? { ...post, contadorLike: req.contadorLike, deuLike: likeStatus }
+              : post
+          )
+        );
       }
-
-      if(req.contadorLike){
-        setLike(true);
-      }
-
     } catch (error) {
       console.log(error.response.data.error);
     }
+  };
 
-    if(like == true){
-      alert('ja curtiu seu porra')
-    }
-  }  
-
-  useEffect(() => { 
+  useEffect(() => {
     getPosts();
   }, []);
 
   return (
-    <div className="conteudoFeed">
+    <div className="conteudoFeedF">
       {posts?.map((e, index) => {
-
         return (
-          <>
-            <div className="perfilFeedContainer" key={index}>
-              <div className="paiPfpFeed">
-                <img src={e.fotoPerfil} alt="" className="pfpfeed" />
-                <div className="perfilInfo">
-                  <p className="nomePerfilFeed">{e.nomeCompleto}</p>
-                  <p className="arrobaFeed">@{e.tag}</p>
-                </div>
-              </div>
-              <div className="textoDescricao">
-                <p>{e.texto}</p>
-              </div>
-              <div className="containerImagemFeed">
-                <img src={e.listImagens[0]} alt="" className="imagemFeed" />
-              </div>
-              <div className="reacoes">
-                <div className="reactions">
-                  <img className="iconesReacao" src={IconeLike} onClick={() => {
-                    curtirPost(e)}}></img>
-                    <p className="contadorLike">{e.contadorLike}</p>
-                  <img className="iconesReacao" src={IconeDislike}></img>
-                  <img className="iconesReacao" src={IconeFavorito}></img>
-                </div>
-                <div className="comments">
-                  <img className="iconesReacao" src={IconeComentario}></img>
-                </div>
+          <div className="perfilFeedContainerF" key={index}>
+            <div className="paiPfpFeedF">
+              <img src={e.fotoPerfil} alt="" className="pfpfeedF" />
+              <div className="perfilInfoF">
+                <p className="nomePerfilFeedF">{e.nomeCompleto}</p>
+                <p className="arrobaFeedF">@{e.tag}</p>
               </div>
             </div>
-          </>
+            <div className="textoDescricaoF">
+              <p>{e.texto}</p>
+            </div>
+            <div className="containerImagemFeedF">
+              <img src={e.listImagens[0]} alt="" className="imagemFeedF" />
+            </div>
+            <div className="reacoesF">
+              <div className="reactionsF">
+                <img
+                  className="iconesReacaoF"
+                  src={IconeLike}
+                  onClick={() => curtirPost(e.id, e.deuLike, e.contadorLike)}
+                ></img>
+                <p className="contadorLikeF">{e.contadorLike}</p>
+                <img className="iconesReacaoF" src={IconeDislike}></img>
+                <img className="iconesReacaoF" src={IconeFavorito}></img>
+              </div>
+              <div className="commentsF">
+                <img className="iconesReacaoF" src={IconeComentario}></img>
+              </div>
+            </div>
+          </div>
         );
       })}
-
     </div>
   );
-}  
+}

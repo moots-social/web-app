@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import pesquisa from "../../assets/img/iconePesquisa.png";
 import home from "../../assets/img/iconeHome.png";
 import mensagem from "../../assets/img/iconeMensagens.png";
-import novoPost from "../../assets/img/iconeNovoPost.png";
+import notificacoes from "../../assets/img/notificacao.png";
 import coracao from "../../assets/img/iconeCoracao.png";
 import "../../Pages/telaChat/telaChat.css";
 import "../../Pages/Salvos/Salvos.css";
@@ -70,13 +70,13 @@ export default function SideBar() {
           </div>
         </Link> 
 
-      <Link to="/feed">
+      <Link to="">
         <div className="containerIcone">
           <div className="icone">
-            <img src={novoPost} alt="icone-novo-post"/>
+            <img src={notificacoes} alt="icone-novo-post"/>
           </div>
           <div className="tituloIcone">
-            <p>Novo Post</p>
+            <p>Notificações</p>
           </div>
         </div>
         </Link>

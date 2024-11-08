@@ -1,12 +1,12 @@
-
-
 import "../feed.css";
 import IconeLike from "../../../assets/img/iconeCoracao.svg";
 import IconeDislike from "../../../assets/img/iconeDeslike.svg";
 import IconeFavorito from "../../../assets/img/iconeEstrela.svg";
 import IconeComentario from "../../../assets/img/iconeComentarios.svg";
+import IconeCoracaoVermelho from "../../../assets/img/coracaoVermelho.png";
 import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import api from "../../../config/api";
 
 export default function FeedConteudo() {
@@ -32,10 +32,9 @@ export default function FeedConteudo() {
     }
   };
 
-  
   const curtirPost = async (postId, deuLike, contadorLike) => {
     try {
-     
+      // Alterna o like (deuLike) e faz o request
       const likeStatus = deuLike ? false : true; // Alterna entre true e false
       const dados = await api.put(
         `/post/dar-like`,
@@ -77,10 +76,14 @@ export default function FeedConteudo() {
         return (
           <div className="perfilFeedContainerF" key={index}>
             <div className="paiPfpFeedF">
-              <img src={e.fotoPerfil} alt="" className="pfpfeedF" />
+              <Link to="/perfil/:id">
+                <img src={e.fotoPerfil} alt="" className="pfpfeedF" />
+              </Link>
               <div className="perfilInfoF">
-                <p className="nomePerfilFeedF">{e.nomeCompleto}</p>
-                <p className="arrobaFeedF">@{e.tag}</p>
+                <Link to="/perfil/:id">
+                  <p className="nomePerfilFeedF">{e.nomeCompleto}</p>
+                  <p className="arrobaFeedF">{e.tag}</p>
+                </Link>
               </div>
             </div>
             <div className="textoDescricaoF">
@@ -93,7 +96,7 @@ export default function FeedConteudo() {
               <div className="reactionsF">
                 <img
                   className="iconesReacaoF"
-                  src={IconeLike}
+                  src={IconeCoracaoVermelho}
                   onClick={() => curtirPost(e.id, e.deuLike, e.contadorLike)}
                 ></img>
                 <p className="contadorLikeF">{e.contadorLike}</p>

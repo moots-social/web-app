@@ -27,15 +27,6 @@ background: linear-gradient(158deg, rgba(255,250,187,1) 0%, rgba(224,245,255,1) 
     padding-top: 50px;
 }
 
-.selectCursos{
-    position: relative;
-    top: 20%;
-    left: 1.5%;
-    height: 40px;
-    width: 200px;
-    border-radius: 2px;
-}
-
 @media (max-width: 834px){
     .containerCursoEBio{
         flex-direction: column;
@@ -157,10 +148,35 @@ background: linear-gradient(158deg, rgba(255,250,187,1) 0%, rgba(224,245,255,1) 
     height: 100px;
 }
 
+.editarInformacoesPerfil{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 100px 20px 0 0;
+}
+
+.inputEditarNome{
+    border: 1.5px solid black;
+    font-family: 'Poppins', sans-serif;
+}
+
+.selectCursos{
+    position: relative;
+    height: 40px;
+    width: 200px;
+    border-radius: 15px;
+    border: 1.5px solid black;
+    font-family: 'Poppins', sans-serif;
+}
+
 .inputBio{
     width: 100%;
     height: 100px;
     resize: none;
+    border-radius: 15px;
+    border: 1.5px solid black;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
 }
 
 textarea:focus, input:focus{

@@ -42,7 +42,7 @@ export default function PostPerfil() {
                 </div>
                 <div className="perfilInfo">
                   <p className="nomePerfilFeed">{usuario.nomeCompleto}</p>
-                  <p className="arrobaFeed">@{usuario.tag}</p>
+                  <p className="arrobaFeed">{usuario.tag}</p>
                 </div>
               </div>
                 <p className="textoDescricao">{post.texto}</p>

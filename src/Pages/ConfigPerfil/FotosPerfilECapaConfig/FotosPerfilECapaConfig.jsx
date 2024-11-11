@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react';
 import api from '../../../config/api';
 import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 export default function FotosPerfilECapaConfig() {
 
     const navigate = useNavigate();
 
     const [bio, setBio] = useState("");
+    const [nomeCompleto, setNomeCompleto] = useState("");
     const [curso, setCurso] = useState("");
     const [filePerfil, setFilePerfil] = useState();
     const [fileCapa, setFileCapa] = useState();
@@ -27,6 +29,11 @@ export default function FotosPerfilECapaConfig() {
     const selectBio = (event) => {
         const novoValor = event.target.value;
         setBio(novoValor);
+    };
+
+    const selectNomeCompleto = (event) => {
+        const novoValor = event.target.value;
+        setNomeCompleto(novoValor);
     };
 
     const handleChange = (e) => {
@@ -95,6 +102,7 @@ export default function FotosPerfilECapaConfig() {
                 fotoCapa: novaCapaURL,
                 curso: curso || usuario.curso,
                 descricao: bio || usuario.descricao,
+                nomeCompleto: nomeCompleto,
             }, { headers: { Authorization: `${token}` } });
 
             const request = await atualizarUser.data;
@@ -134,15 +142,23 @@ export default function FotosPerfilECapaConfig() {
                 </div>
             </div>
             <div className="containerCursoEBio">
-                <select id="cursos" onChange={selectCurso} className='selectCursos'>
-                    <option value="REDES">REDES</option>
-                    <option value="DESENVOLVIMENTO">DESENVOLVIMENTO</option>
-                    <option value="FIC">FIC</option>
-                    <option value="MECANICA">MECANICA</option>
-                    <option value="QUALIDADE">QUALIDADE</option>
-                </select>
+                <div className='editarInformacoesPerfil'>
+                    <input type='text' className='editarNomePerfil' placeholder={usuario.nomeCompleto} onChange={selectNomeCompleto}></input>
+                    <select id="cursos" onChange={selectCurso} className='selectCursos'>
+                        <option value="REDES" data-imag>REDES</option>
+                        <option value="DESENVOLVIMENTO">DESENVOLVIMENTO</option>
+                        <option value="FIC">FIC</option>
+                        <option value="MECANICA">MECANICA</option>
+                        <option value="QUALIDADE">QUALIDADE</option>
+                    </select>
+                    <Link to='/modalEsqueci'>
+                        <p style={{color: '#468B51', fontSize: '22px'}}>Redefinir Senha</p>
+                    </Link>
+                    <p onClick='' style={{color:'#FF2626', cursor:'pointer', fontSize: '22px'}}>Sair da Conta</p>
+                    <p onClick='' style={{color:'#FF2626', cursor:'pointer', fontSize: '22px'}}>Excluir Conta</p>
+                </div>
                 <div className="escrevaBio">
-                    <textarea className='inputBio' onChange={selectBio}></textarea>
+                    <textarea className='inputBio' onChange={selectBio} placeholder={usuario.descricao}></textarea>
                 </div>
             </div>
             <div className="btnEnviar" onClick={handleClick}>

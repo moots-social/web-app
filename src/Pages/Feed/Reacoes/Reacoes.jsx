@@ -1,4 +1,4 @@
-import IconeLike from '../../../assets/img/Heart.png'
+import IconeLike from '../../../assets/img/Heart.svg'
 import IconeDislike from '../../../assets/img/deslike.png'
 import IconeFavorito from '../../../assets/img/star.svg'
 import IconeComentario from '../../../assets/img/Comentário.png'

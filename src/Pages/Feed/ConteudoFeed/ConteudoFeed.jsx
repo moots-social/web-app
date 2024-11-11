@@ -1,9 +1,9 @@
 import "../feed.css";
 import IconeLike from "../../../assets/img/iconeCoracao.svg";
-import IconeDislike from "../../../assets/img/iconeDeslike.svg";
 import IconeFavorito from "../../../assets/img/iconeEstrela.svg";
 import IconeComentario from "../../../assets/img/iconeComentarios.svg";
 import IconeCoracaoVermelho from "../../../assets/img/coracaoVermelho.png";
+import iconeEstrelaPreenchido from "../../../assets/img/iconeEstrelaPreenchida.svg";
 import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -14,6 +14,9 @@ export default function FeedConteudo() {
   const [posts, setPosts] = useState([]);
 
   const token = localStorage.getItem("token");
+
+  const [heartColor, setHeartColor] = useState(IconeLike);
+
 
   // Função para buscar os posts
   const getPosts = async () => {
@@ -61,6 +64,12 @@ export default function FeedConteudo() {
           )
         );
       }
+
+      if (likeStatus == true) {
+        setHeartColor(IconeCoracaoVermelho);
+      } else {
+        setHeartColor(IconeLike);
+      }
     } catch (error) {
       console.log(error.response.data.error);
     }
@@ -94,14 +103,15 @@ export default function FeedConteudo() {
             </div>
             <div className="reacoesF">
               <div className="reactionsF">
-                <img
-                  className="iconesReacaoF"
-                  src={IconeCoracaoVermelho}
-                  onClick={() => curtirPost(e.id, e.deuLike, e.contadorLike)}
-                ></img>
-                <p className="contadorLikeF">{e.contadorLike}</p>
-                <img className="iconesReacaoF" src={IconeDislike}></img>
-                <img className="iconesReacaoF" src={IconeFavorito}></img>
+                <div>
+                  <img
+                    className="iconesReacaoF"
+                    src={heartColor}
+                    onClick={() => curtirPost(e.id, e.deuLike, e.contadorLike)}
+                  ></img>
+                  <p className="contadorLikeF">{e.contadorLike}</p>
+                </div>  
+                <img className="iconesReacaoF" src={iconeEstrelaPreenchido}></img>
               </div>
               <div className="commentsF">
                 <img className="iconesReacaoF" src={IconeComentario}></img>

@@ -124,7 +124,7 @@ export default function ModalNovoPost() {
               type="text"
               placeholder="No que você esta pensando..."
               wrap="hard"
-              rows={15}
+              rows={5}
             ></textarea>
             {/* <img
               className="imagemEnviarPost"

@@ -2,7 +2,10 @@
     display: flex;
 }
 
+
 .containerFeedF{
+
+
     overflow-x: hidden;
     align-items: center;
     display: flex;
@@ -124,7 +127,7 @@ color: aqua;
 .imagemFeedF {
     border-radius: 18px;
     border: 1px solid black;
-    width: 350px;
+    width: 250px;
 }
 
 .postFeedContainerF {

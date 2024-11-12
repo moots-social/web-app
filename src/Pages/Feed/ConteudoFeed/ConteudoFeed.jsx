@@ -17,7 +17,6 @@ export default function FeedConteudo() {
 
   const [heartColor, setHeartColor] = useState(IconeLike);
 
-
   // Função para buscar os posts
   const getPosts = async () => {
     try {
@@ -75,6 +74,30 @@ export default function FeedConteudo() {
     }
   };
 
+  const salvarPostColecao = async (postId) => {
+    try {
+      const dados = await api.post(
+        `/post/salvar-post-colecao`,
+        {},
+        {
+          headers: { authorization: `${token}` },
+          params: {
+            postId: postId,
+          },
+        }
+      );
+
+      const req = await dados.data;
+
+      if (req) {
+        console.log(req);
+        window.alert("Post salvo na coleção");
+      }
+    } catch (error) {
+      console.log(error.response.data.error);
+    }
+  };
+
   useEffect(() => {
     getPosts();
   }, []);
@@ -110,8 +133,12 @@ export default function FeedConteudo() {
                     onClick={() => curtirPost(e.id, e.deuLike, e.contadorLike)}
                   ></img>
                   <p className="contadorLikeF">{e.contadorLike}</p>
-                </div>  
-                <img className="iconesReacaoF" src={iconeEstrelaPreenchido}></img>
+                </div>
+                <img
+                  className="iconesReacaoF"
+                  src={iconeEstrelaPreenchido}
+                  onClick={() => salvarPostColecao(e.id)}
+                ></img>
               </div>
               <div className="commentsF">
                 <img className="iconesReacaoF" src={IconeComentario}></img>

@@ -4,6 +4,7 @@ import "./salvos.css";
 import "../Principal/ResponsividadeInicialeSalvos/Responsividade.css"
 
 function Salvos() {
+  
   return (
     <div className="bg pai">
       <SideBar />

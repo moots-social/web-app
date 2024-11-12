@@ -55,7 +55,7 @@ export default function FeedConteudo() {
 
       // Atualiza o contador de likes
       if (req) {
-        console.log(req.contadorLike);
+        console.log(req);
         setPosts((prevPosts) =>
           prevPosts.map((post) =>
             post.id === postId

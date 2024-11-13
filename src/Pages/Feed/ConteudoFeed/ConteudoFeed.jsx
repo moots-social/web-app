@@ -87,12 +87,9 @@ export default function FeedConteudo() {
         }
       );
 
-      const req = await dados.data;
+      window.alert("Post salvo na coleção");
 
-      if (req) {
-        console.log(req);
-        window.alert("Post salvo na coleção");
-      }
+      
     } catch (error) {
       console.log(error.response.data.error);
     }

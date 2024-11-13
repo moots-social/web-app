@@ -73,7 +73,7 @@ export default function FotosPerfilECapaConfig() {
             if (filePerfil || fileCapa) {
                 const formData = new FormData();
                 formData.append("file", filePerfil);
-                
+
                 const formData2 = new FormData();
                 formData2.append("file2", fileCapa);
 
@@ -102,7 +102,7 @@ export default function FotosPerfilECapaConfig() {
                 fotoCapa: novaCapaURL,
                 curso: curso || usuario.curso,
                 descricao: bio || usuario.descricao,
-                nomeCompleto: nomeCompleto,
+                nomeCompleto: nomeCompleto || usuario.nomeCompleto,
             }, { headers: { Authorization: `${token}` } });
 
             const request = await atualizarUser.data;
@@ -144,18 +144,18 @@ export default function FotosPerfilECapaConfig() {
             <div className="containerCursoEBio">
                 <div className='editarInformacoesPerfil'>
                     <input type='text' className='editarNomePerfil' placeholder={usuario.nomeCompleto} onChange={selectNomeCompleto}></input>
-                    <select id="cursos" onChange={selectCurso} className='selectCursos'>
-                        <option value="REDES" data-imag>REDES</option>
-                        <option value="DESENVOLVIMENTO">DESENVOLVIMENTO</option>
-                        <option value="FIC">FIC</option>
-                        <option value="MECANICA">MECANICA</option>
-                        <option value="QUALIDADE">QUALIDADE</option>
+                    <select id="cursos" onChange={selectCurso} class="selectCursos">
+                        <option value="REDES" id="redes">REDES</option>
+                        <option value="DESENVOLVIMENTO" id="desenvolvimento">DESENVOLVIMENTO</option>
+                        <option value="FIC" id="fic">FIC</option>
+                        <option value="MECANICA" id="mecanica">MECANICA</option>
+                        <option value="QUALIDADE" id="qualidade">QUALIDADE</option>
                     </select>
                     <Link to='/modalEsqueci'>
-                        <p style={{color: '#468B51', fontSize: '22px'}}>Redefinir Senha</p>
+                        <p style={{ color: '#468B51', fontSize: '22px' }}>Redefinir Senha</p>
                     </Link>
-                    <p onClick='' style={{color:'#FF2626', cursor:'pointer', fontSize: '22px'}}>Sair da Conta</p>
-                    <p onClick='' style={{color:'#FF2626', cursor:'pointer', fontSize: '22px'}}>Excluir Conta</p>
+                    <p onClick='' style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Sair da Conta</p>
+                    <p onClick='' style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Excluir Conta</p>
                 </div>
                 <div className="escrevaBio">
                     <textarea className='inputBio' onChange={selectBio} placeholder={usuario.descricao}></textarea>

@@ -12,10 +12,16 @@ import api from "../../../config/api";
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
   const [posts, setPosts] = useState([]);
+  const [expandedPosts, setExpandedPosts] = useState({});
+
+  const toggleTexto = (index) => {
+    setExpandedPosts((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
 
   const token = localStorage.getItem("token");
-
-  const [heartColor, setHeartColor] = useState(IconeLike);
 
   // Função para buscar os posts
   const getPosts = async () => {
@@ -36,8 +42,7 @@ export default function FeedConteudo() {
 
   const curtirPost = async (postId, deuLike, contadorLike) => {
     try {
-      // Alterna o like (deuLike) e faz o request
-      const likeStatus = deuLike ? false : true; // Alterna entre true e false
+      const likeStatus = deuLike ? false : true;
       const dados = await api.put(
         `/post/dar-like`,
         {},
@@ -52,7 +57,6 @@ export default function FeedConteudo() {
 
       const req = await dados.data;
 
-      // Atualiza o contador de likes
       if (req) {
         console.log(req);
         setPosts((prevPosts) =>
@@ -62,12 +66,6 @@ export default function FeedConteudo() {
               : post
           )
         );
-      }
-
-      if (likeStatus == true) {
-        setHeartColor(IconeCoracaoVermelho);
-      } else {
-        setHeartColor(IconeLike);
       }
     } catch (error) {
       console.log(error.response.data.error);
@@ -104,44 +102,60 @@ export default function FeedConteudo() {
 
   return (
     <div className="conteudoFeedF">
-      {posts?.map((e, index) => {
+      {posts?.map((post, index) => {
+        const textoLimitado = post.texto.length > 100 ? post.texto.slice(0, 100) : post.texto;
+        const mostrarCompleto = expandedPosts[index];
+
         return (
           <div className="perfilFeedContainerF" key={index}>
             <div className="paiPfpFeedF">
               <Link to="/perfil/:id">
-                <img src={e.fotoPerfil} alt="" className="pfpfeedF" />
+                <img src={post.fotoPerfil} alt="" className="pfpfeedF" />
               </Link>
               <div className="perfilInfoF">
                 <Link to="/perfil/:id">
-                  <p className="nomePerfilFeedF">{e.nomeCompleto}</p>
-                  <p className="arrobaFeedF">{e.tag}</p>
+                  <p className="nomePerfilFeedF">{post.nomeCompleto}</p>
+                  <p className="arrobaFeedF">{post.tag}</p>
                 </Link>
               </div>
             </div>
             <div className="textoDescricaoF">
-              <p>{e.texto}</p>
+              <p className="textoDescricao">
+                {mostrarCompleto ? post.texto : textoLimitado}
+                {post.texto.length > 100 && (
+                  <span
+                    className="lerMais"
+                    onClick={() => toggleTexto(index)}
+                    style={{ cursor: "pointer", color: "#c4c4c4" }}
+                  >
+                    {mostrarCompleto ? " Ler Menos" : "... Ler Mais"}
+                  </span>
+                )}
+              </p>
             </div>
             <div className="containerImagemFeedF">
-              <img src={e.listImagens[0]} alt="" className="imagemFeedF" />
+              <img src={post.listImagens[0]} alt="" className="imagemFeedF" />
             </div>
             <div className="reacoesF">
               <div className="reactionsF">
                 <div>
                   <img
                     className="iconesReacaoF"
-                    src={heartColor}
-                    onClick={() => curtirPost(e.id, e.deuLike, e.contadorLike)}
-                  ></img>
-                  <p className="contadorLikeF">{e.contadorLike}</p>
+                    src={post.deuLike ? IconeCoracaoVermelho : IconeLike}
+                    onClick={() => curtirPost(post.id, post.deuLike, post.contadorLike)}
+                    alt="Curtir"
+                  />
+                  <p className="contadorLikeF">{post.contadorLike}</p>
                 </div>
                 <img
                   className="iconesReacaoF"
                   src={iconeEstrelaPreenchido}
-                  onClick={() => salvarPostColecao(e.id)}
-                ></img>
+                  onClick={() => salvarPostColecao(post.id)}
+                  alt="Favorito"
+                />
               </div>
               <div className="commentsF">
-                <img className="iconesReacaoF" src={IconeComentario}></img>
+                <img className="iconesReacaoF" src={IconeComentario} alt="Comentários" />
               </div>
             </div>
           </div>

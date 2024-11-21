@@ -48,6 +48,8 @@ export default function FotosPerfilECapaConfig() {
         }
     };
 
+    
+
     const handleChangeCapa = (e) => {
         const arquivo = e.target.files[0];
         if (arquivo) {
@@ -151,7 +153,7 @@ export default function FotosPerfilECapaConfig() {
                         <option value="MECANICA" id="mecanica">MECANICA</option>
                         <option value="QUALIDADE" id="qualidade">QUALIDADE</option>
                     </select>
-                    <Link to='/modalEsqueci'>
+                    <Link to='/alterarSenha'> 
                         <p style={{ color: '#468B51', fontSize: '22px' }}>Redefinir Senha</p>
                     </Link>
                     <p onClick='' style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Sair da Conta</p>

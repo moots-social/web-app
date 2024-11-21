@@ -1,5 +1,11 @@
 import "./modalComentarios.css";
 import enviarComentario from "../../assets/img/iconeEnviar.png";
+import { createContext } from "react";
+
+export const AbrirModalComent = createContext(() => {
+  let modalC = document.querySelector(".total");
+  modalC.style.display = "flex";
+});
 
 export default function ModalComentarios() {
   return (
@@ -11,12 +17,12 @@ export default function ModalComentarios() {
               <img src="https://picsum.photos/id/1068/100/100" alt="imagem" />
             </div>
             <div className="nomeUsuarioComentario">
-              <p>Livia</p>
-              <p>@Livia</p>  
+              <span className="usernameComent">Livia</span>
+              <span className="tagComent">@Livia</span>   
             </div>
           </div>
           <div className="divComentario">
-            <p className="comentario">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pbero nisi exercitationem aspernatur facere aperiam</p>
+            <p className="comentario">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pbero nisi exercitationem aspernatur facere aperiam hkhijkdhwqjdhquehgwqjqgdqwdhjwbduiahjdkaishdklahsidsdhau</p>
           </div>
         </div>
         <div className="balaoComentarios">
@@ -25,15 +31,15 @@ export default function ModalComentarios() {
               <img src="https://picsum.photos/id/1068/100/100" alt="imagem" />
             </div>
             <div className="nomeUsuarioComentario">
-              <p>Livia</p>
-              <p>@Livia</p>  
+              <span className="usernameComent">Livia</span>
+              <span className="tagComent">@Livia</span>  
             </div>
           </div>
           <div className="divComentario">
             <p className="comentario">Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
           </div>
         </div>
-        <div className="novoComentarios">
+        <div className="novoComentario">
             <input type="text" placeholder="Escreva um comentário..." />
             <img src={enviarComentario} className="iconeEnviarC" alt="enviar"></img>
         </div>

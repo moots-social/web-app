@@ -10,6 +10,9 @@ import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../../../config/api";
+import ModalComentarios from "../../../Components/ModalComentarios/ModalComentarios";
+import { AbrirModalComent } from "../../../Components/ModalComentarios/ModalComentarios";
+import { useContext } from "react";
 
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
@@ -102,7 +105,9 @@ export default function FeedConteudo() {
   }, []);
 
   return (
+    
     <div className="conteudoFeedF">
+      <ModalComentarios></ModalComentarios>
       {posts?.map((e, index) => {
         return (
           <div className="perfilFeedContainerF" key={index}>
@@ -141,7 +146,7 @@ export default function FeedConteudo() {
                   alt="Favoritar"
                 />
               </div>
-              <div className="commentsF">
+              <div className="commentsF" onClick={useContext(AbrirModalComent)}>
                 <img className="iconesReacaoF" src={IconeComentario} alt="Comentários" />
               </div>
             </div>

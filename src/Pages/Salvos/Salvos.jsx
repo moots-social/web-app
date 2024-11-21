@@ -1,49 +1,54 @@
 import SideBar from "../../Components/SideBar/SideBar";
-import BottomBar from "../../Components/BottomBar/BottomBar"
+import BottomBar from "../../Components/BottomBar/BottomBar";
 import "./salvos.css";
-import "../Principal/ResponsividadeInicialeSalvos/Responsividade.css"
+import "../Principal/ResponsividadeInicialeSalvos/Responsividade.css";
 import api from "../../config/api";
 import { UsuarioContext } from "../../Context/UsuarioContext";
 import { useEffect, useState } from "react";
 import lixeira from "../../assets/img/lixeira.png";
+import { Link } from "react-router-dom";
+import IconeLike from "../../assets/img/iconeCoracao.svg";
+import IconeCoracaoVermelho from "../../assets/img/coracaoVermelho.png";
+import iconeEstrelaPreenchido from "../../assets/img/iconeEstrelaPreenchida.svg";
+import { useContext } from "react";
+import { AbrirModalComent } from "../../Components/ModalComentarios/ModalComentarios";
+import IconeComentario from "../../assets/img/iconeComentarios.svg";
+
 
 function Salvos() {
-
-  const [colecao, setColecao] = useState([])
+  const [colecao, setColecao] = useState([]);
   const token = localStorage.getItem("token");
 
   const userId = localStorage.getItem("id");
   const minhaColecao = async () => {
-    try{
-    const dados = await api.get(`user/colecao-salvos/${userId}`,
-      { headers: { authorization: `${token}` } });
-    
+    try {
+      const dados = await api.get(`user/colecao-salvos/${userId}`, {
+        headers: { authorization: `${token}` },
+      });
+
       const req = await dados.data;
       if (req) {
-        console.log(req)
+        console.log(req);
         setColecao(req);
       }
 
-        if(dados){
-          let nadaSalvo = document.querySelector('.divNadaSalvo')
-          nadaSalvo.style.cssText = 'display:none';
-          let divSalvos = document.querySelector('.divSalvos')
-          divSalvos.style.cssText = 'display:block';
-        }
-
-    }catch(error){
-      console.log(error)
+      if (dados) {
+        let nadaSalvo = document.querySelector(".divNadaSalvo");
+        nadaSalvo.style.cssText = "display:none";
+        let divSalvos = document.querySelector(".divSalvos");
+        divSalvos.style.cssText = "display:block";
+      }
+    } catch (error) {
+      console.log(error);
     }
-
-  
-
-  }
+  };
 
   const excluirPostColecao = async (postId) => {
     try {
-      const dados = await api.delete(`/user/${userId}/post/${postId}`,
-        { headers: { authorization: `${token}`}});
-    
+      const dados = await api.delete(`/user/${userId}/post/${postId}`, {
+        headers: { authorization: `${token}` },
+      });
+
       const req = await dados.data;
       if (req) {
         console.log(req);
@@ -52,13 +57,11 @@ function Salvos() {
     } catch (error) {
       console.log(error.response.data.error);
     }
-  }
+  };
 
   useEffect(() => {
     minhaColecao();
   }, []);
-  
-
 
   return (
     <div className="bg pai">
@@ -75,15 +78,61 @@ function Salvos() {
         </div>
         <div className="divSalvos">
           {colecao.map((salvo) => {
-            return(
+            return (
               <div className="postSalvos">
-                <p>{salvo.nomeCompleto}</p>
+                {/* <p>{salvo.nomeCompleto}</p>
                 <p>{salvo.tag}</p>
                 <p>{salvo.texto}</p>
                 <img src={salvo.listImagens[0]} alt={salvo.nome} />
-                <img src={lixeira} onClick={() => excluirPostColecao(salvo.postId)} className="lixeira"/> 
+                <img src={lixeira} onClick={() => excluirPostColecao(salvo.postId)} className="lixeira"/>  */}
+                <div className="paiPostsColecao">
+                  <Link to="/perfil/:id">
+                    <img src={salvo.fotoPerfil} alt="" className="pfpfeedC" />
+                  </Link>
+                  <div className="perfilInfoC">
+                    <Link to="/perfil/:id">
+                      <p className="nomePerfilFeedC">{salvo.nomeCompleto}</p>
+                      <p className="arrobaFeedC">{salvo.tag}</p>
+                    </Link>
+                  </div>
+                </div>
+                <div className="textoDescricaoC">
+                  <p>{salvo.texto}</p>
+                </div>
+                <div className="containerImagemFeedC">
+                  <img src={salvo.listImagens[0]} alt="" className="imagemFeedC" />
+                </div>
+                <div className="reacoesC">
+                  <div className="reactionsC">
+                    <div>
+                      <img
+                        className="iconesReacaoC"
+                        src={salvo.deuLike ? IconeCoracaoVermelho : IconeLike}
+                        onClick={() => curtirPost(salvo.id, salvo.deuLike)} // Altera o estado do like
+                        alt="Like"
+                      />
+                      <p className="contadorLikeF">{salvo.contadorLike}</p>
+                    </div>
+                    <img
+                      className="iconesReacaoC"
+                      src={iconeEstrelaPreenchido}
+                      onClick={() => salvarPostColecao(salvo.id)}
+                      alt="Favoritar"
+                    />
+                  </div>
+                  <div
+                    className="commentsC"
+                    onClick={useContext(AbrirModalComent)}
+                  >
+                    <img
+                      className="iconesReacaoC"
+                      src={IconeComentario}
+                      alt="Comentários"
+                    />
+                  </div>
+                </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>

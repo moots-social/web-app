@@ -75,7 +75,6 @@
 }
 
 .divComentario{
-    border: 1px solid red;
     overflow-wrap: break-word;
     white-space: normal;
 }

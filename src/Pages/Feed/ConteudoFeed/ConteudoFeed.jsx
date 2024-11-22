@@ -17,6 +17,7 @@ import { useContext } from "react";
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
   const [posts, setPosts] = useState([]);
+  const [teste, setTeste] = useState();
 
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");
@@ -100,6 +101,18 @@ export default function FeedConteudo() {
     }
   };
 
+  function caca(){
+    console.log('caca')
+  }
+
+  const julio = useContext(AbrirModalComent)
+
+  const livia = async () => {
+    julio('aqui vai o post id')
+    caca()
+  }
+  
+
   useEffect(() => {
     getPosts();
   }, []);
@@ -146,7 +159,7 @@ export default function FeedConteudo() {
                   alt="Favoritar"
                 />
               </div>
-              <div className="commentsF" onClick={useContext(AbrirModalComent)}>
+              <div className="commentsF" onClick={livia}>
                 <img className="iconesReacaoF" src={IconeComentario} alt="Comentários" />
               </div>
             </div>

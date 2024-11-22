@@ -32,6 +32,12 @@ function Salvos() {
         setColecao(req);
       }
 
+      if(req.length == 0) {
+        let teste = document.querySelector('.divMain')
+        teste.style.cssText = "height:100vh";
+        console.log('ufsgaufsgauahehaurgas');
+      }
+
       if (dados) {
         let nadaSalvo = document.querySelector(".divNadaSalvo");
         nadaSalvo.style.cssText = "display:none";
@@ -79,12 +85,7 @@ function Salvos() {
         <div className="divSalvos">
           {colecao.map((salvo) => {
             return (
-              <div className="postSalvos">
-                {/* <p>{salvo.nomeCompleto}</p>
-                <p>{salvo.tag}</p>
-                <p>{salvo.texto}</p>
-                <img src={salvo.listImagens[0]} alt={salvo.nome} />
-                <img src={lixeira} onClick={() => excluirPostColecao(salvo.postId)} className="lixeira"/>  */}
+              <div className="postSalvos"> 
                 <div className="paiPostsColecao">
                   <Link to="/perfil/:id">
                     <img src={salvo.fotoPerfil} alt="" className="pfpfeedC" />
@@ -104,31 +105,12 @@ function Salvos() {
                 </div>
                 <div className="reacoesC">
                   <div className="reactionsC">
-                    <div>
-                      <img
-                        className="iconesReacaoC"
-                        src={salvo.deuLike ? IconeCoracaoVermelho : IconeLike}
-                        onClick={() => curtirPost(salvo.id, salvo.deuLike)} // Altera o estado do like
-                        alt="Like"
-                      />
-                      <p className="contadorLikeF">{salvo.contadorLike}</p>
-                    </div>
-                    <img
-                      className="iconesReacaoC"
-                      src={iconeEstrelaPreenchido}
-                      onClick={() => salvarPostColecao(salvo.id)}
-                      alt="Favoritar"
-                    />
+                    <img src={lixeira} onClick={() => excluirPostColecao(salvo.postId)} className="lixeira"/>
                   </div>
                   <div
                     className="commentsC"
                     onClick={useContext(AbrirModalComent)}
                   >
-                    <img
-                      className="iconesReacaoC"
-                      src={IconeComentario}
-                      alt="Comentários"
-                    />
                   </div>
                 </div>
               </div>

@@ -215,7 +215,7 @@ export default function ModalComentarios() {
             <div className="balaoComentarios" key={comentario.id}>
               <div className="perfilComentario">
                 <div className="imagemPerfilComentario">
-                  <img src="https://picsum.photos/id/1068/100/100" alt="imagem" />
+                  <img src={comentario.fotoPerfil} alt="imagem" />
                 </div>
                 <div className="nomeUsuarioComentario">
                   <span className="usernameComent">{comentario.nomeCompleto}</span>

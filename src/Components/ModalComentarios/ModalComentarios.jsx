@@ -10,7 +10,7 @@ export const AbrirModalComent = createContext((teste) => {
 const token = localStorage.getItem("token");
 const id = localStorage.getItem("id");
 
-// Método para enviar comentário
+//Método para enviar comentário
 // const CriarComentario = async () =>{
 //   try {
 //     const dados = await api.post(

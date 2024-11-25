@@ -12,19 +12,12 @@ import { Link } from "react-router-dom";
 import api from "../../../config/api";
 import ModalComentarios from "../../../Components/ModalComentarios/ModalComentarios";
 import { AbrirModalComent } from "../../../Components/ModalComentarios/ModalComentarios";
+import { GetComentarios } from "../../../Components/ModalComentarios/ModalComentarios";
 import { useContext } from "react";
 
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
   const [posts, setPosts] = useState([]);
-  // const [expandedPosts, setExpandedPosts] = useState({});
-
-  // const toggleTexto = (index) => {
-  //   setExpandedPosts((prevState) => ({
-  //     ...prevState,
-  //     [index]: !prevState[index],
-  //   }));
-  // };
 
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");
@@ -52,6 +45,8 @@ export default function FeedConteudo() {
       window.alert(error.response.data.error);
     }
   };
+
+  
 
   // Função para curtir ou descurtir o post
   const curtirPost = async (postId, deuLike) => {
@@ -108,80 +103,17 @@ export default function FeedConteudo() {
 
 
   const julio = useContext(AbrirModalComent)
+  const leo = GetComentarios
 
   const livia = async (idPost) => {
     julio(idPost)
+    leo(idPost)
   }
   
 
   useEffect(() => {
     getPosts();
   }, []);
-
-  // return (
-    
-  //   <div className="conteudoFeedF">
-  //     {posts?.map((post, index) => {
-  //       const textoLimitado = post.texto.length > 100 ? post.texto.slice(0, 100) : post.texto;
-  //       const mostrarCompleto = expandedPosts[index];
-
-  //       return (
-  //         <div className="perfilFeedContainerF" key={index}>
-  //           <div className="paiPfpFeedF">
-  //             <Link to="/perfil/:id">
-  //               <img src={post.fotoPerfil} alt="" className="pfpfeedF" />
-  //             </Link>
-  //             <div className="perfilInfoF">
-  //               <Link to="/perfil/:id">
-  //                 <p className="nomePerfilFeedF">{post.nomeCompleto}</p>
-  //                 <p className="arrobaFeedF">{post.tag}</p>
-  //               </Link>
-  //             </div>
-  //           </div>
-  //           <div className="textoDescricaoF">
-  //             <p className="textoDescricao">
-  //               {mostrarCompleto ? post.texto : textoLimitado}
-  //               {post.texto.length > 100 && (
-  //                 <span
-  //                   className="lerMais"
-  //                   onClick={() => toggleTexto(index)}
-  //                   style={{ cursor: "pointer", color: "#c4c4c4" }}
-  //                 >
-  //                   {mostrarCompleto ? " Ler Menos" : "... Ler Mais"}
-  //                 </span>
-  //               )}
-  //             </p>
-  //           </div>
-  //           <div className="containerImagemFeedF">
-  //             <img src={post.listImagens[0]} alt="" className="imagemFeedF" />
-  //           </div>
-  //           <div className="reacoesF">
-  //             <div className="reactionsF">
-  //               <div>
-  //                 <img
-  //                   className="iconesReacaoF"
-  //                   src={e.deuLike ? IconeCoracaoVermelho : IconeLike}
-  //                   onClick={() => curtirPost(e.id, e.deuLike)} // Altera o estado do like
-  //                   alt="Like"
-  //                 />
-  //                 <p className="contadorLikeF">{e.contadorLike}</p>
-  //               </div>
-  //               <img
-  //                 className="iconesReacaoF"
-  //                 src={iconeEstrelaPreenchido}
-  //                 onClick={() => salvarPostColecao(e.id)}
-  //                 alt="Favoritar"
-  //               />
-  //             </div>
-  //             <div className="commentsF" onClick={livia}>
-  //               <img className="iconesReacaoF" src={IconeComentario} alt="Comentários" />
-  //             </div>
-  //           </div>
-  //         </div>
-  //       );
-  //     })}
-  //   </div>
-  // );
 
   return (
     <div className="conteudoFeedF">

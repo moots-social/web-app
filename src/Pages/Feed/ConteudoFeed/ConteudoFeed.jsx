@@ -17,16 +17,17 @@ import { useContext } from "react";
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
   const [posts, setPosts] = useState([]);
-  const [expandedPosts, setExpandedPosts] = useState({});
+  // const [expandedPosts, setExpandedPosts] = useState({});
 
-  const toggleTexto = (index) => {
-    setExpandedPosts((prevState) => ({
-      ...prevState,
-      [index]: !prevState[index],
-    }));
-  };
+  // const toggleTexto = (index) => {
+  //   setExpandedPosts((prevState) => ({
+  //     ...prevState,
+  //     [index]: !prevState[index],
+  //   }));
+  // };
 
   const token = localStorage.getItem("token");
+  const id = localStorage.getItem("id");
 
   // Função para buscar os posts
   const getPosts = async () => {
@@ -105,15 +106,11 @@ export default function FeedConteudo() {
     }
   };
 
-  function caca(){
-    console.log('caca')
-  }
 
   const julio = useContext(AbrirModalComent)
 
-  const livia = async () => {
-    julio('aqui vai o post id')
-    caca()
+  const livia = async (idPost) => {
+    julio(idPost)
   }
   
 
@@ -121,42 +118,93 @@ export default function FeedConteudo() {
     getPosts();
   }, []);
 
-  return (
+  // return (
     
-    <div className="conteudoFeedF">
-      {posts?.map((post, index) => {
-        const textoLimitado = post.texto.length > 100 ? post.texto.slice(0, 100) : post.texto;
-        const mostrarCompleto = expandedPosts[index];
+  //   <div className="conteudoFeedF">
+  //     {posts?.map((post, index) => {
+  //       const textoLimitado = post.texto.length > 100 ? post.texto.slice(0, 100) : post.texto;
+  //       const mostrarCompleto = expandedPosts[index];
 
+  //       return (
+  //         <div className="perfilFeedContainerF" key={index}>
+  //           <div className="paiPfpFeedF">
+  //             <Link to="/perfil/:id">
+  //               <img src={post.fotoPerfil} alt="" className="pfpfeedF" />
+  //             </Link>
+  //             <div className="perfilInfoF">
+  //               <Link to="/perfil/:id">
+  //                 <p className="nomePerfilFeedF">{post.nomeCompleto}</p>
+  //                 <p className="arrobaFeedF">{post.tag}</p>
+  //               </Link>
+  //             </div>
+  //           </div>
+  //           <div className="textoDescricaoF">
+  //             <p className="textoDescricao">
+  //               {mostrarCompleto ? post.texto : textoLimitado}
+  //               {post.texto.length > 100 && (
+  //                 <span
+  //                   className="lerMais"
+  //                   onClick={() => toggleTexto(index)}
+  //                   style={{ cursor: "pointer", color: "#c4c4c4" }}
+  //                 >
+  //                   {mostrarCompleto ? " Ler Menos" : "... Ler Mais"}
+  //                 </span>
+  //               )}
+  //             </p>
+  //           </div>
+  //           <div className="containerImagemFeedF">
+  //             <img src={post.listImagens[0]} alt="" className="imagemFeedF" />
+  //           </div>
+  //           <div className="reacoesF">
+  //             <div className="reactionsF">
+  //               <div>
+  //                 <img
+  //                   className="iconesReacaoF"
+  //                   src={e.deuLike ? IconeCoracaoVermelho : IconeLike}
+  //                   onClick={() => curtirPost(e.id, e.deuLike)} // Altera o estado do like
+  //                   alt="Like"
+  //                 />
+  //                 <p className="contadorLikeF">{e.contadorLike}</p>
+  //               </div>
+  //               <img
+  //                 className="iconesReacaoF"
+  //                 src={iconeEstrelaPreenchido}
+  //                 onClick={() => salvarPostColecao(e.id)}
+  //                 alt="Favoritar"
+  //               />
+  //             </div>
+  //             <div className="commentsF" onClick={livia}>
+  //               <img className="iconesReacaoF" src={IconeComentario} alt="Comentários" />
+  //             </div>
+  //           </div>
+  //         </div>
+  //       );
+  //     })}
+  //   </div>
+  // );
+
+  return (
+    <div className="conteudoFeedF">
+      <ModalComentarios></ModalComentarios>
+      {posts?.map((e, index) => {
         return (
           <div className="perfilFeedContainerF" key={index}>
             <div className="paiPfpFeedF">
               <Link to="/perfil/:id">
-                <img src={post.fotoPerfil} alt="" className="pfpfeedF" />
+                <img src={e.fotoPerfil} alt="" className="pfpfeedF" />
               </Link>
               <div className="perfilInfoF">
                 <Link to="/perfil/:id">
-                  <p className="nomePerfilFeedF">{post.nomeCompleto}</p>
-                  <p className="arrobaFeedF">{post.tag}</p>
+                  <p className="nomePerfilFeedF">{e.nomeCompleto}</p>
+                  <p className="arrobaFeedF">{e.tag}</p>
                 </Link>
               </div>
             </div>
             <div className="textoDescricaoF">
-              <p className="textoDescricao">
-                {mostrarCompleto ? post.texto : textoLimitado}
-                {post.texto.length > 100 && (
-                  <span
-                    className="lerMais"
-                    onClick={() => toggleTexto(index)}
-                    style={{ cursor: "pointer", color: "#c4c4c4" }}
-                  >
-                    {mostrarCompleto ? " Ler Menos" : "... Ler Mais"}
-                  </span>
-                )}
-              </p>
+              <p>{e.texto}</p>
             </div>
             <div className="containerImagemFeedF">
-              <img src={post.listImagens[0]} alt="" className="imagemFeedF" />
+              <img src={e.listImagens[0]} alt="" className="imagemFeedF" />
             </div>
             <div className="reacoesF">
               <div className="reactionsF">
@@ -176,7 +224,7 @@ export default function FeedConteudo() {
                   alt="Favoritar"
                 />
               </div>
-              <div className="commentsF" onClick={livia}>
+              <div className="commentsF" onClick={()=>livia(e.id)}>
                 <img className="iconesReacaoF" src={IconeComentario} alt="Comentários" />
               </div>
             </div>

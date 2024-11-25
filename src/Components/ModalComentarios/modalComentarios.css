@@ -78,3 +78,36 @@
     overflow-wrap: break-word;
     white-space: normal;
 }
+
+.iconeEnviarC{
+    cursor: pointer;
+}
+
+.menuC {
+    display: block;
+    position: absolute;
+    right: 5%;
+    cursor: pointer;
+  }
+  .menuC .barC {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #1e1c2a;
+    margin: 0 auto;
+    transition: all 0.3s;
+  }
+  
+  .menuC .barC:nth-child(1),
+  .menuC .barC:nth-child(2) {
+    background-color: #000000;
+  }
+  
+  .menuC .barC:nth-child(1) {
+    transform: translateY(0px) rotate(45deg);
+  }
+  
+  .menuC .barC:nth-child(2) {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }

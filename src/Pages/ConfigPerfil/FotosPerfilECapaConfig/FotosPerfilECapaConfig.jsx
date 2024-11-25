@@ -48,7 +48,39 @@ export default function FotosPerfilECapaConfig() {
         }
     };
 
+    const handleExcluirConta = async () => {
+        const token = localStorage.getItem('token');
+        const id = localStorage.getItem("id");
     
+        if (!token || !id) {
+            console.error("Token ou ID não encontrados no localStorage.");
+            alert('Erro: Não autenticado.');
+            return;
+        }
+    
+        try {
+            console.log("Iniciando exclusão de conta...");
+            const response = await api.delete(`/user/excluir/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`, // Garantir o uso do Bearer para o token
+                },
+            });
+    
+            if (response.status === 200) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('id');
+                setUsuario(null);
+    
+                alert('Conta excluída com sucesso');
+                navigate('/login'); // Redireciona para a página de login
+            } else {
+                alert('Falha ao excluir a conta, tente novamente');
+            }
+        } catch (error) {
+            console.error("Erro ao excluir conta:", error);
+            alert('Erro ao excluir conta');
+        }
+    };
 
     const handleChangeCapa = (e) => {
         const arquivo = e.target.files[0];
@@ -72,31 +104,43 @@ export default function FotosPerfilECapaConfig() {
             let novaPerfilURL = perfilURL || usuario.fotoPerfil;
             let novaCapaURL = capaURL || usuario.fotoCapa
 
-            if (filePerfil || fileCapa) {
+            if (filePerfil) {
                 const formData = new FormData();
                 formData.append("file", filePerfil);
-
-                const formData2 = new FormData();
-                formData2.append("file2", fileCapa);
 
                 const config = {
                     headers: {
                         Authorization: `${token}`,
                         'Content-Type': 'multipart/form-data',
-                    },
+                    }
                 };
 
                 const dado = await api.post(`/user/images?containerName=${containerName}`, formData, config);
                 const req = await dado.data;
 
+                console.log(req)
+                if (req) {
+                    novaPerfilURL = req.data;
+                }else alert('DEU ERRO CARALHO')
+            }
+
+            if(fileCapa){
+                const formData2 = new FormData();
+                formData2.append("file", fileCapa);
+
+                const config = {
+                    headers: {
+                        Authorization: `${token}`,
+                        'Content-Type': 'multipart/form-data',
+                    }
+                };
+
                 const dado2 = await api.post(`/user/images?containerName=${containerName}`, formData2, config);
                 const req2 = await dado2.data;
 
-                if (req || req2) {
-                    window.alert("Imagem upada com sucesso");
-                    novaPerfilURL = req.data;
+                if (req2) {
                     novaCapaURL = req2.data;
-                }
+                }else alert('m')
             }
 
             const atualizarUser = await api.put(`/user/atualizar/${id}`, {
@@ -157,7 +201,7 @@ export default function FotosPerfilECapaConfig() {
                         <p style={{ color: '#468B51', fontSize: '22px' }}>Redefinir Senha</p>
                     </Link>
                     <p onClick='' style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Sair da Conta</p>
-                    <p onClick='' style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Excluir Conta</p>
+                    <p onClick={handleExcluirConta} style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Excluir Conta</p>
                 </div>
                 <div className="escrevaBio">
                     <textarea className='inputBio' onChange={selectBio} placeholder={usuario.descricao}></textarea>

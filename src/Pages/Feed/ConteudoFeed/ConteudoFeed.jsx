@@ -17,10 +17,16 @@ import { useContext } from "react";
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
   const [posts, setPosts] = useState([]);
-  const [teste, setTeste] = useState();
+  const [expandedPosts, setExpandedPosts] = useState({});
+
+  const toggleTexto = (index) => {
+    setExpandedPosts((prevState) => ({
+      ...prevState,
+      [index]: !prevState[index],
+    }));
+  };
 
   const token = localStorage.getItem("token");
-  const id = localStorage.getItem("id");
 
   // Função para buscar os posts
   const getPosts = async () => {
@@ -66,8 +72,6 @@ export default function FeedConteudo() {
       );
 
       const req = await dados.data;
-
-      // Atualiza o contador de likes e o estado de deuLike
       if (req) {
         setPosts((prevPosts) =>
           prevPosts.map((post) =>
@@ -120,26 +124,39 @@ export default function FeedConteudo() {
   return (
     
     <div className="conteudoFeedF">
-      <ModalComentarios></ModalComentarios>
-      {posts?.map((e, index) => {
+      {posts?.map((post, index) => {
+        const textoLimitado = post.texto.length > 100 ? post.texto.slice(0, 100) : post.texto;
+        const mostrarCompleto = expandedPosts[index];
+
         return (
           <div className="perfilFeedContainerF" key={index}>
             <div className="paiPfpFeedF">
               <Link to="/perfil/:id">
-                <img src={e.fotoPerfil} alt="" className="pfpfeedF" />
+                <img src={post.fotoPerfil} alt="" className="pfpfeedF" />
               </Link>
               <div className="perfilInfoF">
                 <Link to="/perfil/:id">
-                  <p className="nomePerfilFeedF">{e.nomeCompleto}</p>
-                  <p className="arrobaFeedF">{e.tag}</p>
+                  <p className="nomePerfilFeedF">{post.nomeCompleto}</p>
+                  <p className="arrobaFeedF">{post.tag}</p>
                 </Link>
               </div>
             </div>
             <div className="textoDescricaoF">
-              <p>{e.texto}</p>
+              <p className="textoDescricao">
+                {mostrarCompleto ? post.texto : textoLimitado}
+                {post.texto.length > 100 && (
+                  <span
+                    className="lerMais"
+                    onClick={() => toggleTexto(index)}
+                    style={{ cursor: "pointer", color: "#c4c4c4" }}
+                  >
+                    {mostrarCompleto ? " Ler Menos" : "... Ler Mais"}
+                  </span>
+                )}
+              </p>
             </div>
             <div className="containerImagemFeedF">
-              <img src={e.listImagens[0]} alt="" className="imagemFeedF" />
+              <img src={post.listImagens[0]} alt="" className="imagemFeedF" />
             </div>
             <div className="reacoesF">
               <div className="reactionsF">

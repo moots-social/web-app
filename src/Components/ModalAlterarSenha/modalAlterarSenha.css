@@ -1,0 +1,78 @@
+.containerModalEsqueci{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputSenhaAlterar{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.modalEsqueci{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 70vh;
+    margin: 0 auto;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 20px;
+    border: 1px solid black;
+}
+
+.modalEsqueci img{
+    width: 60px;
+    height: 61px;
+}
+
+.tituloTextoSenha{
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    text-align: center;
+}
+
+.tituloSenha{
+    font-size: 24px;
+    font-weight: 900;
+}
+
+
+.inputSenhaEsqueci input{
+    width: 257px;
+    height: 39px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.containerBotaoEnviarLink{
+    padding: 20px;
+}
+.enviarLink{
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #fff;
+    width: 179px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: #C9D3F2;
+    outline: none;
+    cursor: pointer;
+}
+
+.enviarLink:hover{
+    transform: scale(1.1);
+}
+
+@media (max-width: 767px) {
+    
+}
+

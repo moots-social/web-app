@@ -99,6 +99,7 @@ export default function ModalNovoPost() {
       alert("Tente novamente.");
       console.log(imageUrl + " esse é o erro");
     }
+    location.reload()
   };
 
   return (

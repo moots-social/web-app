@@ -1,5 +1,6 @@
 .feed {
     display: flex;
+    height: 100vh;
 }
 
 
@@ -225,7 +226,7 @@ color: aqua;
     }
 
     .imagemFeedF{
-        width: 300px;
+        width: 200px;
     }
 
     .reacoesF{
@@ -277,7 +278,7 @@ color: aqua;
         font-size: 12px;
     }
 
-    .imagemFeedCF {
+    .imagemFeedF {
         width: 250px;
     }
 

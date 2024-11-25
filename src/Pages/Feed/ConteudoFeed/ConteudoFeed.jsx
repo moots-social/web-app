@@ -1,3 +1,5 @@
+
+
 import "../feed.css";
 import IconeLike from "../../../assets/img/iconeCoracao.svg";
 import IconeFavorito from "../../../assets/img/iconeEstrela.svg";
@@ -8,6 +10,9 @@ import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../../../config/api";
+import ModalComentarios from "../../../Components/ModalComentarios/ModalComentarios";
+import { AbrirModalComent } from "../../../Components/ModalComentarios/ModalComentarios";
+import { useContext } from "react";
 
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
@@ -32,7 +37,14 @@ export default function FeedConteudo() {
 
       const req = await dados.data;
       if (req) {
-        setPosts(req);
+        // Atualiza os posts com a informação de 'deuLike'
+        const postsComLikeStatus = req.map(post => {
+          // Verifica se o usuário já curtiu o post
+          const deuLike = post.likeUsers.includes(id);
+          return { ...post, deuLike };
+        });
+
+        setPosts(postsComLikeStatus);
         console.log(req);
       }
     } catch (error) {
@@ -40,9 +52,13 @@ export default function FeedConteudo() {
     }
   };
 
-  const curtirPost = async (postId, deuLike, contadorLike) => {
+  // Função para curtir ou descurtir o post
+  const curtirPost = async (postId, deuLike) => {
     try {
-      const likeStatus = deuLike ? false : true;
+      // Alterna o estado de like
+      const likeStatus = deuLike ? false : true; // Se já deu like, vamos remover o like, caso contrário vamos dar o like
+
+      // Envia a requisição para curtir ou descurtir o post
       const dados = await api.put(
         `/post/dar-like`,
         {},
@@ -56,9 +72,7 @@ export default function FeedConteudo() {
       );
 
       const req = await dados.data;
-
       if (req) {
-        console.log(req);
         setPosts((prevPosts) =>
           prevPosts.map((post) =>
             post.id === postId
@@ -85,22 +99,30 @@ export default function FeedConteudo() {
         }
       );
 
-      const req = await dados.data;
-
-      if (req) {
-        console.log(req);
-        window.alert("Post salvo na coleção");
-      }
+      window.alert("Post salvo na coleção");
     } catch (error) {
       console.log(error.response.data.error);
     }
   };
+
+  function caca(){
+    console.log('caca')
+  }
+
+  const julio = useContext(AbrirModalComent)
+
+  const livia = async () => {
+    julio('aqui vai o post id')
+    caca()
+  }
+  
 
   useEffect(() => {
     getPosts();
   }, []);
 
   return (
+    
     <div className="conteudoFeedF">
       {posts?.map((post, index) => {
         const textoLimitado = post.texto.length > 100 ? post.texto.slice(0, 100) : post.texto;
@@ -141,20 +163,20 @@ export default function FeedConteudo() {
                 <div>
                   <img
                     className="iconesReacaoF"
-                    src={post.deuLike ? IconeCoracaoVermelho : IconeLike}
-                    onClick={() => curtirPost(post.id, post.deuLike, post.contadorLike)}
-                    alt="Curtir"
+                    src={e.deuLike ? IconeCoracaoVermelho : IconeLike}
+                    onClick={() => curtirPost(e.id, e.deuLike)} // Altera o estado do like
+                    alt="Like"
                   />
-                  <p className="contadorLikeF">{post.contadorLike}</p>
+                  <p className="contadorLikeF">{e.contadorLike}</p>
                 </div>
                 <img
                   className="iconesReacaoF"
                   src={iconeEstrelaPreenchido}
-                  onClick={() => salvarPostColecao(post.id)}
-                  alt="Favorito"
+                  onClick={() => salvarPostColecao(e.id)}
+                  alt="Favoritar"
                 />
               </div>
-              <div className="commentsF">
+              <div className="commentsF" onClick={livia}>
                 <img className="iconesReacaoF" src={IconeComentario} alt="Comentários" />
               </div>
             </div>
@@ -164,3 +186,4 @@ export default function FeedConteudo() {
     </div>
   );
 }
+

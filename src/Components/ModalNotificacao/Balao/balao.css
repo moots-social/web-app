@@ -1,0 +1,25 @@
+.fecharX{
+    width: 10px;
+}
+
+.botaoFechar{
+    display: flex;
+    position: absolute;
+    right: 2%;
+}
+
+.fotoNotificacao{
+    width: 45px;
+    display: flex;
+}
+
+.txtNotificacao{
+    font-size: 10px;
+}
+
+.imagemUser{
+    display: flex;
+    align-items: center;
+    gap:5px
+
+}

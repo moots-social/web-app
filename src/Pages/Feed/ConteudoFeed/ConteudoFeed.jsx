@@ -11,12 +11,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../../../config/api";
 import ModalComentarios from "../../../Components/ModalComentarios/ModalComentarios";
-import { AbrirModalComent } from "../../../Components/ModalComentarios/ModalComentarios";
-import { GetComentarios } from "../../../Components/ModalComentarios/ModalComentarios";
-import { useContext } from "react";
+import { useModal } from "../../../Context/ModalContext";
 
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
+  const { abrirModal } = useModal(); 
   const [posts, setPosts] = useState([]);
 
   const token = localStorage.getItem("token");
@@ -45,8 +44,6 @@ export default function FeedConteudo() {
       window.alert(error.response.data.error);
     }
   };
-
-  
 
   // Função para curtir ou descurtir o post
   const curtirPost = async (postId, deuLike) => {
@@ -101,16 +98,6 @@ export default function FeedConteudo() {
     }
   };
 
-
-  const julio = useContext(AbrirModalComent)
-  const leo = GetComentarios
-
-  const livia = async (idPost) => {
-    julio(idPost)
-    leo(idPost)
-  }
-  
-
   useEffect(() => {
     getPosts();
   }, []);
@@ -156,7 +143,7 @@ export default function FeedConteudo() {
                   alt="Favoritar"
                 />
               </div>
-              <div className="commentsF" onClick={()=>livia(e.id)}>
+              <div className="commentsF" onClick={() => abrirModal(e.id)}>
                 <img className="iconesReacaoF" src={IconeComentario} alt="Comentários" />
               </div>
             </div>

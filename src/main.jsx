@@ -20,32 +20,37 @@ import TelaPerfilVisitante from "./Pages/TelaPerfilVisitante/TelaPerfilVisitante
 import Seguindo from "./Components/Seguindo/Seguindo";
 import ModalAlterarSenha from "./Components/ModalAlterarSenha/ModalAlterarSenha";
 import ModalComents from "./Components/ModalComentarios/ModalComentarios";
+import ModaNotificacao from "./Components/ModalNotificacao/Notificacao"
 import { ProviderUsuarioContext } from "./Context/UsuarioContext";
+import { ModalProvider } from "./Context/ModalContext";
 
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <ProviderUsuarioContext>
-        <Routes>
-            <Route path="/" element={<App />}>
-              <Route path="telaLogin" element={<TelaLogin />} />
-              <Route path="/" element={<Principal />} />
-              <Route path="telaCadastro" element={<TelaCadastro />} />
-              <Route path="salvos" element={<TelaSalvos />} />
-              <Route path="telaChat" element={<TelaChat />} />
-              <Route path="perfil/:id" element={<TelaPerfil />} />
-              <Route path="feed" element={<TelaFeed />} />
-              <Route path="modalEsqueci" element={<ModalEsqueci />} />
-              <Route path="configPerfil" element={<ConfigPerfil />} />
-              <Route path="bottomBar" element={<BottomBar />} />
-              <Route path="modalNovo" element={<ModalNovo />} />
-              <Route path="perfilVisitante" element={<TelaPerfilVisitante />} />
-              <Route path="seguindo" element={<Seguindo />} />
-              <Route path="alterarSenha" element={<ModalAlterarSenha/>} />
-              <Route path="modalComents" element={<ModalComents />} />
-            </Route>
-        </Routes>
+        <ModalProvider>
+          <Routes>
+              <Route path="/" element={<App />}>
+                <Route path="telaLogin" element={<TelaLogin />} />
+                <Route path="/" element={<Principal />} />
+                <Route path="telaCadastro" element={<TelaCadastro />} />
+                <Route path="salvos" element={<TelaSalvos />} />
+                <Route path="telaChat" element={<TelaChat />} />
+                <Route path="perfil/:id" element={<TelaPerfil />} />
+                <Route path="feed" element={<TelaFeed />} />
+                <Route path="modalEsqueci" element={<ModalEsqueci />} />
+                <Route path="configPerfil" element={<ConfigPerfil />} />
+                <Route path="bottomBar" element={<BottomBar />} />
+                <Route path="modalNovo" element={<ModalNovo />} />
+                <Route path="perfilVisitante" element={<TelaPerfilVisitante />} />
+                <Route path="seguindo" element={<Seguindo />} />
+                <Route path="alterarSenha" element={<ModalAlterarSenha/>} />
+                <Route path="modalComents" element={<ModalComents />} />
+                <Route path="notificacao" element={<ModaNotificacao />} />
+              </Route>
+          </Routes>
+        </ModalProvider>    
       </ProviderUsuarioContext>
     </BrowserRouter>
   </StrictMode>

@@ -11,7 +11,6 @@ import IconeLike from "../../assets/img/iconeCoracao.svg";
 import IconeCoracaoVermelho from "../../assets/img/coracaoVermelho.png";
 import iconeEstrelaPreenchido from "../../assets/img/iconeEstrelaPreenchida.svg";
 import { useContext } from "react";
-import { AbrirModalComent } from "../../Components/ModalComentarios/ModalComentarios";
 import IconeComentario from "../../assets/img/iconeComentarios.svg";
 
 

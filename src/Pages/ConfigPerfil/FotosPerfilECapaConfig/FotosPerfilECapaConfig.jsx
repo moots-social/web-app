@@ -60,7 +60,7 @@ export default function FotosPerfilECapaConfig() {
     
         try {
             console.log("Iniciando exclusão de conta...");
-            const response = await api.delete(`/user/excluir/${id}`, {
+            const response = await api.delete(`/user/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`, // Garantir o uso do Bearer para o token
                 },
@@ -72,7 +72,7 @@ export default function FotosPerfilECapaConfig() {
                 setUsuario(null);
     
                 alert('Conta excluída com sucesso');
-                navigate('/login'); // Redireciona para a página de login
+                navigate('/'); // Redireciona para a página de login
             } else {
                 alert('Falha ao excluir a conta, tente novamente');
             }
@@ -146,7 +146,7 @@ export default function FotosPerfilECapaConfig() {
             const atualizarUser = await api.put(`/user/atualizar/${id}`, {
                 fotoPerfil: novaPerfilURL,
                 fotoCapa: novaCapaURL,
-                curso: curso || usuario.curso,
+                curso: curso || "REDES",
                 descricao: bio || usuario.descricao,
                 nomeCompleto: nomeCompleto || usuario.nomeCompleto,
             }, { headers: { Authorization: `${token}` } });

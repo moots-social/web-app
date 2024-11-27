@@ -106,11 +106,6 @@ function Salvos() {
                   <div className="reactionsC">
                     <img src={lixeira} onClick={() => excluirPostColecao(salvo.postId)} className="lixeira"/>
                   </div>
-                  <div
-                    className="commentsC"
-                    onClick={useContext(AbrirModalComent)}
-                  >
-                  </div>
                 </div>
               </div>
             );

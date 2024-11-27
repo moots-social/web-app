@@ -35,6 +35,21 @@ export default function PostPerfil() {
     }));
   };
 
+
+          const deletarPost = async (postId) => {
+          try {
+            await api.delete(`/post/deletar/${postId}`, {
+              headers: { authorization: `Bearer ${token}` },
+            });
+            // Após a exclusão, removemos o post da lista de posts
+            setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
+            window.alert("Post deletado com sucesso");
+            window.location.reload()
+          } catch (error) {
+            window.alert("Erro ao excluir o post: " + error.response?.data?.error || error.message);
+          }
+        };
+
   return (
     <>
       {posts.map((post, index) => {
@@ -70,6 +85,13 @@ export default function PostPerfil() {
             <div className="containerImagemFeedPerfil">
               <img className="imagemFeed" src={post.listImagens[0]} alt="Imagem do post" />
             </div>
+            <button
+              onClick={() => deletarPost(post.postId)}
+              className="botaoExcluir"
+              style={{ cursor: 'pointer', color: '#ff0000', background: 'none', border: 'none', padding: '5px' }}
+            >
+              Excluir
+            </button>
           </div>
         );
       })}

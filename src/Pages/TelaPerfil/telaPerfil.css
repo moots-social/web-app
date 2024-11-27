@@ -10,7 +10,7 @@
 
 .divPostPerfil{
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 20px;
     padding-bottom: 20px;
     align-items: center;

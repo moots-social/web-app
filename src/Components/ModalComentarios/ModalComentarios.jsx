@@ -1,7 +1,10 @@
+
 import { useState, useEffect } from "react";
 import { useModal } from "../../Context/ModalContext"; // Usando o hook do contexto
 import api from "../../config/api";
 import enviarComentario from "../../assets/img/iconeEnviar.png";
+import { ToastContainer, toast } from 'react-toastify'; // Importando o Toastify
+import 'react-toastify/dist/ReactToastify.css'; // Estilo do Toastify
 import "./modalComentarios.css";
 
 export default function ModalComentarios() {
@@ -16,40 +19,49 @@ export default function ModalComentarios() {
         headers: { authorization: `${localStorage.getItem("token")}` },
       });
   
-      console.log(dados.data.comentarioList)
+      console.log(dados.data.comentarioList);
   
       // Atualiza os comentários no estado
       if (dados.data) {
-        setComentarios(dados.data.comentarioList)
+        setComentarios(dados.data.comentarioList);
       }
     } catch (error) {
+      console.error(error);
     }
   };
 
-  // Quando o modal abrir, busca os comentários
+  
   useEffect(() => {
     console.log('isOpen:', isOpen);
     console.log('idPost:', idPost);
     GetComentarios(idPost, setComentarios);
-  }, [isOpen, idPost]); 
+  }, [isOpen, idPost]);
 
-  // Função para criar um novo comentário
   const CriarComentario = async () => {
     const textoDoComentario = document.querySelector('.textoDoComentario').value;
+
+   
+    if (!textoDoComentario.trim()) {
+      toast.error("O comentário não pode estar vazio!"); 
+      return; 
+    }
+
     try {
       await api.post(
         `/comentario/criar/${idPost}`,
         { texto: textoDoComentario, postId: idPost },
         { headers: { authorization: `${token}` } }
       );
-      window.alert("Comentário criado");
-      GetComentarios(); // Atualiza os comentários após criar
+      toast.success("Comentário criado com sucesso!"); 
+      GetComentarios(idPost, setComentarios); 
+      document.querySelector('.textoDoComentario').value = ''; 
     } catch (error) {
       console.log(error);
+      toast.error("Erro ao criar comentário. Tente novamente."); 
     }
   };
 
-  if(!isOpen) { 
+  if (!isOpen) {
     return null;
   } else {
     return (
@@ -59,7 +71,7 @@ export default function ModalComentarios() {
             <span className="barC"></span>
             <span className="barC"></span>
           </div>
-  
+
           {comentarios.length > 0 ? (
             comentarios.map((comentario) => (
               <div className="balaoComentarios" key={comentario.id}>
@@ -80,9 +92,13 @@ export default function ModalComentarios() {
           ) : (
             <p>Carregando comentários...</p>
           )}
-  
+
           <div className="novoComentario">
-            <input type="text" className="textoDoComentario" placeholder="Escreva um comentário..." />
+            <input
+              type="text"
+              className="textoDoComentario"
+              placeholder="Escreva um comentário..."
+            />
             <img
               src={enviarComentario}
               className="iconeEnviarC"
@@ -91,8 +107,8 @@ export default function ModalComentarios() {
             />
           </div>
         </div>
+        <ToastContainer />
       </div>
     );
-
   }
 }

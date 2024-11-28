@@ -15,6 +15,7 @@
 
 .txtNotificacao{
     font-size: 10px;
+    text-transform: lowercase;
 }
 
 .imagemUser{

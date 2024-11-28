@@ -5,6 +5,7 @@ import { createContext } from "react";
 import api from "../../config/api";
 import { useUsuarioContext } from "../../Context/useUsuarioContext";
 
+
 export const AbrirModal = createContext(() => {
   let modal = document.querySelector(".containerModalNovoPost");
   modal.style.display = "flex";

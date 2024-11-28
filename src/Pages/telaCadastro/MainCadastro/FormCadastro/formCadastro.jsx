@@ -3,6 +3,8 @@ import "../../../../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import  api  from "../../../../config/api.js"; 
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 // import axios from "axios";
 
 export default function FormCadastro() {
@@ -27,7 +29,7 @@ export default function FormCadastro() {
         const res = await dado.data;
 
         if (res) {
-          alert("Pessoa cadastrada com sucesso.");
+          toast.success("Pessoa cadastrada com sucesso.");
           navigate("/telaLogin");
         // } else {
         //   alert("Falha ao cadastrar pessoa.");
@@ -35,7 +37,8 @@ export default function FormCadastro() {
         }
 
       } catch (error) {
-        alert(error.response.data.error)
+        toast.error("falha ao cadastrar usuário")
+        // alert(error.response.data.error)
       }
     };
 
@@ -79,6 +82,8 @@ export default function FormCadastro() {
           <button type="submit" form="cadastro" value="submit">Cadastre-se</button>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }
+

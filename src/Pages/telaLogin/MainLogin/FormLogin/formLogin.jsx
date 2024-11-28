@@ -3,6 +3,8 @@ import '../../../../App.css'
 import { Link, useNavigate } from 'react-router-dom'
 import api from '../../../../config/api'
 import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function FormLogin() {
     const [validar, setValidar] = useState({ email: '', senha: '' });
@@ -20,16 +22,14 @@ export default function FormLogin() {
             
             const req = await dado.data;
             if (req) {
-                // localStorage.setItem('tokennz', req.data.token);
-                // localStorage.setItem('authenticated', true);
                 localStorage.setItem('token', req.token);
                 localStorage.setItem('id', req.id);
-                window.alert("Login realizado com sucesso");
+                toast.success('Login realizado com sucesso')
                 navigate('/feed');
             }
         } catch (error) {
             console.log(error);
-            alert('Email ou senha incorretos. Tente novamente.');
+            toast.error('Email ou senha incorretos. Tente novamente.');
         }
     };
 
@@ -67,6 +67,7 @@ export default function FormLogin() {
                 <div className="containerBtn">
                     <button type="submit" value="Submit" form="login">Login</button>
                 </div>
+                <ToastContainer />
             </div>
         </>
     );

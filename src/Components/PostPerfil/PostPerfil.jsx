@@ -2,6 +2,8 @@ import "./PostPerfil.css";
 import { useUsuarioContext } from "../../Context/useUsuarioContext";
 import { useState, useEffect } from "react";
 import api from "../../config/api";
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function PostPerfil() {
   const { usuario } = useUsuarioContext();
@@ -41,12 +43,14 @@ export default function PostPerfil() {
             await api.delete(`/post/deletar/${postId}`, {
               headers: { authorization: `Bearer ${token}` },
             });
+            toast.success("Post deletado com sucesso");
             // Após a exclusão, removemos o post da lista de posts
             setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
-            window.alert("Post deletado com sucesso");
+            
             window.location.reload()
           } catch (error) {
-            window.alert("Erro ao excluir o post: " + error.response?.data?.error || error.message);
+            toast.error("Error ao excluir usuario")
+            console.log("Erro ao excluir o post: " + error.response?.data?.error || error.message);
           }
         };
 
@@ -95,6 +99,7 @@ export default function PostPerfil() {
           </div>
         );
       })}
+      <ToastContainer />
     </>
   );
 }

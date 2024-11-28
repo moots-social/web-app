@@ -11,11 +11,14 @@ export default function Balao() {
         </div>
         <div className="imagemUser">
           <img src={user} className="fotoNotificacao" />
-        <div className="textoUser">
-          <h1 className="txtNotificacao"> @Fulano de tal te mandou uma mensagem. </h1>
+          <div className="textoUser">
+            <h1 className="txtNotificacao">
+              {" "}
+              @Fulano de tal te mandou uma mensagem.{" "}
+            </h1>
+          </div>
         </div>
-        </div>    
       </div>
-      </div>
+    </div>
   );
 }

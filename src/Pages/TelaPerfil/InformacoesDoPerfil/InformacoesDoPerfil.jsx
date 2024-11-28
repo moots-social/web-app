@@ -5,8 +5,6 @@ import PostsPerfil from "../../../Components/PostPerfil/PostPerfil"
 import Seguindo from "../../../Components/Seguindo/Seguindo"
 import "../telaPerfil.css"
 
-
-
 export default function InformacoesDoPerfil() {
     return (<>
         <Seguindo></Seguindo>

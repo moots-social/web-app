@@ -22,7 +22,6 @@ import ModalAlterarSenha from "./Components/ModalAlterarSenha/ModalAlterarSenha"
 import ModalComents from "./Components/ModalComentarios/ModalComentarios";
 import { ProviderUsuarioContext } from "./Context/UsuarioContext";
 
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

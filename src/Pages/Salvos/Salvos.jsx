@@ -70,6 +70,7 @@ function Salvos() {
 
   return (
     <div className="bg pai">
+      
       <SideBar />
       <div className="divMain">
         <div className="titulo">

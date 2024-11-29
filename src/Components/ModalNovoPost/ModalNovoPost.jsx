@@ -4,7 +4,8 @@ import { useState } from "react";
 import { createContext } from "react";
 import api from "../../config/api";
 import { useUsuarioContext } from "../../Context/useUsuarioContext";
-
+import { ToastContainer, toast } from 'react-toastify'; // Importando o Toastify
+import 'react-toastify/dist/ReactToastify.css'; // Estilo do Toastify
 
 export const AbrirModal = createContext(() => {
   let modal = document.querySelector(".containerModalNovoPost");
@@ -12,10 +13,12 @@ export const AbrirModal = createContext(() => {
 });
 
 export default function ModalNovoPost() {
-  const {usuario} =useUsuarioContext();
-  const [post, setPost] = useState({ texto: "", listImagens: [] });
-  const [file, setFile] = useState();
+  const {usuario} = useUsuarioContext();
+  const [imageUrl, setImageUrl] = useState();
+  const [ textoDoPost,setTextoDoPost ] = useState("");
+  const [ file, setFile ] = useState();
   const [preview, setPreview] = useState(null);
+  const token = localStorage.getItem("token");
 
   function FecharModal() {
     let botaoFechar = document.querySelector(".menu");
@@ -39,11 +42,8 @@ export default function ModalNovoPost() {
     }
   };
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-    console.log("botao clicado");
+  const subirBlob = async() => {
     try {
-      const token = localStorage.getItem("token");
       const containerName = "artifact-image-container";
 
       const formData = new FormData(); // Cria um novo objeto FormData
@@ -63,25 +63,34 @@ export default function ModalNovoPost() {
       ); // Envia o FormData
       const req = await dado.data;
 
-      // imageUrl = "casada";
-      var imageUrl = req.data;
-
-      // if (!imageUrl === undefined || !imageUrl === null || !imageUrl === "")  {
-      //   alert("No image")
-        
-      // }
-
       if (req) {
-        console.log(req);
+        var imagemSalva = req.data;
+        setImageUrl(imagemSalva)
         window.alert("Imagem upada com sucesso");
+      } else {
+        setImageUrl("");
       }
 
-      let textoDoPost = document.querySelector(".noQueVoce").value;
+      let textoDoPostt = document.querySelector(".noQueVoce").value;
+      setTextoDoPost(textoDoPostt);
+    } catch (error) {
+      toast.error("Tente novamente.");
+      console.log(imageUrl + " esse é o erro");
+      setImageUrl("");
+    }
+  }
 
-      setPost(textoDoPost, imageUrl);
+  const handleClick = async (e) => {
+    e.preventDefault();
+    console.log("botao clicado");
+    console.log(imageUrl)
 
-      try {
-        
+    if(imageUrl !== undefined || imageUrl !== null || imageUrl !== "") {
+      subirBlob();
+    }
+
+    try {
+
         const postCriar = await api.post(
           "/post/criar",
           {
@@ -90,17 +99,14 @@ export default function ModalNovoPost() {
           },
           { headers: { authorization: `${token}` } }
         );
-        console.log("post criado");
-        console.log(imageUrl + "essa é a img");
+        
+        if (postCriar){
+          console.log(imageUrl + "essa é a img");
+          setImageUrl("")
+        }
       } catch (e) {
         console.log(e);
       }
-    } catch (error) {
-      console.log(error);
-      alert("Tente novamente.");
-      console.log(imageUrl + " esse é o erro");
-    }
-    location.reload()
   };
 
   return (
@@ -152,6 +158,7 @@ export default function ModalNovoPost() {
           <button onClick={handleClick}>Publicar</button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

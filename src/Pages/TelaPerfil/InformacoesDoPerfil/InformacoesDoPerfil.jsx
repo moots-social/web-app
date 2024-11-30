@@ -10,7 +10,6 @@ import "../telaPerfil.css"
 export default function InformacoesDoPerfil() {
     return (<>
         <Seguindo></Seguindo>
-
         <div className="visualizacaoDoPerfil">
             <FotosPerfilECapa></FotosPerfilECapa>
             <div className="informacoesAbaixoDaCapa">

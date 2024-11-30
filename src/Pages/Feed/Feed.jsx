@@ -9,19 +9,6 @@ import { useState, useEffect } from 'react'
 
 export default function Feed() {
 
-    const [data, setData] = useState([]);
-
-        useEffect(() => {
-            const evtSource = new EventSource("http://localhost:8080/post/stream-sse");
-            evtSource.onmessage = (event) => {
-            if (event.data) {
-                setData(event.data);
-            }
-            };
-        }, []);
-
-        console.log(data);
-
     return (
         <div className='feed bg'>
             <Sidebar></Sidebar>

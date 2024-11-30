@@ -8,7 +8,6 @@ export default function BotoesDoPerfil() {
     return (
         <>  
             <Seguindo></Seguindo>
-
             <div className='botoesPerfil'>
                 <BotaoSeguir></BotaoSeguir>
                 <BotaoCurso></BotaoCurso>

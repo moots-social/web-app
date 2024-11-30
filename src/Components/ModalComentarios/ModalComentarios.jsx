@@ -26,14 +26,11 @@ export default function ModalComentarios() {
         setComentarios(dados.data.comentarioList);
       }
     } catch (error) {
-      console.error(error);
     }
   };
 
   
   useEffect(() => {
-    console.log('isOpen:', isOpen);
-    console.log('idPost:', idPost);
     GetComentarios(idPost, setComentarios);
   }, [isOpen, idPost]);
 

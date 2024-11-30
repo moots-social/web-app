@@ -1,5 +1,3 @@
-
-
 import "../feed.css";
 import IconeLike from "../../../assets/img/iconeCoracao.svg";
 import IconeFavorito from "../../../assets/img/iconeEstrela.svg";
@@ -122,9 +120,18 @@ export default function FeedConteudo() {
             <div className="textoDescricaoF">
               <p>{e.texto}</p>
             </div>
-            <div className="containerImagemFeedF">
-              <img src={e.listImagens[0]} alt="" className="imagemFeedF" />
-            </div>
+            {Array.isArray(e.listImagens) && e.listImagens.length > 0 && (
+              <div className="containerImagemFeedF">
+                {e.listImagens.map((imagem, index) => (
+                  <img
+                    key={index}
+                    src={imagem}
+                    alt={`imagem-post-${index}`}
+                    className="imagemFeedF"
+                  />
+                ))}
+              </div>
+            )}
             <div className="reacoesF">
               <div className="reactionsF">
                 <div>

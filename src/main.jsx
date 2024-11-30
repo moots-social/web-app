@@ -31,7 +31,7 @@ createRoot(document.getElementById("root")).render(
       <ProviderUsuarioContext>
         <ModalProvider>
           <Routes>
-              <Route path="/" element={<App />}>
+              <Route element={<App />}>
                 <Route path="telaLogin" element={<TelaLogin />} />
                 <Route path="/" element={<Principal />} />
                 <Route path="telaCadastro" element={<TelaCadastro />} />

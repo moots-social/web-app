@@ -30,10 +30,10 @@ export default function FormCadastro() {
 
         if (res) {
           toast.success("Pessoa cadastrada com sucesso.");
-          navigate("/telaLogin");
-        // } else {
-        //   alert("Falha ao cadastrar pessoa.");
-        // }
+          setTimeout(() => {
+            navigate('/telaLogin');
+        }, 1500);
+
         }
 
       } catch (error) {

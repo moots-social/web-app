@@ -56,7 +56,7 @@ export default function FotosPerfilECapaConfig() {
     
         if (!token || !id) {
             console.error("Token ou ID não encontrados no localStorage.");
-            alert('Erro: Não autenticado.');
+            toast.error('Erro: Não autenticado.');
             return;
         }
     
@@ -73,7 +73,7 @@ export default function FotosPerfilECapaConfig() {
                 localStorage.removeItem('id');
                 setUsuario(null);
     
-                toast.error('Conta excluída com sucesso');
+                toast.success('Conta excluída com sucesso');
                 setTimeout(() => {
                     navigate('/');
                 }, 1500);

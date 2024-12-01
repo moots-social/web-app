@@ -25,7 +25,11 @@ export default function FormLogin() {
                 localStorage.setItem('token', req.token);
                 localStorage.setItem('id', req.id);
                 toast.success('Login realizado com sucesso')
-                navigate('/feed');
+                setTimeout(() => {
+                    navigate('/feed');
+                }, 1500);
+    
+                
             }
         } catch (error) {
             console.log(error);

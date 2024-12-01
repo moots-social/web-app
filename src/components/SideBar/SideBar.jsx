@@ -11,6 +11,8 @@ import { useUsuarioContext } from "../../Context/useUsuarioContext";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom"
 import api from "../../config/api";
+import ModalNot, { AbrirModal } from "../ModalNotificacao/Notificacao";
+import { useContext } from "react"
 
 
 export default function SideBar() {
@@ -40,7 +42,10 @@ export default function SideBar() {
   }, [])
 
   return (
+    <>
+    <ModalNot></ModalNot>
     <div className="sideBar teste">
+      
       <div className="containerTopo">
         <div className="containerInput">
           <input className="pesquisa" type="text" name="" id="" />
@@ -71,16 +76,16 @@ export default function SideBar() {
           </div>
         </Link> 
 
-      <Link to="/notificacao">
+     
         <div className="containerIcone">
-          <div className="icone">
+          <div className="icone"  onClick={useContext(AbrirModal)}>
             <img src={notificacoes} alt="icone-novo-post"/>
           </div>
           <div className="tituloIcone">
             <p>Notificações</p>
           </div>
         </div>
-        </Link>
+        
         <Link to="/salvos">
           <div className="containerIcone">
             <div className="icone">
@@ -103,5 +108,6 @@ export default function SideBar() {
         </div>
       </Link>
     </div>
+    </>
   );
 }

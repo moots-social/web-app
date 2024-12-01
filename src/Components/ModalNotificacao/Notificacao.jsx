@@ -5,9 +5,15 @@ import api from "../../config/api";
 import "./Balao/balao.css";
 import fechar from "../../assets/img/letra-x.png";
 import user from "../../assets/img/User.png";
+import { createContext } from "react";
 
+export const AbrirModal = createContext(() => {
+  let modal = document.querySelector(".containerPaiNotificacao");
+  modal.style.display = "flex";
+});
 
 export default function Notificacao() {
+
   
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");

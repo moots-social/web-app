@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import api from '../../../config/api';
 import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom' 
 
 export default function FotosPerfilECapaConfig() {
 
@@ -140,6 +140,7 @@ export default function FotosPerfilECapaConfig() {
 
                 if (req2) {
                     novaCapaURL = req2.data;
+                    navigate(`/perfil/2`)
                 }else alert('m')
             }
 

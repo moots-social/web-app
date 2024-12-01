@@ -26,6 +26,7 @@ export default function ModalComentarios() {
         setComentarios(dados.data.comentarioList);
       }
     } catch (error) {
+      console.log(error);
     }
   };
 

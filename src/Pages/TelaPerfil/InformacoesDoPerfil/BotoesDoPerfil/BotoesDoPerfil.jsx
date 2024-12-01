@@ -5,6 +5,7 @@ import BotaoBio from './BotaoBio/BotaoBio'
 import Seguindo from '../../../../Components/Seguindo/Seguindo'
 
 export default function BotoesDoPerfil() {
+
     return (
         <>  
             <Seguindo></Seguindo>

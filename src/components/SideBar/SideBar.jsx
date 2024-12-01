@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom"
 import api from "../../config/api";
 
+
 export default function SideBar() {
 
   const token = localStorage.getItem('token');
@@ -70,7 +71,7 @@ export default function SideBar() {
           </div>
         </Link> 
 
-      <Link to="">
+      <Link to="/notificacao">
         <div className="containerIcone">
           <div className="icone">
             <img src={notificacoes} alt="icone-novo-post"/>

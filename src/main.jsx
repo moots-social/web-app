@@ -24,7 +24,6 @@ import ModaNotificacao from "./Components/ModalNotificacao/Notificacao"
 import { ProviderUsuarioContext } from "./Context/UsuarioContext";
 import { ModalProvider } from "./Context/ModalContext";
 
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

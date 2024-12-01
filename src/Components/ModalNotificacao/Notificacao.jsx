@@ -6,7 +6,9 @@ import "./Balao/balao.css";
 import fechar from "../../assets/img/letra-x.png";
 import user from "../../assets/img/User.png";
 
+
 export default function Notificacao() {
+  
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");
   const [notificacao, setNotificacao] = useState([]); // Inicialize com um array vazio
@@ -64,3 +66,4 @@ export default function Notificacao() {
     </div>
   );
 }
+

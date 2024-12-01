@@ -5,6 +5,8 @@ import api from '../../../config/api';
 import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom' 
+import { ToastContainer, toast } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function FotosPerfilECapaConfig() {
 
@@ -71,8 +73,12 @@ export default function FotosPerfilECapaConfig() {
                 localStorage.removeItem('id');
                 setUsuario(null);
     
-                alert('Conta excluída com sucesso');
-                navigate('/'); // Redireciona para a página de login
+                toast.error('Conta excluída com sucesso');
+                setTimeout(() => {
+                    navigate('/');
+                }, 1500);
+    
+               
             } else {
                 alert('Falha ao excluir a conta, tente novamente');
             }
@@ -154,11 +160,16 @@ export default function FotosPerfilECapaConfig() {
 
             const request = await atualizarUser.data;
             setUsuario(request);
-            alert("Usuário alterado com sucesso");
-            navigate(`/perfil/${id}`);
+
+            toast.success("Usuário alterado com sucesso");
+
+            setTimeout(() => {
+                navigate(`/perfil/${id}`);
+            }, 1500);
+
         } catch (error) {
             console.log(error);
-            alert('Tente novamente.');
+            toast.error('Tente novamente.');
         }
     };
 
@@ -210,7 +221,9 @@ export default function FotosPerfilECapaConfig() {
             </div>
             <div className="btnEnviar" onClick={handleClick}>
                 <button className='botaoConfirmarEditarPerfil'>Enviar</button>
+                
             </div>
+            <ToastContainer />
         </>
     );
 }

@@ -1,5 +1,5 @@
 .containerPaiNotificacao{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
 }    
@@ -47,6 +47,37 @@
     justify-content: space-around;
     gap: 40px;
 }
+
+.menun {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    cursor: pointer;
+
+  }
+  .menun .barn {
+    display: block;
+    width: 28px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: #1e1c2a;
+    margin: 0 auto;
+    transition: all 0.3s;
+  }
+  
+  .menun .barn:nth-child(1),
+  .menun .barn:nth-child(2) {
+    background-color: #000000;
+  }
+  
+  .menun .barn:nth-child(1) {
+    transform: translateY(0px) rotate(45deg);
+  }
+  
+  .menun .barn:nth-child(2) {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
 
 .fotoNotificacao{
     width: 50px;

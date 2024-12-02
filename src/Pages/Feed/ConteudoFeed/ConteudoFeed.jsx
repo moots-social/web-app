@@ -19,10 +19,24 @@ export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();
   const { abrirModal } = useModal(); 
   const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); 
+  const [isLoading, setIsLoading] = useState(true);
+  const [foiSalvoo, setFoiSalvoo] = useState(false); 
 
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");
+
+  const getSalvos = async() => {
+    try {
+      const req = await api.get(`/user/colecao-salvos/${id}`, {
+        headers: {Authorization: token}  
+      })
+
+      const dado = await req.data;
+      return dado;
+    } catch (e) {
+      alert(e.request.data.error)
+    }
+  }
 
   // Função para buscar os posts
   const getPosts = async () => {
@@ -33,7 +47,9 @@ export default function FeedConteudo() {
         headers: { authorization: `${token}` },
       });
 
-      const req = dados.data;
+      const req = await dados.data;
+      const salvos = await getSalvos();
+
       if (req) {
         // Atualiza os posts com a informação de 'deuLike'
         const postsComLikeStatus = req.map(post => {
@@ -41,8 +57,12 @@ export default function FeedConteudo() {
           return { ...post, deuLike };
         });
 
-        setPosts(postsComLikeStatus);
-        console.log(req);
+      const postsComFoiSalvo = postsComLikeStatus.map((post) => {
+        const foiSalvo = salvos.some((salvo) => salvo.postId === post.id);
+        return { ...post, foiSalvo };
+      });
+
+        setPosts(postsComFoiSalvo)
       }
     } catch (error) {
       window.alert(error.response?.data?.error || "Erro ao carregar os posts");
@@ -94,11 +114,11 @@ export default function FeedConteudo() {
       setPosts((prevPosts) =>
         prevPosts.map((post) =>
           post.id === postId
-            ? { ...post, salvoNaColecao: true } 
+            ? { ...post, foiSalvo: true } 
             : post
         )
       );
-
+      
       toast.success("Post salvo na coleção");
     } catch (error) {
       console.log(error.response?.data?.error || "Erro ao salvar post na coleção");
@@ -108,7 +128,7 @@ export default function FeedConteudo() {
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [foiSalvoo]);
 
   return (
     <div className="conteudoFeedF">
@@ -156,7 +176,7 @@ export default function FeedConteudo() {
                 </div>
                 <img
                   className="iconesReacaoF"
-                  src={e.salvoNaColecao ? iconeEstrelaPreenchido : IconeFavorito}
+                  src={e.foiSalvo ? iconeEstrelaPreenchido : IconeFavorito}
                   onClick={() => salvarPostColecao(e.id)}
                   alt="Favoritar"
                 />

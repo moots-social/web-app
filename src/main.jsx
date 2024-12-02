@@ -23,12 +23,14 @@ import ModalComents from "./Components/ModalComentarios/ModalComentarios";
 import ModaNotificacao from "./Components/ModalNotificacao/Notificacao"
 import { ProviderUsuarioContext } from "./Context/UsuarioContext";
 import { ModalProvider } from "./Context/ModalContext";
+import { ModalProviderNot } from "./Context/modalContextNot";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <ProviderUsuarioContext>
         <ModalProvider>
+          <ModalProviderNot>
           <Routes>
               <Route element={<App />}>
                 <Route path="telaLogin" element={<TelaLogin />} />
@@ -49,6 +51,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="notificacao" element={<ModaNotificacao />} />
               </Route>
           </Routes>
+          </ModalProviderNot>
         </ModalProvider>    
       </ProviderUsuarioContext>
     </BrowserRouter>

@@ -14,6 +14,14 @@ export const AbrirModal = createContext(() => {
 
 export default function Notificacao() {
 
+  function FecharModal() {
+    let botaoFechar = document.querySelector(".menu");
+    botaoFechar.addEventListener("click", () => {
+      let modal = document.querySelector(".modalNotificacao");
+      modal.style.cssText = "display:none";
+    });
+  }
+
   
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");
@@ -41,6 +49,10 @@ export default function Notificacao() {
   return (
     <div className="containerPaiNotificacao">
       <div className="modalNotificacao bg">
+      <div className="menu" onClick={FecharModal}>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
         {notificacao.length > 0 ? (
           notificacao.map((e, index) => {
             // Adicionei index para garantir uma chave única

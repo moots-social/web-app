@@ -1,6 +1,6 @@
 import iconeImagemPost1 from '../../../assets/img/lapis.svg';
 import '../configPerfil.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import api from '../../../config/api';
 import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import { useNavigate } from 'react-router-dom';
@@ -75,7 +75,7 @@ export default function FotosPerfilECapaConfig() {
     
                 toast.success('Conta excluída com sucesso');
                 setTimeout(() => {
-                    navigate('/');
+                    navigate('/telaLogin');
                 }, 1500);
     
                
@@ -153,7 +153,7 @@ export default function FotosPerfilECapaConfig() {
             const atualizarUser = await api.put(`/user/atualizar/${id}`, {
                 fotoPerfil: novaPerfilURL,
                 fotoCapa: novaCapaURL,
-                curso: curso || "REDES",
+                curso: curso || usuario.curso || "REDES",
                 descricao: bio || usuario.descricao,
                 nomeCompleto: nomeCompleto || usuario.nomeCompleto,
             }, { headers: { Authorization: `${token}` } });
@@ -203,6 +203,7 @@ export default function FotosPerfilECapaConfig() {
                 <div className='editarInformacoesPerfil'>
                     <input type='text' className='editarNomePerfil' placeholder={usuario.nomeCompleto} onChange={selectNomeCompleto}></input>
                     <select id="cursos" onChange={selectCurso} class="selectCursos">
+                        <option value="Selecione um curso">-- SELECIONE --</option>
                         <option value="REDES" id="redes">REDES</option>
                         <option value="DESENVOLVIMENTO" id="desenvolvimento">DESENVOLVIMENTO</option>
                         <option value="FIC" id="fic">FIC</option>

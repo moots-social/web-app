@@ -13,8 +13,8 @@
     border: 1px solid black;
     position: fixed;
     margin: 0 auto;
-    top: 25%;
-    right: 36.5%;
+    top: 17%;
+    right: 29.5%;
     flex-direction: column;
     gap: 10px;
     overflow-y: scroll;

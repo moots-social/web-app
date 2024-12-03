@@ -68,7 +68,9 @@ export default function FotosPerfilECapaConfig() {
                 },
             });
     
-            if (response.status === 200) {
+
+            const desejaSair = confirm("Tem certeza que deseja excluir a conta")
+            if (response.status === 200 && desejaSair) {
                 localStorage.removeItem('token');
                 localStorage.removeItem('id');
                 setUsuario(null);
@@ -77,6 +79,7 @@ export default function FotosPerfilECapaConfig() {
                 setTimeout(() => {
                     navigate('/telaLogin');
                 }, 1500);
+                
     
                
             } else {
@@ -171,8 +174,18 @@ export default function FotosPerfilECapaConfig() {
             console.log(error);
             toast.error('Tente novamente.');
         }
+
+        
     };
 
+    const logOutUser = () => {
+        const desejaSair = confirm('Você realmente deseja sair?')
+        if (desejaSair){
+          localStorage.clear()
+          navigate('/')
+        }}
+
+    
     return (
         <>
             <div className="fotosPerfilECapaConfig">
@@ -213,7 +226,7 @@ export default function FotosPerfilECapaConfig() {
                     <Link to='/alterarSenha'> 
                         <p style={{ color: '#468B51', fontSize: '22px' }}>Redefinir Senha</p>
                     </Link>
-                    <p onClick='' style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Sair da Conta</p>
+                    <p onClick={logOutUser} style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Sair da Conta</p>
                     <p onClick={handleExcluirConta} style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Excluir Conta</p>
                 </div>
                 <div className="escrevaBio">

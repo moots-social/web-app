@@ -97,7 +97,7 @@ export default function Notificacao() {
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");
   const [notificacao, setNotificacao] = useState([]); // Inicialize com um array vazio
-
+  console.log(id)
   const GetNotificacoes = async () => {
     try {
       const dados = await api.get(`/notification/${id}`, {

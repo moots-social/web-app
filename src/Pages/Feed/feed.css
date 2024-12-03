@@ -3,10 +3,30 @@
     height: 100vh;
 }
 
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    color:#0000;
+    background:linear-gradient(90deg,#000 calc(50% - 0.5ch),#8429c0 0 calc(50% + 0.5ch),#000 0) right/calc(200% + 1ch) 100%;
+    -webkit-background-clip:text;
+            background-clip:text;
+    animation: l8 2s infinite steps(11);
+  }
+  .loader:before {
+    content:"Loading..."
+  }
+  @keyframes l8 {to{background-position: left}}
 
-.containerFeedF{
+  .carregandoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-
+  .containerFeedF{
     overflow-x: hidden;
     align-items: center;
     display: flex;

@@ -137,7 +137,7 @@ export default function FeedConteudo() {
       
       {isLoading ? (
         <div className="carregandoContainer">
-          <img src={loadingIcon} alt="Carregando..." className="iconeCarregando" />
+          <div class="loader"></div>
         </div>
       ) : (
         posts?.map((e, index) => (

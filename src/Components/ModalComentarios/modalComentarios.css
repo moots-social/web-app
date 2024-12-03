@@ -114,3 +114,53 @@
   .menuC .barC:nth-child(2) {
     transform: translateY(-3.5px) rotate(-45deg);
   }
+
+  @media(max-width:1168px) {
+    .containerTotal{
+        width: 400px;
+    }
+  }
+
+  @media(max-width:834px) {
+    .containerTotal{
+        right: 25.5%;
+    }
+  }
+  @media(max-width:705px) {
+    .containerTotal{
+        right: 20.5%;
+    }
+  }
+  @media(max-width:600px) {
+    .containerTotal{
+        right: 15.5%;
+    }
+  }
+  @media(max-width:561px) {
+    .containerTotal{
+        right: 10.5%;
+    }
+  }
+  @media(max-width:485px) {
+    .containerTotal{
+        right: 5.5%;
+    }
+  }
+  @media(max-width:450px) {
+    .containerTotal{
+        width: 300px;
+        right: 12%;
+    }
+  }
+  @media(max-width:400px) {
+    .containerTotal{
+        width: 250px;
+        right: 12%;
+    }
+  }
+  @media(max-width:320px) {
+    .containerTotal{
+        width: 250px;
+        right: 5%;
+    }
+  }

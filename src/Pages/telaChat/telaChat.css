@@ -3,6 +3,25 @@
   display: flex;
 }
 
+/* Estilo para a caixa de manutenção */
+.caixaManutencao {
+  background-color: #f44336; /* Vermelho de destaque */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  width: 65%;
+  z-index: 1000; /* Garantir que fique acima de outros conteúdos */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.containerPerfilMensagemAtual {
+  margin-top: 60px; /* Espaçamento para não cobrir a caixa de manutenção */
+}
+
 .containerImagemChatNomeChat {
   display: flex;
   flex-direction: column;

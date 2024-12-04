@@ -97,7 +97,6 @@ export default function Notificacao() {
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");
   const [notificacao, setNotificacao] = useState([]); // Inicialize com um array vazio
-  console.log(id)
   const GetNotificacoes = async () => {
     try {
       const dados = await api.get(`/notification/${id}`, {
@@ -130,6 +129,13 @@ export default function Notificacao() {
           </div>
           {notificacao.length > 0 ? (
             notificacao.map((e, index) => {
+
+              let complemento = ' o seu post'
+
+              if(e.evento == 'Seguiu'){
+                complemento = ' a sua conta'
+              }
+
               return (
                 <div key={index} className="mainDivNotificacao">
                   <div className="balaoNotificacao">
@@ -141,7 +147,7 @@ export default function Notificacao() {
                         <img src={e.fotoPerfil} className="fotoNotificacao" />
                         <div className="textoUser">
                           <h1 className="txtNotificacao">
-                            {e.userTag + " " + e.evento + " o seu post"}
+                            {e.userTag + " " + e.evento + complemento}
                           </h1>
                         </div>
                       </div>

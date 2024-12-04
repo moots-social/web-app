@@ -21,6 +21,7 @@
 .perfilTelaSeguindo{
     display: flex;
     gap: 15px;
+    cursor: pointer;
 }
 
 .arrobaPerfilTelaSeguindo{

@@ -20,11 +20,7 @@ export default function BottomBar() {
 
         <Link to='/feed'>
         <img src={home} alt="Home"></img>
-        </Link>
-        <Link to='telaChat'>
-        <img src={mensagem} alt="Mensagem"></img>
-        </Link>
-        
+        </Link>        
         <Link to='/salvos'>
         <img src={coracao} alt="Novo Post" className="salvoBottom"></img>
         </Link>

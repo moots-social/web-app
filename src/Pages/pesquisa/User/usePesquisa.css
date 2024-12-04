@@ -1,0 +1,26 @@
+.userPesquisaPrincipal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.perfilNome{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.perfilNome img{
+    width: 70px;
+    height: 70px;
+    border-radius: 80px;
+}
+
+.botãoUserPesquisa{
+    width: 130px;
+    height: 30px;
+}

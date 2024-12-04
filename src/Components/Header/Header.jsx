@@ -7,17 +7,17 @@ import ButtonLogin from "./BotaoHeader/buttonLogin";
 function Header() {
   return (
     <header>
-      <div className="headerPrincipal">
-        <div className="logoContainer">
-          <img src={Moots} className="logo" alt="logo" />
-          <div className="containerLogoMobile">
-            <img src={logoMobile} className='logoHeaderMobile'/>
+        <div className="headerPrincipal">
+          <div className="logoContainer">
+            <img src={Moots} className="logo" alt="logo" />
+            <div className="containerLogoMobile">
+              <img src={logoMobile} className='logoHeaderMobile'/>
+            </div>
+          </div>
+          <div className="Botoes">
+            <ButtonLogin />
           </div>
         </div>
-        <div className="Botoes">
-          <ButtonLogin />
-        </div>
-      </div>
     </header>
   );
 }

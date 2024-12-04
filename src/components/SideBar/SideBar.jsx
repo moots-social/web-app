@@ -1,23 +1,24 @@
 
 
 import "./sidebar.css";
-import { Link } from "react-router-dom";
-import pesquisa from "../../assets/img/iconePesquisa.png";
+import { Link, useNavigate } from "react-router-dom";
 import home from "../../assets/img/iconeHome.png";
-import mensagem from "../../assets/img/iconeMensagens.png";
 import notificacoes from "../../assets/img/notificacao.png";
 import coracao from "../../assets/img/iconeEstrela.svg";
-
+import pesquisa from "../../assets/img/iconePesquisa.png";
+import mensagem from "../../assets/img/iconeMensagens.png"
 import "../../Pages/telaChat/telaChat.css";
 import "../../Pages/Salvos/Salvos.css";
 import { useUsuarioContext } from "../../Context/useUsuarioContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import api from "../../config/api";
 import ModalNot from "../ModalNotificacao/Notificacao";
 import { useModalNot } from "../../Context/modalContextNot"; // Importando o hook corretamente
 
 
 export default function SideBar() {
+  const [pesquisar, setPesquisar] = useState("");
+  const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const id = localStorage.getItem('id');
   const { usuario, setUsuario } = useUsuarioContext();
@@ -43,19 +44,38 @@ export default function SideBar() {
     handleSubmit();
   }, [id]);
 
+  const handlePesquisa = () => {
+    navigate(`/pesquisa/${pesquisar}`)
+  }
+
   return (
     <>
       <ModalNot></ModalNot>
       <div className="sideBar teste">
         <div className="containerTopo">
+
+          {/* pesquisa */}
           <div className="containerInput">
-            <input className="pesquisa" type="text" />
+            <input className="pesquisa" type="text"
+              value={pesquisar} 
+              onChange={(t) => setPesquisar(t.target.value)} 
+              onKeyDown={(e) => {
+                if(e.key === 'Enter'){
+                  handlePesquisa()
+                }
+              }}
+             />
+               <span className="pesquisa-icone" onClick={handlePesquisa}>
+                <img src={pesquisa} alt="icone-pesquisa" />
+               </span>
           </div>
           <div className="containerIcone pesquisaIcone">
             <div className="icone">
-              <img src={pesquisa} alt="icone-home" />
+              <img src={pesquisa} alt="icone-home" /> 
             </div>
           </div>
+          {/* pesquisa */}
+
           <Link to="/feed">
             <div className="containerIcone">
               <div className="icone">
@@ -66,18 +86,7 @@ export default function SideBar() {
               </div>
             </div>
           </Link>
-          <Link to="/telaChat">
-            <div className="containerIcone">
-              <div className="icone">
-                <img src={mensagem} alt="icone-mensagem" />
-              </div>
-              <div className="tituloIcone">
-                <p>Mensagens</p>
-              </div>
-            </div>
-          </Link>
 
-          
           <div className="containerIcone">
             <div className="icone" onClick={abrirModalNot}>
               <img src={notificacoes} alt="icone-notificacao" />
@@ -86,6 +95,16 @@ export default function SideBar() {
               <p>Notificações</p>
             </div>
           </div>
+          <Link to="/telaChat"> 
+          <div className="containerIcone">
+            <div className="icone" >
+              <img src={mensagem} alt="icone-notificacao" />
+            </div>
+            <div className="tituloIcone">
+              <p>Mensagens</p>
+            </div>
+          </div>
+          </Link>
 
           <Link to="/salvos">
             <div className="containerIcone">

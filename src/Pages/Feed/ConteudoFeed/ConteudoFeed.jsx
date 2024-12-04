@@ -13,7 +13,6 @@ import ModalComentarios from "../../../Components/ModalComentarios/ModalComentar
 import { useModal } from "../../../Context/ModalContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import loadingIcon from "../../../assets/img/loading.webp"; // Imagem de carregamento
 
 export default function FeedConteudo() {
   const { usuario } = useUsuarioContext();

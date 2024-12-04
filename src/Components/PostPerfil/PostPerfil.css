@@ -170,26 +170,20 @@
 }
 
 @media (max-width: 565px) {
-    .conteudoFeed {
+    .conteudoFeedPerfil {
         width: 380px;
     }
-
-    .postFeedContainer {
-        width: 380px;
+    .textoDescricao{
+        width: 80%;
     }
-
     .imagemFeed{
         width: 300px;
     }
 }
 
 @media (max-width: 465px) {
-    .conteudoFeed {
-        width: 350px;
-    }
-
-    .postFeedContainer {
-        width: 350px;
+    .conteudoFeedPerfil {
+        width: 90%;
     }
 
     .imagemFeed{

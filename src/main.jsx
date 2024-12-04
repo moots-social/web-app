@@ -24,6 +24,7 @@ import ModaNotificacao from "./Components/ModalNotificacao/Notificacao"
 import { ProviderUsuarioContext } from "./Context/UsuarioContext";
 import { ModalProvider } from "./Context/ModalContext";
 import { ModalProviderNot } from "./Context/modalContextNot";
+import Pesquisa from "./Pages/pesquisa/pesquisa";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -49,6 +50,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="alterarSenha" element={<ModalAlterarSenha/>} />
                 <Route path="modalComents" element={<ModalComents />} />
                 <Route path="notificacao" element={<ModaNotificacao />} />
+                <Route path="pesquisa/:conteudo" element={<Pesquisa />} />
               </Route>
           </Routes>
           </ModalProviderNot>

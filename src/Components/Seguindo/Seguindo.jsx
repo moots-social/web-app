@@ -10,6 +10,26 @@ export const AbrirModalSeguindo = createContext(() => {
   modal.style.display = "flex";
 });
 
+export const buscarSeguindos = async (id, token) => {
+  try {
+    const req = await api.get(`/user/buscar-quem-segue/${id}`, {
+      headers: { Authorization: token },
+    });
+    return req.data;
+  } catch (e) { 
+  }
+};
+
+export const buscarSeguidores = async (id, token) => {
+  try {
+    const req = await api.get(`/user/buscar-seguidores/${id}`, {
+      headers: { Authorization: token },
+    });
+    return req.data;
+  } catch (e) { 
+  }
+};
+
 export default function Seguindo() {
   const [mostrarLista, setMostrarLista] = useState('seguindo');
   const [seguindos, setSeguindos] = useState([]);
@@ -30,35 +50,15 @@ export default function Seguindo() {
       modal.style.cssText = "display:none";
     });
   }
+  
 
   useEffect(() => {
     let isMounted = true; // Flag para verificar se o componente está montado
 
-    const buscarSeguindos = async () => {
-      try {
-        const req = await api.get(`/user/buscar-quem-segue/${id}`, {
-          headers: { Authorization: token },
-        });
-        return req.data;
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    const buscarSeguidores = async () => {
-      try {
-        const req = await api.get(`/user/buscar-seguidores/${id}`, {
-          headers: { Authorization: token },
-        });
-        return req.data;
-      } catch (e) {
-        console.log(e);
-      }
-    };
 
     const carregarDados = async () => {
-      const meusSeguidos = await buscarSeguindos();
-      const meusSeguidores = await buscarSeguidores();
+      const meusSeguidos = await buscarSeguindos(id, token);
+      const meusSeguidores = await buscarSeguidores(id, token);
 
       const seguidoresComSigo = meusSeguidores.map((seguidor) => {
         const sigo = meusSeguidos.some(
@@ -129,6 +129,7 @@ export default function Seguindo() {
           seguindos.map((s) => (
             <ListaSeguindo 
               key={s.id} 
+              id={s.id}
               descricao="deixar de seguir" 
               nome={s.nomeCompleto} 
               tag={s.tag} 
@@ -144,6 +145,7 @@ export default function Seguindo() {
           seguidores.map((s) => (
             <ListaSeguindo 
               key={s.id}
+              id={s.id}
               descricao={s.sigo ? "deixar de seguir" : "seguir de volta"}
               nome={s.nomeCompleto}
               tag={s.tag}

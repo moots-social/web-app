@@ -21,7 +21,6 @@ export default function BottomBar() {
         <Link to='/feed'>
         <img src={home} alt="Home"></img>
         </Link>
-        <img src={mensagem} alt="Mensagem"></img>
         
         <Link to='/salvos'>
         <img src={coracao} alt="Novo Post" className="salvoBottom"></img>

@@ -98,10 +98,27 @@
 }
 
 .pesquisa{
-  background-image: url("../../assets/img/iconePesquisa.png");
   background-repeat: no-repeat;
   background-position: 160px;
   background-size: 20px;
+}
+
+.pesquisa-icone {
+  position: absolute; /* Posiciona a imagem absolutamente */
+  right: 35px; /* Ajuste conforme necessário */
+  top: 17px;
+  transform: translateY(-50%); /* Centraliza verticalmente */
+  cursor: pointer; /* Muda o cursor para indicar clicabilidade */
+}
+
+.pesquisa-icone img {
+  width: 20px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
+}
+
+.containerInput {
+  position: relative; /* Necessário para o posicionamento absoluto da imagem */
+  width: 250px; /* exemplo */
 }
 
 .perfil{

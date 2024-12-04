@@ -4,7 +4,7 @@ import '../../App.css'
 import InformacoesDoPerfil from "./InformacoesDoPerfil/InformacoesDoPerfil"
 import BottomBar from "../../Components/BottomBar/BottomBar"
 
-export default function TelaPerfil() {
+export default function TelaPerfilVisitante() {
 
     return (
         <>

@@ -125,10 +125,31 @@ export default function FeedConteudo() {
     }
   };
 
+  const excluirPostColecao = async (postId) => {
+    try {
+      const dados = await api.delete(`/user/${id}/post/${postId}`, {
+        headers: { authorization: `${token}` },
+      });
+
+      setPosts((prevPosts) => 
+        prevPosts.map((post) => 
+            post.id === postId
+            ? { ...post, foiSalvo: false }
+            : post
+        )
+      );
+
+      toast.success("Post excluido na coleção");
+    } catch (error) {
+      console.log(error.response.data.error);
+    }
+  };
+
   useEffect(() => {
     getPosts();
   }, [foiSalvoo]);
 
+  console.log(posts)
   return (
     <div className="conteudoFeedF">
       <ModalComentarios />
@@ -155,7 +176,7 @@ export default function FeedConteudo() {
                 <img src={e.fotoPerfil} alt="" className="pfpfeedF" />
               </Link>
               <div className="perfilInfoF">
-                <Link to="/perfil/:id">
+                <Link to={`/perfil/${e.id}`}>
                   <p className="nomePerfilFeedF">{e.nomeCompleto}</p>
                   <p className="arrobaFeedF">{e.tag}</p>
                 </Link>
@@ -185,7 +206,14 @@ export default function FeedConteudo() {
                 <img
                   className="iconesReacaoF"
                   src={e.foiSalvo ? iconeEstrelaPreenchido : IconeFavorito}
-                  onClick={() => salvarPostColecao(e.id)}
+                  onClick={() => {
+                    if(e.foiSalvo){
+                      excluirPostColecao(e.id)
+                    } else {
+                      salvarPostColecao(e.id)
+                    }
+                    }
+                  }
                   alt="Favoritar"
                 />
               </div>

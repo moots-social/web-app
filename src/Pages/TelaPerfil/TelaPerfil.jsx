@@ -5,6 +5,7 @@ import InformacoesDoPerfil from "./InformacoesDoPerfil/InformacoesDoPerfil"
 import BottomBar from "../../Components/BottomBar/BottomBar"
 import { useUsuarioContext } from "../../Context/useUsuarioContext"
 import { useParams } from "react-router-dom"
+import TelaPerfilVisitante from "../TelaPerfilVisitante/TelaPerfilVisitante"
 
 export default function TelaPerfil() {
     const { usuario } = useUsuarioContext()
@@ -18,7 +19,7 @@ export default function TelaPerfil() {
             {usuario.id == id ? (
                 <InformacoesDoPerfil></InformacoesDoPerfil>
            ) : (
-            <h1>É foda né</h1>
+            <TelaPerfilVisitante />
            )}
         </main>
         <BottomBar></BottomBar>

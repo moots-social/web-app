@@ -51,21 +51,21 @@ export default function Pesquisa(){
     
             const dados = req.data;
             const meusSeguidos = await buscarSeguindos(id, token);
-
-            const pessoasComSigo = dados.map((pessoa) => {
-
-                if(meusSeguidos || meusSeguidos.length > 0){
+            if(meusSeguidos){
+                const pessoasComSigo = dados.map((pessoa) => {
                     const sigo = meusSeguidos.some(
                         (seguidor) => seguidor.id == pessoa.userId
                     );
                     return { ...pessoa, sigo }; 
-                } else {
-                    return {...pessoa, sigo: false };
-                }
-            });
-            
-            console.log(pessoasComSigo)
-            setPessoas(pessoasComSigo); 
+                });
+                setPessoas(pessoasComSigo); 
+            } else {
+                const pessoasComSigo = dados.map((pessoa) => {
+                    return { ...pessoa, sigo: false }; 
+                });
+                setPessoas(pessoasComSigo); 
+            }
+            console.log(pessoas)
         } catch (e) {
             alert(e.response.data.error);
         }
@@ -108,12 +108,8 @@ export default function Pesquisa(){
                 setPosts(postsComFoiSalvo)
             }
         } catch (e) {
-            
+            console.log(e)
         }
-    }
-
-    const getSeguidores = async() => {
-        setSeguidores( await buscarSeguidores(id, token))
     }
 
     const salvarPostColecao = async (postId) => {
@@ -206,7 +202,6 @@ export default function Pesquisa(){
       }
 
     useEffect(() => {      
-        getSeguidores()
         getPessoas();
         getPublicacoes();
     }, [atualizarDados, conteudo])
@@ -289,7 +284,7 @@ export default function Pesquisa(){
                                 let descricao = '';
                                 if (pessoa.sigo) {
                                     descricao = "Deixar de seguir";
-                                } else if (seguidores.some(seguidor => seguidor.id === pessoa.userId)) {
+                                } else if (Array.isArray(seguidores) && seguidores.some(seguidor => seguidor.id === pessoa.userId)) {
                                     descricao = "Seguir de volta";
                                 } else {
                                     descricao = "Seguir";

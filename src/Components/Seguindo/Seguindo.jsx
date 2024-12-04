@@ -16,7 +16,9 @@ export const buscarSeguindos = async (id, token) => {
       headers: { Authorization: token },
     });
     return req.data;
-  } catch (e) { 
+  } catch (e) {
+    console.error("Erro ao buscar seguidos:", e);
+    return []; 
   }
 };
 
@@ -26,7 +28,9 @@ export const buscarSeguidores = async (id, token) => {
       headers: { Authorization: token },
     });
     return req.data;
-  } catch (e) { 
+  } catch (e) {
+    console.error("Erro ao buscar seguidores:", e);
+    return []; 
   }
 };
 
@@ -50,68 +54,78 @@ export default function Seguindo() {
       modal.style.cssText = "display:none";
     });
   }
-  
 
   useEffect(() => {
     let isMounted = true; // Flag para verificar se o componente está montado
 
-
     const carregarDados = async () => {
-      const meusSeguidos = await buscarSeguindos(id, token);
-      const meusSeguidores = await buscarSeguidores(id, token);
+      try {
+        const meusSeguidos = await buscarSeguindos(id, token);
+        const meusSeguidores = await buscarSeguidores(id, token);
 
-      const seguidoresComSigo = meusSeguidores.map((seguidor) => {
-        const sigo = meusSeguidos.some(
-          (seguidorSeguindo) => seguidorSeguindo.id === seguidor.id
-        );
-        return { ...seguidor, sigo };
-      });
+        if (meusSeguidos.length > 0) {
+          const seguidoresComSigo = meusSeguidores.map((seguidor) => {
+            const sigo = meusSeguidos.some(
+              (seguidorSeguindo) => seguidorSeguindo.id === seguidor.id
+            );
+            return { ...seguidor, sigo };
+          });
 
-      if (isMounted) { // Verifica se o componente ainda está montado
-        setSeguidores(seguidoresComSigo);
-        setSeguindos(meusSeguidos);
+          if (isMounted) {
+            setSeguidores(seguidoresComSigo);
+            setSeguindos(meusSeguidos);
+          }
+        } else {
+          const seguidoresComSigo = meusSeguidores.map((seguidor) => {
+            return { ...seguidor, sigo: false };
+          });
+          if (isMounted) {
+            setSeguidores(seguidoresComSigo);
+            setSeguindos(meusSeguidos);
+          }
+        } 
+      } catch (e) {
+        console.error("Erro ao carregar dados:", e);
+        if (isMounted) {
+          setSeguidores([]);
+          setSeguindos([]);
+        }
       }
     };
 
     carregarDados();
     return () => {
-      isMounted = false; // Marca como desmontado quando o componente for desmontado
+      isMounted = false; 
     };
   }, [atualizarDados]);
 
   const handleDeixarSeguir = async(idUser) => {
     const confirmar = window.confirm("Tem certeza que deseja parar de seguir esse usuário?");
-    if(confirmar){
+    if(confirmar) {
       try {
-        const req = await api.put("/user/seguir", {}, {
+        await api.put("/user/seguir", {}, {
           headers: {Authorization: token},
           params: {id1: id, id2: idUser, follow: false}
-        })
-        
+        });
         setAtualizarDados(prev => !prev);
       } catch (e) {
-        alert(e.response.data.message)
-      }  
-    } else {
-      return
+        alert(e.response?.data?.message || "Erro ao tentar deixar de seguir.");
+      }
     }
   }
 
   const handleSeguirDeVolta = async(idUser) => {
     const confirmar = window.confirm("Tem certeza que deseja seguir esse usuario de volta?");
-    if(confirmar){
+    if(confirmar) {
       try {
-        const req = await api.put("/user/seguir", {}, {
+        await api.put("/user/seguir", {}, {
           headers: {Authorization: token},
           params: {id1: id, id2: idUser, follow: true}
-        })
-        
+        });
         setAtualizarDados(prev => !prev);
       } catch (e) {
-        alert(e.response.data.message)
-      }  
-    } else {
-      return
+        alert(e.response?.data?.message || "Erro ao tentar seguir de volta.");
+      }
     }
   }
 
@@ -125,7 +139,7 @@ export default function Seguindo() {
       </div>
       <div className='listaSeguindo'>
       {mostrarLista === 'seguindo' ? (
-        seguindos.length > 0 ? (
+        Array.isArray(seguindos) && seguindos.length > 0 ? (
           seguindos.map((s) => (
             <ListaSeguindo 
               key={s.id} 
@@ -141,7 +155,7 @@ export default function Seguindo() {
           <p>Você não segue ninguém</p>
         )
       ) : (
-        seguidores.length > 0 ? (
+        Array.isArray(seguidores) && seguidores.length > 0 ? (
           seguidores.map((s) => (
             <ListaSeguindo 
               key={s.id}

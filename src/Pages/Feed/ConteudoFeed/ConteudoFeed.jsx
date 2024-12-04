@@ -136,9 +136,18 @@ export default function FeedConteudo() {
       
       
       {isLoading ? (
-        <div className="carregandoContainer">
-          <div class="loader"></div>
-        </div>
+       <div className="loading-wrapper">
+       <div className="post-placeholder">
+         <div className="image-placeholder"></div>
+         <div className="text-placeholder"></div>
+         <div className="text-placeholder"></div>
+       </div>
+       <div className="post-placeholder">
+         <div className="image-placeholder"></div>
+         <div className="text-placeholder"></div>
+         <div className="text-placeholder"></div>
+       </div>
+     </div>
       ) : (
         posts?.map((e, index) => (
           <div className="perfilFeedContainerF" key={index}>

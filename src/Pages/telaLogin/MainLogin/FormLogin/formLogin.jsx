@@ -64,7 +64,7 @@ export default function FormLogin() {
                     </div>
                 </form>
                 <div className="senhaEsquecida ">
-                    <p><span>Esqueceu a senha</span></p>
+                    
                     <hr /> 
                     <p>Não tem uma conta? <Link to='/telaCadastro'><span className='spanLogin'>Cadastre-se</span></Link></p>
                 </div>

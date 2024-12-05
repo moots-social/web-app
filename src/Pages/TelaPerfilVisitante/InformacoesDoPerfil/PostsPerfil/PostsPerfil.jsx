@@ -10,16 +10,55 @@ export default function PostsPerfilVisitante(){
     const [posts, setPosts] = useState([]);
     const [expandedPosts, setExpandedPosts] = useState({}); // Estado para controlar quais posts estão expandidos
   
+    const idUser = localStorage.getItem("id");
     const token = localStorage.getItem("token");
     const {id} = useParams()
+
+    const getSalvos = async() => {
+      try {
+        const req = await api.get(`/user/colecao-salvos/${idUser}`, {
+          headers: {Authorization: token}  
+        })
   
+        const dado = await req.data;
+        return dado;
+      } catch (e) {
+        alert(e.request.data.error)
+      }
+    }
+
+    const getCurtidos = async(idPost) => {
+      try {
+        const req = await api.get(`/post/likeUsers/${idPost}`, {headers: {Authorization: token}})
+        const dado = await req.data
+
+        return dado
+      } catch (e) {
+      }
+    }
+
     const getPosts = async () => {
       try {
         const dados = await api.get(`/search/post/${id}`, { headers: { authorization: `${token}` } });
         const req = await dados.data;
+        const salvos = await getSalvos();
         if (req) {
+          // Usar Promise.all para aguardar todas as promessas do map
+          const postsComLikeStatus = await Promise.all(req.map(async (post) => {
+            const curtidos = await getCurtidos(String(post.postId));
+            console.log(curtidos)
+            const deuLike = curtidos.includes(idUser);
+            return { ...post, deuLike };
+          }));
 
-          setPosts(req);
+          console.log(postsComLikeStatus)
+          console.log(salvos)
+          const postsComFoiSalvo = postsComLikeStatus.map((post) => {
+            const foiSalvo = salvos.some((salvo) => String(salvo.postId) == String(post.postId));
+            return { ...post, foiSalvo };
+          });
+
+          setPosts(postsComFoiSalvo);
         }
       } catch (error) {
         console.log(error);
@@ -50,6 +89,7 @@ export default function PostsPerfilVisitante(){
       }));
     };
 
+    console.log(posts)
     return (
       <>
         {posts.map((post, index) => {

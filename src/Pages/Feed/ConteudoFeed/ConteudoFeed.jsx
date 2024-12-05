@@ -5,7 +5,6 @@ import IconeFavorito from "../../../assets/img/iconeEstrela.svg";
 import IconeComentario from "../../../assets/img/iconeComentarios.svg";
 import IconeCoracaoVermelho from "../../../assets/img/coracaoVermelho.png";
 import iconeEstrelaPreenchido from "../../../assets/img/iconeEstrelaPreenchida.svg";
-import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../../../config/api";
@@ -15,11 +14,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function FeedConteudo() {
-  const { usuario } = useUsuarioContext();
   const { abrirModal } = useModal(); 
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [foiSalvoo, setFoiSalvoo] = useState(false); 
 
   const token = localStorage.getItem("token");
   const id = localStorage.getItem("id");
@@ -147,7 +144,7 @@ export default function FeedConteudo() {
 
   useEffect(() => {
     getPosts();
-  }, [foiSalvoo]);
+  }, []);
 
   console.log(posts)
   return (

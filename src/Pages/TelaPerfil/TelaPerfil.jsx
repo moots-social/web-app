@@ -11,7 +11,6 @@ export default function TelaPerfil() {
     const { usuario } = useUsuarioContext()
     const { id } = useParams()
 
-    console.log(usuario)
     return (
         <>
         <main className="bg mainPerfil">    

@@ -172,11 +172,11 @@ export default function FeedConteudo() {
         posts?.map((e, index) => (
           <div className="perfilFeedContainerF" key={index}>
             <div className="paiPfpFeedF">
-              <Link to="/perfil/:id">
+              <Link to={`/perfil/${e.userId}`}>
                 <img src={e.fotoPerfil} alt="" className="pfpfeedF" />
               </Link>
               <div className="perfilInfoF">
-                <Link to={`/perfil/${e.id}`}>
+                <Link to={`/perfil/${e.userId}`}>
                   <p className="nomePerfilFeedF">{e.nomeCompleto}</p>
                   <p className="arrobaFeedF">{e.tag}</p>
                 </Link>

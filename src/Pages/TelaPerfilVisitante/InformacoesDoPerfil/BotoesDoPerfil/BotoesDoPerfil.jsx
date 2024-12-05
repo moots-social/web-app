@@ -3,12 +3,12 @@ import BotaoSeguir from './BotaoSeguir/BotaoSeguir'
 import BotaoCurso from './BotaoCurso/BotaoCurso'
 import BotaoBio from './BotaoBio/BotaoBio'
 
-export default function BotoesDoPerfil() {
+export default function BotoesDoPerfilVisitante({curso}) {
     return (
         <div className='botoesPerfil'>
             <BotaoSeguir></BotaoSeguir>
-            <BotaoCurso></BotaoCurso>
-            <BotaoBio></BotaoBio>
+            <BotaoCurso curso={curso}></BotaoCurso>
+            {/* <BotaoBio></BotaoBio> */}
         </div>
     )
 }   

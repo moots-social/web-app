@@ -1,0 +1,40 @@
+.containerBotoesSeguindo{
+    width: 900px;
+    height: 65px;
+}
+
+.botaoSeguidores{
+    background-color: #b66de9;
+    font-size: 30px;
+    height: 65px;
+    color: white;
+    border: none;
+    width: 50%;
+    cursor: pointer;
+}
+
+
+.ativoSeguidores{
+    background-color: #8f60bf;
+}
+
+.botaoSeguindo{
+    background-color: #b66de9;
+    font-size: 30px;
+    height: 65px;
+    color: white;
+    border: none;
+    width: 450px;
+    cursor: pointer;
+}
+
+.ativoSeguindo{
+    background-color: #8f60bf;
+}
+/* .botaoSeguindo:hover{
+    background-color: #664487;
+} */
+
+.divBotoesSeguindo{
+    display: flex;
+}

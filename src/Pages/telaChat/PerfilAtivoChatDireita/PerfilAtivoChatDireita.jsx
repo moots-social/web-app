@@ -4,7 +4,11 @@ import enviar from "../../../assets/img/iconeEnviar.png";
 
 export default function PerfilAtivoChatDireita() {
   return (
+    
     <div className="containerPerfilMensagemAtual">
+      <div className="caixaManutencao">
+        <p>⚠️ Esta página esta em manutenção. Por favor, volte mais tarde. ⚠️</p>
+      </div>
       <div className="mensagemAtual">
         <div className="imagemMensagemAtual">
           <img src={gabriel} alt="" />

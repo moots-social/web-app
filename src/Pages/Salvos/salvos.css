@@ -27,6 +27,7 @@
     flex-direction: column;
     gap: 100px;
     width: 100%;
+    height: 100vh;
     align-items: center;
 }
 
@@ -65,7 +66,7 @@
     border: 1px solid black;
     background-color: white;
     border-radius: 15px;
-    width: 45%;
+    width: 60%;
     height: min-content;
 }
 
@@ -75,15 +76,16 @@
 
 .divSalvos{
     display: flex !important;
-    /* flex-direction: column; */
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: center;
     gap: 20px;
-    width: 80%;
     height: max-content;
+    width: 100%;
+    align-items: center;
     border-radius: 15px;
     padding: 0px 0px 20px 0px;
     /* border: 5px solid purple; */
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 .paiPostsColecao{
@@ -226,7 +228,7 @@ color: aqua;
 .imagemFeedC {
     border-radius: 18px;
     border: 1px solid black;
-    width: 150px;
+    width: 250px;
 }
 
 .postFeedContainerC {
@@ -257,6 +259,9 @@ color: aqua;
     }
     .postFeedContainerC{
         width: 600px;
+    }
+    .postSalvos{
+        width: 80%;
     }
 }
 
@@ -295,6 +300,9 @@ color: aqua;
     .postFeedContainerC {
         width: 480px;
     }
+    .title{
+        width: 500px;
+    }
 }
 
 @media (max-width: 565px) {
@@ -307,10 +315,13 @@ color: aqua;
     }
 
     .imagemFeedC{
-        width: 100px;
+        width: 200px;
     }
     .reacoesC{
         width: 80%;
+    }
+    .title{
+        width: 400px;
     }
 }
 

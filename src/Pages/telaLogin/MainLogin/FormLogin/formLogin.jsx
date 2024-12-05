@@ -25,7 +25,11 @@ export default function FormLogin() {
                 localStorage.setItem('token', req.token);
                 localStorage.setItem('id', req.id);
                 toast.success('Login realizado com sucesso')
-                navigate('/feed');
+                setTimeout(() => {
+                    navigate('/feed');
+                }, 1500);
+    
+                
             }
         } catch (error) {
             console.log(error);
@@ -60,7 +64,7 @@ export default function FormLogin() {
                     </div>
                 </form>
                 <div className="senhaEsquecida ">
-                    <p><span>Esqueceu a senha</span></p>
+                    
                     <hr /> 
                     <p>Não tem uma conta? <Link to='/telaCadastro'><span className='spanLogin'>Cadastre-se</span></Link></p>
                 </div>

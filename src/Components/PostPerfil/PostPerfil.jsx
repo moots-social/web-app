@@ -87,7 +87,10 @@ export default function PostPerfil() {
             </p>
 
             <div className="containerImagemFeedPerfil">
-              <img className="imagemFeed" src={post.listImagens[0]} alt="Imagem do post" />
+            {post.listImagens && post.listImagens[0] && post.listImagens[0] !== "" ? (
+                <img className="imagemFeed" src={post.listImagens[0]} alt="Imagem do post" />
+              ) : null}
+              
             </div>
             <button
               onClick={() => deletarPost(post.postId)}

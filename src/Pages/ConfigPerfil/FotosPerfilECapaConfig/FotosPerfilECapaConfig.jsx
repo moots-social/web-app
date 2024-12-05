@@ -1,6 +1,6 @@
 import iconeImagemPost1 from '../../../assets/img/lapis.svg';
 import '../configPerfil.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import api from '../../../config/api';
 import { useUsuarioContext } from "../../../Context/useUsuarioContext";
 import { useNavigate } from 'react-router-dom';
@@ -56,7 +56,7 @@ export default function FotosPerfilECapaConfig() {
     
         if (!token || !id) {
             console.error("Token ou ID não encontrados no localStorage.");
-            alert('Erro: Não autenticado.');
+            toast.error('Erro: Não autenticado.');
             return;
         }
     
@@ -68,15 +68,18 @@ export default function FotosPerfilECapaConfig() {
                 },
             });
     
-            if (response.status === 200) {
+
+            const desejaSair = confirm("Tem certeza que deseja excluir a conta")
+            if (response.status === 200 && desejaSair) {
                 localStorage.removeItem('token');
                 localStorage.removeItem('id');
                 setUsuario(null);
     
-                toast.error('Conta excluída com sucesso');
+                toast.success('Conta excluída com sucesso');
                 setTimeout(() => {
-                    navigate('/');
+                    navigate('/telaLogin');
                 }, 1500);
+                
     
                
             } else {
@@ -153,7 +156,7 @@ export default function FotosPerfilECapaConfig() {
             const atualizarUser = await api.put(`/user/atualizar/${id}`, {
                 fotoPerfil: novaPerfilURL,
                 fotoCapa: novaCapaURL,
-                curso: curso || "REDES",
+                curso: curso || usuario.curso || "REDES",
                 descricao: bio || usuario.descricao,
                 nomeCompleto: nomeCompleto || usuario.nomeCompleto,
             }, { headers: { Authorization: `${token}` } });
@@ -171,8 +174,18 @@ export default function FotosPerfilECapaConfig() {
             console.log(error);
             toast.error('Tente novamente.');
         }
+
+        
     };
 
+    const logOutUser = () => {
+        const desejaSair = confirm('Você realmente deseja sair?')
+        if (desejaSair){
+          localStorage.clear()
+          navigate('/')
+        }}
+
+    
     return (
         <>
             <div className="fotosPerfilECapaConfig">
@@ -203,6 +216,7 @@ export default function FotosPerfilECapaConfig() {
                 <div className='editarInformacoesPerfil'>
                     <input type='text' className='editarNomePerfil' placeholder={usuario.nomeCompleto} onChange={selectNomeCompleto}></input>
                     <select id="cursos" onChange={selectCurso} class="selectCursos">
+                        <option value="Selecione um curso">-- SELECIONE --</option>
                         <option value="REDES" id="redes">REDES</option>
                         <option value="DESENVOLVIMENTO" id="desenvolvimento">DESENVOLVIMENTO</option>
                         <option value="FIC" id="fic">FIC</option>
@@ -212,7 +226,7 @@ export default function FotosPerfilECapaConfig() {
                     <Link to='/alterarSenha'> 
                         <p style={{ color: '#468B51', fontSize: '22px' }}>Redefinir Senha</p>
                     </Link>
-                    <p onClick='' style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Sair da Conta</p>
+                    <p onClick={logOutUser} style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Sair da Conta</p>
                     <p onClick={handleExcluirConta} style={{ color: '#FF2626', cursor: 'pointer', fontSize: '22px' }}>Excluir Conta</p>
                 </div>
                 <div className="escrevaBio">

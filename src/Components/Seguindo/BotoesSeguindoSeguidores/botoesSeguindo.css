@@ -1,9 +1,9 @@
-.containerBotoesSeguindo{
+.containerBotoesSeguindoV{
     width: 900px;
     height: 65px;
 }
 
-.botaoSeguidores{
+.botaoSeguidoresV{
     background-color: #b66de9;
     font-size: 30px;
     height: 65px;
@@ -16,11 +16,11 @@
     background-color: #cc90f7;
 } */
 
-.ativoSeguidores{
+.ativoSeguidoresV{
     background-color: #8f60bf;
 }
 
-.botaoSeguindo{
+.botaoSeguindoV{
     background-color: #b66de9;
     font-size: 30px;
     height: 65px;
@@ -30,13 +30,13 @@
     cursor: pointer;
 }
 
-.ativoSeguindo{
+.ativoSeguindoV{
     background-color: #8f60bf;
 }
 /* .botaoSeguindo:hover{
     background-color: #664487;
 } */
 
-.divBotoesSeguindo{
+.divBotoesSeguindoV{
     display: flex;
 }

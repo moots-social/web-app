@@ -12,6 +12,8 @@ import IconeCoracaoVermelho from "../../assets/img/coracaoVermelho.png";
 import iconeEstrelaPreenchido from "../../assets/img/iconeEstrelaPreenchida.svg";
 import { useContext } from "react";
 import IconeComentario from "../../assets/img/iconeComentarios.svg";
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Salvos() {
@@ -57,6 +59,7 @@ function Salvos() {
       const req = await dados.data;
       if (req) {
         console.log(req);
+        toast.success("post excluido com sucesso");
         minhaColecao();
       }
     } catch (error) {
@@ -116,6 +119,7 @@ function Salvos() {
       <div className="bar">
         <BottomBar />
       </div>
+          <ToastContainer></ToastContainer>
     </div>
   );
 }

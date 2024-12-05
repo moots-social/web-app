@@ -2,7 +2,7 @@
 
 ## Introdução
 
-A proposta deste Trabalho de Conclusão de Curso (TCC) visa desenvolver e implementar uma rede social educacional personalizada para os alunos do SENAI, com o objetivo principal de fomentar a interação entre os estudantes e fortalecer a comunidade de aprendizado. A plataforma proposta irá oferecer um ambiente virtual colaborativo e dinâmico, onde os alunos poderão compartilhar conhecimentos, tirar dúvidas, realizar projetos em grupo e estabelecer conexões profissionais.
+objetivo principal de fomentar a interação entre os estudantes e fortalecer a comunidade de aprendizado. A plataforma proposta irá oferecer um ambiente virtual colaborativo e dinâmico, onde os alunos poderão compartilhar conhecimentos, tirar dúvidas, realizar projetos em grupo e estabelecer conexões profissionais.
 
 ## Objetivos
 
@@ -41,17 +41,6 @@ A implementação de uma rede social educacional para o SENAI trará diversos be
 2. **Grupos de Estudo**:  
    Criação de grupos de estudo colaborativos onde os alunos podem interagir, compartilhar material e organizar sessões de estudo.
 
-3. **Chat em Tempo Real**:  
-   Facilita a comunicação instantânea entre os alunos, tanto em grupos quanto individualmente.
-
-4. **Compartilhamento de Arquivos**:  
-   Os alunos podem compartilhar documentos, imagens e outros tipos de arquivo relevantes para o aprendizado.
-
-5. **Portfólio de Projetos**:  
-   Plataforma para os alunos compartilharem seus projetos e atividades realizadas durante o curso.
-
-6. **Gamificação**:  
-   Mecanismos para estimular a participação ativa, como pontos, badges e desafios semanais.
 
 ## Instruções de Uso
 

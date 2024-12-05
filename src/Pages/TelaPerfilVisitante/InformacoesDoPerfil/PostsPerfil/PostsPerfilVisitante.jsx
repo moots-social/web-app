@@ -164,7 +164,6 @@ export default function PostsPerfilVisitante(){
     }
   };
     
-    console.log(posts)
     return (
       <>
         {posts.map((post, index) => {

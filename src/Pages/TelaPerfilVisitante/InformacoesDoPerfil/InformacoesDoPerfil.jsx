@@ -22,7 +22,6 @@ export default function InformacoesDoPerfilVisitante() {
                 const req = await api.get(`/user/buscar/${id}`, {headers: {Authorization: token}})
                 const dado = await req.data;
                 
-                console.log(dado)
                 setUsuario(dado)
             } catch (e) {
                 alert(e.response.data.erro)

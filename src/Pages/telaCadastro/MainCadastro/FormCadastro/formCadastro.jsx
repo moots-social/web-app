@@ -23,6 +23,12 @@ export default function FormCadastro() {
 
     const postNewUser = async (e) => {
       e.preventDefault();
+
+           
+           if (newUser.senha.length < 8) {
+            toast.error("A senha deve ter no mínimo 8 caracteres.");
+            return; 
+        }
       
       try {
         const dado = await api.post("/user/criar", newUser);  
@@ -65,10 +71,7 @@ export default function FormCadastro() {
             <label htmlFor="tagUser">Tag do usuario</label>
             <input type="text" name="tagUser" id="tagUser" onChange={(e) => setNewUser({ ...newUser, tag: e.target.value })} />
           </div>
-          {/* <div className="containerDadosCadastro">
-            <label htmlFor="tagUser">Role</label>
-            <input type="text" name="tagUser" id="tagUser" onChange={(e) => setNewUser({ ...newUser, roles: [e.target.value] })} />
-          </div> */}
+        
         </form>
         <div className="senhaEsquecida ">
           <p>

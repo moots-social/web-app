@@ -39,6 +39,19 @@ A implementação de uma rede social educacional para o SENAI trará diversos be
 2. **Favoritar posts**:  
    Permite que os alunos possam favoritar e salvar os posts no seu perfil.
 
+3. **Curtir posts**: 
+   Além de salvar, o usuário pode curtir um post para que os outros consigam ver essa interação dentro da rede social.
+
+4. **Comentar posts**:
+   Usuario pode deixar um comentário em qualquer post para deixar sua opiniao sobre a publicação.
+
+5. **Notificações**:
+   Notificações para saber quando um usuário interagiu com uma publicação (Comentários/ curtida)
+
+6. **Configurar perfil**:
+   Permite o usuario deixar seu perfil de acordo com seu gosto pessoal.
+    
+   
 
 ## Instruções de Uso
 

@@ -10,7 +10,7 @@ api.interceptors.response.use(
   },
   (error) => {
     if (error.response) {
-      if ( error.response.data.error === 'Token inválido ou expirado.') {
+      if ( error.response.data.error === 'Token inválido ou expirado.' || error.response.data.error === "User não encontrado") {
         alert('Token inválido ou expirado. Você será redirecionado para o login.');
 
         localStorage.removeItem('token');

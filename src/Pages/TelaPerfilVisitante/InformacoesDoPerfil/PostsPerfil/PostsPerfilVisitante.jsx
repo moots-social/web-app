@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import "../../../TelaPerfil/telaPerfil.css"
 import api from '../../../../config/api';
+import coracao from '../../../../assets/img/iconeCoracao.svg';
+import coracaoPreenchido from '../../../../assets/img/iconeEstrelaPreenchida.svg';
+import estrela  from '../../../../assets/img/iconeEstrela.svg';
+
 
 export default function PostsPerfilVisitante(){
     const [usuario, setUsuario] = useState()
@@ -50,6 +54,33 @@ export default function PostsPerfilVisitante(){
       }));
     };
 
+    const curtirPost = async (postId, deuLike) => {
+      try {
+        const likeStatus = deuLike ? false : true;
+        const dados = await api.put(
+          `/post/dar-like`,
+          {},
+          {
+            headers: { authorization: `${token}` },
+            params: { postId, like: likeStatus },
+          }
+        );
+  
+        const req = dados.data;
+        if (req) {
+          setPosts((prevPosts) =>
+            prevPosts.map((post) =>
+              post.id === postId
+                ? { ...post, contadorLike: req.contadorLike, deuLike: likeStatus }
+                : post
+            )
+          );
+        }
+      } catch (error) {
+        console.log(error.response?.data?.error || "Erro ao curtir post");
+      }
+    };
+  
     return (
       <>
         {posts.map((post, index) => {
@@ -88,6 +119,25 @@ export default function PostsPerfilVisitante(){
                 ) : null}
                 
               </div>
+              <div className="reacoesF">
+              <div className="reactionsF">
+                <div>
+                  <img
+                    className="iconesReacaoF"
+                    src={post.deuLike ? coracaoPreenchido : coracao}
+                    onClick={() => curtirPost(post.id, post.deuLike)} 
+                    alt="Like"
+                  />
+                  <p className="contadorLikeF"></p>
+                </div>
+                <img
+                  className="iconesReacaoF"
+                    src={estrela}
+                  alt="Favoritar"
+                />
+              </div>
+
+            </div>
             </div>
           );
         })}
@@ -95,3 +145,4 @@ export default function PostsPerfilVisitante(){
       </>
     );
 }
+

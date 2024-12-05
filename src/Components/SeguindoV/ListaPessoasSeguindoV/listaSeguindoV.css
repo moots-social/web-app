@@ -1,0 +1,34 @@
+.containerListaSeguindoV{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px 0 10px ;
+}
+
+.botaoListaSeguindoV{
+    border-radius: 5px;
+    background-color: #AF75BF;
+    border: none;
+    color: white;
+    width: 90px;
+    height: 35px;
+    cursor: pointer;
+}
+.botaoListaSeguindoV:hover{
+    background-color: #8e579d;
+}
+
+.perfilTelaSeguindoV{
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.arrobaPerfilTelaSeguindoV{
+    font-size: 16px;
+    color: #b6b3b3;
+}
+
+.nomePerfilTelaSeguindoV{
+    font-size: 20px;
+}

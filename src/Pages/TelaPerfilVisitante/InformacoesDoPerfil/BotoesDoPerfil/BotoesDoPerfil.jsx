@@ -8,7 +8,7 @@ export default function BotoesDoPerfilVisitante({curso}) {
         <div className='botoesPerfil'>
             <BotaoSeguir></BotaoSeguir>
             <BotaoCurso curso={curso}></BotaoCurso>
-            {/* <BotaoBio></BotaoBio> */}
+            <BotaoBio></BotaoBio>
         </div>
     )
 }   

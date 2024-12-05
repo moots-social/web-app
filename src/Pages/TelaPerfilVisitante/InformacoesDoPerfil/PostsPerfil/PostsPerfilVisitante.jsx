@@ -1,9 +1,14 @@
 import { useParams } from 'react-router-dom';
 import '../../TelaPerfilVisitante.css'
 import { useEffect, useState } from 'react';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import "../../../TelaPerfil/telaPerfil.css"
 import api from '../../../../config/api';
+import coracao from '../../../../assets/img/iconeCoracao.svg';
+import coracaoPreenchido from '../../../../assets/img/coracaoVermelho.png';
+import estrelaPreenchido from '../../../../assets/img/iconeEstrelaPreenchida.svg';
+import estrela  from '../../../../assets/img/iconeEstrela.svg';
+
 
 export default function PostsPerfilVisitante(){
     const [usuario, setUsuario] = useState()
@@ -46,22 +51,18 @@ export default function PostsPerfilVisitante(){
           // Usar Promise.all para aguardar todas as promessas do map
           const postsComLikeStatus = await Promise.all(req.map(async (post) => {
             const curtidos = await getCurtidos(String(post.postId));
-            console.log(curtidos)
             const deuLike = curtidos.includes(idUser);
             return { ...post, deuLike };
           }));
-
-          console.log(postsComLikeStatus)
-          console.log(salvos)
           const postsComFoiSalvo = postsComLikeStatus.map((post) => {
             const foiSalvo = salvos.some((salvo) => String(salvo.postId) == String(post.postId));
             return { ...post, foiSalvo };
           });
-
+        
           setPosts(postsComFoiSalvo);
+          setCurtiu(prev = !prev)
         }
       } catch (error) {
-        console.log(error);
       }
     };
   
@@ -89,6 +90,80 @@ export default function PostsPerfilVisitante(){
       }));
     };
 
+    const curtirPost = async (postId, deuLike) => {
+      try {
+        const likeStatus = deuLike ? false : true;
+        const dados = await api.put(
+          `/post/dar-like`,
+          {},
+          {
+            headers: { authorization: `${token}` },
+            params: { postId, like: likeStatus },
+          }
+        );
+  
+        const req = dados.data;
+        if (req) {
+          setPosts((prevPosts) =>
+            prevPosts.map((post) =>
+              String(post.postId) == String(postId)
+                ? { ...post, contadorLike: req.contadorLike, deuLike: likeStatus }
+                : post
+            )
+          );
+        }
+      } catch (error) {
+        console.log(error.response?.data?.error || "Erro ao curtir post");
+      }
+    };
+
+      // Função para salvar o post na coleção
+  const salvarPostColecao = async (postId) => {
+    try {
+      const dados = await api.post(
+        `/post/salvar-post-colecao`,
+        {},
+        {
+          headers: { authorization: `${token}` },
+          params: { postId },
+        }
+      );
+
+      setPosts((prevPosts) =>
+        prevPosts.map((post) =>
+          String(post.postId) == String(postId)
+            ? { ...post, foiSalvo: true } 
+            : post
+        )
+      );
+      
+      toast.success("Post salvo na coleção");
+    } catch (error) {
+      console.log(error.response?.data?.error || "Erro ao salvar post na coleção");
+      toast.error("Erro ao salvar post na coleção");
+    }
+  };
+
+  const excluirPostColecao = async (postId) => {
+    try {
+      const dados = await api.delete(`/user/${id}/post/${postId}`, {
+        headers: { authorization: `${token}` },
+      });
+
+      setPosts((prevPosts) => 
+        prevPosts.map((post) => 
+          String(post.postId) == String(postId)
+            ? { ...post, foiSalvo: false }
+            : post
+        )
+      );
+
+      toast.success("Post excluido na coleção");
+    } catch (error) {
+      console.log(error.response.data.error);
+    }
+  };
+    
     console.log(posts)
     return (
       <>
@@ -128,6 +203,31 @@ export default function PostsPerfilVisitante(){
                 ) : null}
                 
               </div>
+              <div className="reacoesF">
+              <div className="reactionsF">
+                <div>
+                  <img
+                    className="iconesReacaoF"
+                    src={post.deuLike ? coracaoPreenchido : coracao}
+                    onClick={() => curtirPost(String(post.postId), post.deuLike)} 
+                    alt="Like"
+                  />
+                </div>
+                <img
+                  className="iconesReacaoF"
+                  src={post.foiSalvo ? estrelaPreenchido : estrela}
+                  alt="Favoritar"
+                  onClick={() => {
+                    if(post.foiSalvo){
+                      excluirPostColecao(post.postId)
+                    } else {
+                      salvarPostColecao(post.postId)
+                    }
+                  }}
+                />
+              </div>
+
+            </div>
             </div>
           );
         })}
@@ -135,3 +235,4 @@ export default function PostsPerfilVisitante(){
       </>
     );
 }
+

@@ -1,8 +1,9 @@
 import '../../../TelaPerfilVisitante.css'
-import ImagemSeguir from '../../../../../assets/img/imagemSeguir.png'   
+import ImagemSeguir from '../../../../../assets/img/seguirV.png'   
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useUsuarioContext } from '../../../../../Context/useUsuarioContext'
+import deixar from '../../../../../assets/img/deixarSeguir.png';
 import { buscarSeguindos } from '../../../../../Components/Seguindo/Seguindo'
 import api from '../../../../../config/api'
 
@@ -25,7 +26,6 @@ export default function BotaoSeguir() {
                 const seguindo = seguindos.some((s) => s.userId == idParam);
                 
                 setSigo(seguindo); // Atualiza o estado com a informação correta
-                console.log(seguindo)
             } catch (e) {
                 setSigo(false);
             }
@@ -67,7 +67,8 @@ export default function BotaoSeguir() {
     return(
         <>
             {sigo ? (
-                <button onClick={() => deixarSeguir()}>deixar de seguir</button>
+              
+                <img src={deixar} className='botaoSeguir botaoPerfil' onClick={() => deixarSeguir()}></img>
             ) : (
                 <img src={ImagemSeguir} alt="" className='botaoSeguir botaoPerfil' style={{cursor: 'pointer'}} onClick={() => seguir()}/>
             )}

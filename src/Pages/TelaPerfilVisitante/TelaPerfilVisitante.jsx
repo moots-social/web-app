@@ -13,7 +13,6 @@ export default function TelaPerfilVisitante() {
             <SideBar></SideBar>
             <InformacoesDoPerfilVisitante></InformacoesDoPerfilVisitante>
         </main>
-        <BottomBar></BottomBar>
         </>
 
     )

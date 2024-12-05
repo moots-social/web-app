@@ -29,8 +29,6 @@ A implementação de uma rede social educacional para o SENAI trará diversos be
 - **React**: Biblioteca para construção da interface de usuário.
 - **React Router**: Para navegação entre páginas e rotas da aplicação.
 - **Axios**: Para comunicação com a API e envio de dados para o servidor.
-- **MongoDB**: Banco de dados para armazenar informações dos usuários e postagens.
-- 
 - **CSS**: Para estilização da interface.
 
 ## Funcionalidades
@@ -38,8 +36,8 @@ A implementação de uma rede social educacional para o SENAI trará diversos be
 1. **Postagem de conteúdo**:  
    Permite que os alunos participem de debates e discutam tópicos relacionados ao seu aprendizado.
 
-2. **Grupos de Estudo**:  
-   Criação de grupos de estudo colaborativos onde os alunos podem interagir, compartilhar material e organizar sessões de estudo.
+2. **Favoritar posts**:  
+   Permite que os alunos possam favoritar e salvar os posts no seu perfil.
 
 
 ## Instruções de Uso

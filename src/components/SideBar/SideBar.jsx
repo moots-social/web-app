@@ -61,7 +61,11 @@ export default function SideBar() {
               onChange={(t) => setPesquisar(t.target.value)} 
               onKeyDown={(e) => {
                 if(e.key === 'Enter'){
-                  handlePesquisa()
+                  if(pesquisar === ""){
+                    return
+                  } else {
+                    handlePesquisa()
+                  }
                 }
               }}
              />
@@ -95,16 +99,6 @@ export default function SideBar() {
               <p>Notificações</p>
             </div>
           </div>
-          <Link to="/telaChat"> 
-          <div className="containerIcone">
-            <div className="icone" >
-              <img src={mensagem} alt="icone-notificacao" />
-            </div>
-            <div className="tituloIcone">
-              <p>Mensagens</p>
-            </div>
-          </div>
-          </Link>
 
           <Link to="/salvos">
             <div className="containerIcone">

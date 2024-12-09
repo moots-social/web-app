@@ -4,6 +4,11 @@
     position: relative;
 }
 
+.pfpComentario{
+  width: 40px;
+  height: 40px;
+}
+
 .containerTotal{
     display: flex;
     justify-content: space-around;

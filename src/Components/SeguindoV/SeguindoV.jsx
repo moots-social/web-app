@@ -4,7 +4,7 @@ import BotoesSeguindoV from './BotoesSeguindoV/BotoesSeguindoV';
 import IconeFechar from '../../assets/img/fechar.svg';
 import { createContext, useState, useEffect } from 'react';
 import api from '../../config/api';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const AbrirModalSeguindoV = createContext(() => {
   let modal = document.querySelector(".containerSeguindoV");
@@ -56,6 +56,8 @@ export default function SeguindoV() {
       modal.style.cssText = "display:none";
     });
   }
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     let isMounted = true; 
@@ -185,12 +187,14 @@ export default function SeguindoV() {
               imagem={s.fotoPerfil} 
               onClick={() => {
                 // Verifica se o id da pessoa é igual ao do usuário logado
-                if (s.id !== idUserr) {
+                if (String(s.id) !== idUserr) {
                   if (s.sigo) {
                     handleDeixarSeguirV(s.id);
                   } else {
                     handleSeguirDeVoltaV(s.id);
                   }
+                } else {
+                  navigate(`/perfil/${idUserr}`)
                 }
               }}
 
@@ -217,12 +221,14 @@ export default function SeguindoV() {
               imagem={s.fotoPerfil}
               onClick={() => {
                 // Verifica se o id da pessoa é igual ao do usuário logado
-                if (s.id !== idUserr) {
+                if (String(s.id) !== idUserr) {
                   if (s.sigo) {
                     handleDeixarSeguirV(s.id);
                   } else {
                     handleSeguirDeVoltaV(s.id);
                   }
+                } else {
+                  navigate(`/perfil/${idUserr}`)
                 }
               }}
             />

@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import SideBar from "../../Components/SideBar/SideBar"
 import './pesquisa.css'; 
 import api from "../../config/api";
 import UserPesquisa from "./User/userPesquisa";
 import { buscarSeguidores, buscarSeguindos } from "../../Components/Seguindo/Seguindo";
 import "../../Pages/Feed/feed.css";
-import IconeLike from "../../assets/img/iconeCoracao.svg";
 import IconeFavorito from "../../assets/img/iconeEstrela.svg";
 import IconeComentario from "../../assets/img/iconeComentarios.svg";
-import IconeCoracaoVermelho from "../../assets/img/coracaoVermelho.png";
 import iconeEstrelaPreenchido from "../../assets/img/iconeEstrelaPreenchida.svg";
 import { toast } from 'react-toastify';
 
@@ -24,7 +22,8 @@ export default function Pesquisa(){
 
     const token = localStorage.getItem("token");
     const id = localStorage.getItem("id");
-    
+    const navigate = useNavigate()
+
     function mostrarBarraUser () {
         setValorBotao('usuarios')
         let barra = document.querySelector(".barraUser");
@@ -138,33 +137,6 @@ export default function Pesquisa(){
         }
     };
 
-    const curtirPost = async (postId, deuLike) => {
-        try {
-          const likeStatus = deuLike ? false : true;
-          const dados = await api.put(
-            `/post/dar-like`,
-            {},
-            {
-              headers: { authorization: `${token}` },
-              params: { postId, like: likeStatus },
-            }
-          );
-    
-          const req = dados.data;
-          if (req) {
-            setPosts((prevPosts) =>
-              prevPosts.map((post) =>
-                post.id === postId
-                  ? { ...post, contadorLike: req.contadorLike, deuLike: likeStatus }
-                  : post
-              )
-            );
-          }
-        } catch (error) {
-          console.log(error.response?.data?.error || "Erro ao curtir post");
-        }
-    };
-
     const handleDeixarSeguir = async(idUser) => {
         const confirmar = window.confirm("Tem certeza que deseja parar de seguir esse usuário?");
         if(confirmar){
@@ -202,6 +174,15 @@ export default function Pesquisa(){
       }
 
     useEffect(() => {      
+        const getSeguidores = async() => {
+            try {
+                const seguidoress = await buscarSeguidores(id, token) 
+                setSeguidores(seguidoress)
+            } catch (_) {
+                setSeguidores([])
+            }
+        }
+        getSeguidores()
         getPessoas();
         getPublicacoes();
     }, [atualizarDados, conteudo])
@@ -231,11 +212,11 @@ export default function Pesquisa(){
                         posts?.map((e, index) => (
                             <div className="perfilFeedContainerF" key={index}>
                                 <div className="paiPfpFeedF">
-                                <Link to="/perfil/:id">
+                                <Link to={`/perfil/${e.userId}`}>
                                     <img src={e.fotoPerfil} alt="" className="pfpfeedF" />
                                 </Link>
                                 <div className="perfilInfoF">
-                                    <Link to="/perfil/:id">
+                                    <Link to={`/perfil/${e.userId}`}>
                                     <p className="nomePerfilFeedF">{e.nomeCompleto}</p>
                                     <p className="arrobaFeedF">{e.tag}</p>
                                     </Link>
@@ -269,9 +250,6 @@ export default function Pesquisa(){
                                     alt="Favoritar"
                                     />
                                 </div>
-                                <div className="commentsF" onClick={() => abrirModal(e.postId)}>
-                                    <img className="iconesReacaoF" src={IconeComentario} alt="Comentários" />
-                                </div>
                                 </div>
                             </div>
                             ))
@@ -284,9 +262,11 @@ export default function Pesquisa(){
                                 let descricao = '';
                                 if (pessoa.sigo) {
                                     descricao = "Deixar de seguir";
-                                } else if (Array.isArray(seguidores) && seguidores.some(seguidor => seguidor.id === pessoa.userId)) {
+                                } else if (Array.isArray(seguidores) && seguidores.some(seguidor => String(seguidor.userId) == String(pessoa.userId))) {
                                     descricao = "Seguir de volta";
-                                } else {
+                                } else if(String(pessoa.userId) == String(id)){
+                                    descricao = "Seu perfil"
+                                }else{
                                     descricao = "Seguir";
                                 }
                         
@@ -300,7 +280,9 @@ export default function Pesquisa(){
                                         onClick={() => {
                                             if(pessoa.sigo){
                                                 handleDeixarSeguir(pessoa.userId)
-                                              } else {
+                                              } else if(String(pessoa.userId) == String(id)) {
+                                                navigate(`/perfil/${pessoa.userId}`)
+                                              }else {
                                                 handleSeguir(pessoa.userId)
                                               }
                                         }}
